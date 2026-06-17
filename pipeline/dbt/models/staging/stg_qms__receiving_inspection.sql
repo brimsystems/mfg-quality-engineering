@@ -1,0 +1,23 @@
+select
+    receiving_id,
+    supplier_id,
+    item_type,
+    part_or_material,
+    job_id,
+    material_cert_id,
+    cast(lot_quantity as integer) as lot_quantity,
+    po_number,
+    cast(po_due_date as date) as po_due_date,
+    sampling_plan,
+    code_letter,
+    cast(aql as double) as aql,
+    inspection_level,
+    cast(sample_size as integer) as sample_size,
+    cast(defects_found as integer) as defects_found,
+    defect_codes,
+    disposition,
+    cast(received_at as timestamp) as received_at,
+    cast(inspected_at as timestamp) as inspected_at,
+    inspector,
+    export_batch_id
+from {{ source('qms', 'qms__receiving_inspection') }}

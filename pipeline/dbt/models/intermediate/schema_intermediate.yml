@@ -1,0 +1,71 @@
+version: 2
+
+models:
+  - name: int_process_history
+    columns:
+      - name: subgroup_id
+        data_tests: [unique, not_null]
+      - name: part_id
+        data_tests: [not_null]
+      - name: subgroup_size
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: [1, 5]
+  - name: int_cmm_characteristic_map
+    columns:
+      - name: characteristic_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_qms__characteristics')
+                field: characteristic_id
+  - name: int_cmm_features
+    data_tests:
+      - unique:
+          arguments:
+            column_name: "report_id || '-' || feature_no"
+    columns:
+      - name: report_id
+        data_tests: [not_null]
+      - name: map_method
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['id in the report', 'mapping table', 'not in the master']
+  - name: int_cmm_serial_match
+    columns:
+      - name: subgroup_id
+        data_tests: [not_null]
+      - name: gauge_reading
+        data_tests: [not_null]
+  - name: int_lot_outcomes
+    columns:
+      - name: job_id
+        data_tests: [unique, not_null]
+      - name: scrap_quantity
+        data_tests:
+          - in_range:
+              arguments:
+                min_value: 0
+  - name: int_receiving_outcomes
+    columns:
+      - name: receiving_id
+        data_tests: [unique, not_null]
+      - name: acceptance_number
+        data_tests: [not_null]
+  - name: int_cost_lines
+    columns:
+      - name: line_id
+        data_tests: [unique, not_null]
+      - name: cost_group
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['failure', 'appraisal', 'prevention']
+      - name: amount
+        data_tests:
+          - in_range:
+              arguments:
+                min_value: 0

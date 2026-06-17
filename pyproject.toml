@@ -1,0 +1,23 @@
+[project]
+name = "mfg-quality-engineering"
+version = "1.0.0"
+description = "Measurement system, capability, root cause, acceptance sampling, designed experiment and cost of quality studies for a precision machining shop"
+requires-python = ">=3.12"
+dependencies = [
+    "dlt[duckdb]>=1.0",
+    "dbt-duckdb>=1.8",
+    "duckdb>=1.0",
+    "pandas>=2.1",
+    "numpy>=1.26",
+    "scipy>=1.11",
+    "statsmodels>=0.14",
+    "matplotlib>=3.8",
+    "pyyaml>=6.0",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["pipeline*", "analytics*"]

@@ -1,0 +1,46 @@
+customer_id,customer_name,program,ppap_level,as9102_required,validated_process,source_inspection,cpk_required,created_at,status,export_batch_id
+CU-001,Kessler Drivetrain LLC,automotive,5,False,False,False,1.67,2009-11-06,active,20260106T061500Z-QE24M
+CU-002,Okafor Powertrain Systems Corp.,automotive,3,False,False,False,1.67,2015-10-22,active,20260106T061500Z-QE24M
+CU-003,Ironbridge Braking Ltd.,automotive,3,False,False,False,1.33,2010-07-01,active,20260106T061500Z-QE24M
+CU-004,Ridgeway Steering Components Co.,automotive,3,False,False,False,1.33,2017-10-25,active,20260106T061500Z-QE24M
+CU-005,Corvane Fuel Systems Inc.,automotive,5,False,False,False,1.33,2011-06-26,active,20260106T061500Z-QE24M
+CU-006,Sorenson Transmission LLC,automotive,3,False,False,False,1.33,2014-04-11,active,20260106T061500Z-QE24M
+CU-007,Northgate Drivetrain Corp.,automotive,3,False,False,False,1.33,2010-01-23,active,20260106T061500Z-QE24M
+CU-008,Trimont Powertrain Systems Ltd.,automotive,3,False,False,False,1.33,2009-03-20,active,20260106T061500Z-QE24M
+CU-009,Ravensworth Braking Co.,automotive,5,False,False,False,1.33,2012-12-23,active,20260106T061500Z-QE24M
+CU-010,Marlowe Steering Components Inc.,automotive,3,False,False,False,1.33,2015-09-23,active,20260106T061500Z-QE24M
+CU-011,Aldermoor Fuel Systems LLC,automotive,3,False,False,False,1.33,2016-07-12,active,20260106T061500Z-QE24M
+CU-012,Stannard Transmission Corp.,automotive,3,False,False,False,1.33,2010-01-27,active,20260106T061500Z-QE24M
+CU-013,Calloway Drivetrain Ltd.,automotive,5,False,False,False,1.33,2018-11-08,active,20260106T061500Z-QE24M
+CU-014,Halvorsen Powertrain Systems Co.,automotive,3,False,False,False,1.33,2019-10-22,active,20260106T061500Z-QE24M
+CU-015,Vantage Braking Inc.,automotive,3,False,False,False,1.33,2018-07-23,active,20260106T061500Z-QE24M
+CU-016,Dunmore Steering Components LLC,automotive,3,False,False,False,1.33,2014-02-15,active,20260106T061500Z-QE24M
+CU-017,Tennant Aerostructures Corp.,aerospace,,True,False,True,,2020-03-08,active,20260106T061500Z-QE24M
+CU-018,Brightwater Actuation Ltd.,aerospace,,True,False,True,,2016-08-15,active,20260106T061500Z-QE24M
+CU-019,Pellham Flight Controls Co.,aerospace,,True,False,False,,2020-07-24,active,20260106T061500Z-QE24M
+CU-020,Westbrook Aero Fasteners Inc.,aerospace,,True,False,False,,2019-10-18,active,20260106T061500Z-QE24M
+CU-021,Castellan Landing Systems LLC,aerospace,,True,False,False,,2016-07-19,active,20260106T061500Z-QE24M
+CU-022,Lindqvist Aerostructures Corp.,aerospace,,True,False,False,,2015-08-16,active,20260106T061500Z-QE24M
+CU-023,Hartwell Actuation Ltd.,aerospace,,True,False,False,,2019-06-23,active,20260106T061500Z-QE24M
+CU-024,Meridian Flight Controls Co.,aerospace,,True,False,False,,2019-03-15,active,20260106T061500Z-QE24M
+CU-025,Kessler Aero Fasteners Inc.,aerospace,,True,False,False,,2018-01-02,active,20260106T061500Z-QE24M
+CU-026,Okafor Landing Systems LLC,aerospace,,True,False,False,,2014-10-15,active,20260106T061500Z-QE24M
+CU-027,Ironbridge Aerostructures Corp.,aerospace,,True,False,False,,2015-11-18,active,20260106T061500Z-QE24M
+CU-028,Ridgeway Actuation Ltd.,aerospace,,True,False,False,,2019-06-12,active,20260106T061500Z-QE24M
+CU-029,Corvane Orthopedics Co.,medical,,False,True,False,,2009-06-16,active,20260106T061500Z-QE24M
+CU-030,Sorenson Surgical Inc.,medical,,False,True,False,,2013-11-14,active,20260106T061500Z-QE24M
+CU-031,Northgate Medical Devices LLC,medical,,False,True,False,,2020-02-21,active,20260106T061500Z-QE24M
+CU-032,Trimont Dental Systems Corp.,medical,,False,True,False,,2010-02-21,active,20260106T061500Z-QE24M
+CU-033,Ravensworth Orthopedics Ltd.,medical,,False,True,False,,2009-01-09,active,20260106T061500Z-QE24M
+CU-034,Marlowe Surgical Co.,medical,,False,True,False,,2018-03-27,active,20260106T061500Z-QE24M
+CU-035,Aldermoor Hydraulics Inc.,industrial,,False,False,False,,2017-03-03,active,20260106T061500Z-QE24M
+CU-036,Stannard Pumps LLC,industrial,,False,False,False,,2011-04-22,active,20260106T061500Z-QE24M
+CU-037,Calloway Fluid Power Corp.,industrial,,False,False,False,,2010-09-03,active,20260106T061500Z-QE24M
+CU-038,Halvorsen Instruments Ltd.,industrial,,False,False,False,,2020-04-11,active,20260106T061500Z-QE24M
+CU-039,Vantage Controls Co.,industrial,,False,False,False,,2018-03-06,active,20260106T061500Z-QE24M
+CU-040,Dunmore Robotics Inc.,industrial,,False,False,False,,2012-07-01,active,20260106T061500Z-QE24M
+CU-041,Tennant Hydraulics LLC,industrial,,False,False,False,,2011-08-08,active,20260106T061500Z-QE24M
+CU-042,Brightwater Pumps Corp.,industrial,,False,False,False,,2011-02-19,active,20260106T061500Z-QE24M
+CU-043,Pellham Fluid Power Ltd.,industrial,,False,False,False,,2014-01-23,active,20260106T061500Z-QE24M
+CU-044,Westbrook Instruments Co.,industrial,,False,False,False,,2016-11-15,active,20260106T061500Z-QE24M
+CU-045,Castellan Controls Inc.,industrial,,False,False,False,,2011-12-04,active,20260106T061500Z-QE24M

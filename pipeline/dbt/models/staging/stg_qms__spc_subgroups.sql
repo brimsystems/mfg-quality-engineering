@@ -1,0 +1,23 @@
+select
+    subgroup_id,
+    job_id,
+    characteristic_id,
+    cast(subgroup_no as integer) as subgroup_no,
+    cast(piece_no as integer) as piece_no,
+    cast(recorded_at as timestamp) as recorded_at,
+    operator_id,
+    gauge_id,
+    machine_id,
+    cast(r1 as double) as r1,
+    cast(r2 as double) as r2,
+    cast(r3 as double) as r3,
+    cast(r4 as double) as r4,
+    cast(r5 as double) as r5,
+    cast("mean" as double) as "mean",
+    cast("range" as double) as "range",
+    cast(alarm_rule_1 as boolean) as alarm_rule_1,
+    cast(alarm_rule_2 as boolean) as alarm_rule_2,
+    cast(acknowledged as boolean) as acknowledged,
+    acknowledgement_text,
+    export_batch_id
+from {{ source('qms', 'qms__spc_subgroups') }}

@@ -1,0 +1,20 @@
+select
+    job_id,
+    part_id,
+    revision,
+    cast(quantity as integer) as quantity,
+    machine_id,
+    primary_operator,
+    cast(start_time as timestamp) as start_time,
+    cast(end_time as timestamp) as end_time,
+    bar_lot,
+    heat_number,
+    insert_grade,
+    program_revision,
+    status,
+    cast(standard_hours as double) as standard_hours,
+    cast(actual_hours as double) as actual_hours,
+    cast(quantity_good as integer) as quantity_good,
+    cast(ship_date as date) as ship_date,
+    export_batch_id
+from {{ source('erp', 'erp__jobs') }}
