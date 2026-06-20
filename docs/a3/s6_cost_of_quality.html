@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cost of quality</title><style>
+:root { --brand: #3D5166; --accent: #6B8FA8; --text: #222222; --muted: #555555; --rule: #DDDDDD; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #F4F5F7; color: var(--text); font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+        font-size: 15px; line-height: 1.55; }
+.page { max-width: 980px; margin: 0 auto; background: white; padding: 40px 56px 64px; }
+header.doc { border-bottom: 3px solid var(--brand); padding-bottom: 14px; margin-bottom: 28px; }
+header.doc .kicker { color: var(--accent); font-size: 12px; letter-spacing: 1.2px; text-transform: uppercase; font-weight: 600; }
+header.doc h1 { margin: 4px 0 6px; font-size: 28px; color: var(--brand); }
+header.doc .meta { color: var(--muted); font-size: 13px; }
+h2 { color: var(--brand); font-size: 21px; margin: 36px 0 8px; border-bottom: 1px solid var(--rule); padding-bottom: 4px; }
+h3 { color: var(--brand); font-size: 16px; margin: 22px 0 6px; }
+p { margin: 8px 0 12px; }
+img { max-width: 100%; display: block; margin: 10px 0 4px; }
+.caption { color: var(--muted); font-size: 12.5px; margin-bottom: 18px; }
+table.data { border-collapse: collapse; width: 100%; font-size: 13px; margin: 10px 0 16px; }
+table.data th { background: var(--brand); color: white; text-align: left; padding: 6px 8px; font-weight: 600; }
+table.data td { border-bottom: 1px solid #EEE; padding: 5px 8px; }
+table.data td.num { text-align: right; font-variant-numeric: tabular-nums; }
+table.data tr.total td { font-weight: 600; border-top: 1px solid var(--rule); }
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin: 16px 0 22px; }
+.kpi { border: 1px solid var(--rule); border-top: 3px solid var(--accent); padding: 10px 12px; }
+.kpi .v { font-size: 24px; font-weight: 700; color: var(--brand); }
+.kpi .l { font-size: 12px; color: var(--muted); }
+.note { background: #F7F9FB; border-left: 3px solid var(--accent); padding: 10px 14px; margin: 14px 0; font-size: 14px; }
+.glossary { color: var(--muted); font-size: 12.5px; margin-top: 28px; border-top: 1px solid var(--rule); padding-top: 10px; }
+nav.toc { font-size: 13.5px; margin: 0 0 24px; }
+nav.toc a { color: var(--accent); text-decoration: none; margin-right: 14px; }
+@media (max-width: 700px) { .page { padding: 20px 16px 40px; } }
+@media print { body { background: white; } .page { padding: 0; max-width: none; } }
+
+.a3 { max-width: 1500px; padding: 26px 32px 30px; }
+.a3 header.doc { margin-bottom: 14px; padding-bottom: 8px; }
+.a3 header.doc h1 { font-size: 22px; margin: 2px 0 4px; }
+.a3 .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 22px; }
+.a3 .grid > div { display: grid; gap: 12px; align-content: start; }
+.a3 section { border: 1px solid var(--rule); border-top: 3px solid var(--brand); padding: 8px 12px 10px; font-size: 12.5px; line-height: 1.4; }
+.a3 section h2 { font-size: 14px; margin: 0 0 4px; border: 0; padding: 0; text-transform: uppercase; letter-spacing: 0.6px; }
+.a3 section p { margin: 4px 0 6px; }
+.a3 section ul { margin: 4px 0 4px 16px; padding: 0; }
+.a3 section li { margin-bottom: 3px; }
+.a3 img { margin: 4px 0 2px; max-height: 360px; }
+.a3 .caption { font-size: 11px; margin-bottom: 4px; }
+.a3 table.data { font-size: 11.5px; margin: 4px 0 4px; }
+.a3 table.data th, .a3 table.data td { padding: 3px 6px; }
+@page { size: A3 landscape; margin: 9mm; }
+@media print { .a3 { max-width: none; padding: 0; } .a3 .grid { gap: 8px 14px; } .a3 section { break-inside: avoid; } }
+@media (max-width: 900px) { .a3 .grid { grid-template-columns: 1fr; } }
+</style></head>
+<body><div class="page a3">
+<header class="doc"><div class="kicker">S6 A3</div><h1>Cost of quality</h1><div class="meta">Precision machining shop, about 150 employees, IATF 16949 and AS9100, one plant. January 2024 to December 2025; US dollars.<br>Management summary; DMAIC project.</div></header>
+<div class="grid"><div><section><h2>Background and problem</h2><p>Cost of quality in 2025 is $2,795,965 as booked, 7.3% of revenue (7.8% with rework left on production jobs estimated). The monthly scrap report shows $533,788; failure cost as booked is 3.35 times that.</p></section>
+<section><h2>Current condition</h2><img alt="Failure cost by line in 2025 and 2024, with scrap as the scrap report shows it and the rework estimate" src="../figures/s6_a3_failure_lines.png"><div class='caption'>Failure cost by line; the 2025 scrap bar is the scrap report, the hatched bars the estimate.</div><table class="data"><thead><tr><th></th><th>2025</th><th>2024</th></tr></thead><tbody><tr><td class="">Total as booked; over revenue</td><td class="num">$2,795,965; 7.3%</td><td class="num">$2,451,343; 6.7%</td></tr><tr><td class="">Total with the estimate; over revenue</td><td class="num">$2,981,207; 7.8%</td><td class="num">$2,622,840; 7.1%</td></tr><tr><td class="">Failure over the scrap report: as booked; with the estimate</td><td class="num">3.35; 3.70</td><td class="num">3.17; 3.54</td></tr><tr><td class="">Failure : appraisal : prevention, as booked</td><td class="num">10.5 : 4.9 : 1</td><td class="num">8.8 : 4.7 : 1</td></tr></tbody></table></section>
+<section><h2>Target</h2><p>Failure cost reported on a booked basis with no estimate line required, reviewed monthly.</p></section></div><div><section><h2>Analysis</h2><table class="data"><thead><tr><th>2025</th><th>Booked</th><th>Traced to a source table</th></tr></thead><tbody><tr><td class="">Failure</td><td class="num">$1,790,858</td><td class="num">$1,790,858</td></tr><tr><td class="">Appraisal</td><td class="num">$834,208</td><td class="num">$71,010</td></tr><tr><td class="">Prevention</td><td class="num">$170,900</td><td class="num">$0</td></tr><tr><td class="">Rework left on production jobs, estimate</td><td class="num"></td><td class="num">$185,242 on 32 NCRs</td></tr></tbody></table><ul><li>Every failure line traces to its scrap transaction, NCR or complaint with no difference; inspection labor, technician calibration time and the prevention lines are booked from timesheets and invoices that are not in the exports.</li><li>32 of 95 rework NCRs in 2025 carry no hours on the rework code; their lots ran 3,859 hours over standard.</li><li>The findings of S2, S3 and S4 account for $127,652 of $1,976,099 of failure cost (with the estimate), 6.5%: the length C-11909-01 $4,469, F-14 scrap $37,237, S-017 escapes $85,946.</li><li>The rest sits in customer credits outside S-017, scrap outside F-14 and sorting and containment outside the two.</li><li>Cost avoided in appraisal under the Z1.4 switching rules: 2,322 receiving hours, $97,530 over 24 months.</li></ul></section>
+<section><h2>Countermeasures</h2><table class="data"><thead><tr><th>Action</th><th>Owner</th><th>When</th></tr></thead><tbody><tr><td class="">Rework and sorting hours booked against the NCR, not the production job</td><td class="num">Production manager and controller</td><td class="num">March 2026</td></tr><tr><td class="">Cost of quality by category on the monthly quality review, booked basis, with the scrap report as a component</td><td class="num">Quality manager</td><td class="num">from the February 2026 review</td></tr><tr><td class="">A labor code for re-inspection, apart from inspection labor</td><td class="num">Controller</td><td class="num">March 2026</td></tr></tbody></table></section>
+<section><h2>Expected results</h2><p>Rework NCRs without booked hours from 32 of 95 in 2025 to none, so that the estimate line ($185,242 in 2025) closes into booked rework. Measured to date: F-14 scrap at $766 a month since the K20 insert, from $4,196.</p></section>
+<section><h2>Follow-up</h2><p>The count of rework NCRs without hours and the four categories as booked, each month on the quality review. The cost lines traced again to their source tables at the end of 2026.</p></section></div></div>
+</div></body></html>
