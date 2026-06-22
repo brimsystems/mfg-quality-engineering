@@ -139,3 +139,51 @@ models:
         data_tests: [unique, not_null]
       - name: mart_export_batch_id
         data_tests: [not_null]
+  - name: mart_dashboard_monthly
+    columns:
+      - name: period
+        data_tests: [unique, not_null]
+      - name: revenue
+        data_tests: [not_null]
+      - name: failure_booked
+        data_tests: [not_null]
+      - name: ncrs_open_at_month_end
+        data_tests: [not_null]
+      - name: export_batch_id
+        data_tests: [not_null]
+  - name: mart_dashboard_ppm_monthly
+    columns:
+      - name: period_customer
+        data_tests: [unique, not_null]
+      - name: customer_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_erp__customers')
+                field: customer_id
+      - name: pieces_shipped
+        data_tests: [not_null]
+      - name: export_batch_id
+        data_tests: [not_null]
+  - name: mart_dashboard_calibration_month_end
+    columns:
+      - name: period_gauge_type
+        data_tests: [unique, not_null]
+      - name: gauges_overdue
+        data_tests: [not_null]
+      - name: export_batch_id
+        data_tests: [not_null]
+  - name: mart_dashboard_alarms_weekly
+    columns:
+      - name: week_start
+        data_tests: [unique, not_null]
+      - name: weekdays_in_export
+        data_tests:
+          - not_null
+          - in_range:
+              arguments:
+                min_value: 1
+                max_value: 5
+      - name: export_batch_id
+        data_tests: [not_null]
