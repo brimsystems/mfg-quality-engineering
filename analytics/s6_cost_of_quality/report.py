@@ -126,7 +126,7 @@ def build():
     body += (f"<p>Every failure line of 2025 traces to its source record with no difference: {usd(tr[y]['failure'])} of {usd(a.failure_booked)}. Of appraisal, {usd(tr[y]['appraisal'])} of {usd(a.appraisal)} traces "
              f"(CMM time to the CMM reports, laboratory calibration to the calibration events); inspection labor and the technician's calibration time are booked from timesheets that are not in the exports. "
              f"No prevention line traces: training, SPC software and supplier audit travel are booked from invoices. In all, {usd(traced)} of {usd(tot_b)} as booked is traced, {100 * traced / tot_b:.1f}%. "
-             f"The estimate of rework left on production jobs: the {int(nrw.unbooked_ncrs)} NCRs of 2025 with a rework disposition and no hours on the rework code had {nrw.estimated_hours:,.0f} hours over standard on their production lots, "
+             f"The estimate of rework left on production jobs: the {int(nrw.unbooked_ncrs)} NCRs of 2025 with a rework disposition and no hours on the rework code sit on {int(nrw.unbooked_lots)} production lots that ran {nrw.estimated_hours:,.0f} hours over standard, "
              f"valued at the machinist rate.</p>")
 
     def rec_rows(year):
@@ -144,9 +144,9 @@ def build():
     body += "<h2 id='f3'>3. Rework as booked and the estimate</h2>"
     body += (f"<p>Accounting books rework from the rework labor code: {usd(nrw.booked_amount)} on {int(nrw.booked_ncrs)} NCRs in 2025. {int(nrw.unbooked_ncrs)} of the {int(nrw.rework_ncrs)} rework NCRs carry no hours on that code; "
              f"the estimate for them is {usd(nrw.estimated_amount)}, which raises rework from {usd(nrw.booked_amount)} to {usd(nrw.booked_amount + nrw.estimated_amount)}. "
-             f"In 2024, {int(rw.loc[2024].unbooked_ncrs)} of {int(rw.loc[2024].rework_ncrs)} carried none and the estimate is {usd(rw.loc[2024].estimated_amount)}.</p>")
-    body += tbl(["Year", "Rework NCRs", "With hours on the rework code", "Hours booked", "Amount booked", "Without hours on the code", "Hours over standard on their lots", "Estimate at the machinist rate"],
-                [[yy, int(x.rework_ncrs), int(x.booked_ncrs), f"{x.booked_hours:,.0f}", usd(x.booked_amount), int(x.unbooked_ncrs), f"{x.estimated_hours:,.0f}", usd(x.estimated_amount)] for yy, x in ((2025, rw.loc[2025]), (2024, rw.loc[2024]))])
+             f"In 2024, {int(rw.loc[2024].unbooked_ncrs)} of {int(rw.loc[2024].rework_ncrs)} carried none ({int(rw.loc[2024].unbooked_lots)} lots) and the estimate is {usd(rw.loc[2024].estimated_amount)}.</p>")
+    body += tbl(["Year", "Rework NCRs", "With hours on the rework code", "Hours booked", "Amount booked", "Without hours on the code", "Their lots", "Hours over standard on their lots", "Estimate at the machinist rate"],
+                [[yy, int(x.rework_ncrs), int(x.booked_ncrs), f"{x.booked_hours:,.0f}", usd(x.booked_amount), int(x.unbooked_ncrs), int(x.unbooked_lots), f"{x.estimated_hours:,.0f}", usd(x.estimated_amount)] for yy, x in ((2025, rw.loc[2025]), (2024, rw.loc[2024]))])
     body += cap("Table 3. Rework labor as booked beside the estimate from production hours over standard on lots with a rework NCR and no booked rework hours.")
 
     body += "<h2 id='f4'>4. Failure cost against the scrap report</h2>"
@@ -253,7 +253,7 @@ def build():
              + tbl(["2025", "Booked", "Traced to a source table"], [["Failure", usd(a.failure_booked), usd(tr[y]["failure"])], ["Appraisal", usd(a.appraisal), usd(tr[y]["appraisal"])], ["Prevention", usd(a.prevention), usd(tr[y]["prevention"])],
                                                                     [EST, "", f"{usd(a.rework_estimate)} on {int(nrw.unbooked_ncrs)} NCRs"]])
              + f"<ul><li>Every failure line traces to its scrap transaction, NCR or complaint with no difference; inspection labor, technician calibration time and the prevention lines are booked from timesheets and invoices that are not in the exports.</li>"
-             f"<li>{int(nrw.unbooked_ncrs)} of {int(nrw.rework_ncrs)} rework NCRs in 2025 carry no hours on the rework code; their lots ran {nrw.estimated_hours:,.0f} hours over standard.</li>"
+             f"<li>{int(nrw.unbooked_ncrs)} of {int(nrw.rework_ncrs)} rework NCRs in 2025 carry no hours on the rework code; their {int(nrw.unbooked_lots)} lots ran {nrw.estimated_hours:,.0f} hours over standard.</li>"
              f"<li>The findings of S2, S3 and S4 account for {usd(att25)} of {usd(a.failure)} of failure cost (with the estimate), {100 * att25 / a.failure:.1f}%: the length {LENGTH} {usd(len25)}, F-14 scrap {usd(r['s3_by_year'][2025])}, "
              f"S-017 escapes {usd(e25.credit + e25.containment + e25.freight)}.</li>"
              f"<li>The rest sits in customer credits outside S-017, scrap outside F-14 and sorting and containment outside the two.</li>"
