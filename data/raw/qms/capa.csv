@@ -1,61 +1,61 @@
 capa_id,source_type,source_id,opened,owner,actions_text,verification,closed,export_batch_id
-CAPA-24-001,NCR,NCR-24-0014,2024-02-14,E-0158,supplier corrective action requested; receiving sample tightened for three lots,no recurrence in 60 days,2024-04-30,20260106T061500Z-QE24M
-CAPA-24-002,NCR,NCR-24-0032,2024-03-04,E-0158,tool life counter set in the control; offsets reviewed at tool change,verified on three lots,2024-03-25,20260106T061500Z-QE24M
-CAPA-24-003,NCR,NCR-24-0106,2024-05-10,E-0160,fixture locator replaced; clamping sequence added to the setup sheet,audit of the change complete,2024-06-07,20260106T061500Z-QE24M
-CAPA-24-004,NCR,NCR-24-0111,2024-05-17,E-0160,inspection frequency increased on the characteristic; reaction plan posted,verified on three lots,2024-08-18,20260106T061500Z-QE24M
-CAPA-24-005,complaint,CC-24-011,2024-06-02,E-0158,deburr step added to the routing; visual standard issued,no recurrence in 60 days,2024-08-25,20260106T061500Z-QE24M
-CAPA-24-006,NCR,NCR-24-0145,2024-06-12,E-0158,gauge replaced; affected lots re-inspected,no recurrence in 60 days,2024-08-15,20260106T061500Z-QE24M
-CAPA-24-007,NCR,NCR-24-0155,2024-06-20,E-0160,inspection frequency increased on the characteristic; reaction plan posted,audit of the change complete,2024-08-19,20260106T061500Z-QE24M
-CAPA-24-008,complaint,CC-24-017,2024-07-03,E-0160,supplier corrective action requested; receiving sample tightened for three lots,audit of the change complete,2024-08-07,20260106T061500Z-QE24M
-CAPA-24-009,NCR,NCR-24-0171,2024-07-07,E-0159,operator retrained on gauge use; work instruction revised,verified on three lots,2024-07-27,20260106T061500Z-QE24M
-CAPA-24-010,NCR,NCR-24-0201,2024-08-06,E-0158,supplier corrective action requested; receiving sample tightened for three lots,verified on three lots,2024-08-30,20260106T061500Z-QE24M
-CAPA-24-011,NCR,NCR-24-0236,2024-09-14,E-0158,gauge replaced; affected lots re-inspected,audit of the change complete,2024-10-22,20260106T061500Z-QE24M
-CAPA-24-012,complaint,CC-24-029,2024-09-21,E-0160,program revised; first piece verified on the CMM,verified on three lots,2024-10-28,20260106T061500Z-QE24M
-CAPA-24-013,complaint,CC-24-028,2024-09-23,E-0160,program revised; first piece verified on the CMM,effective at 90 days,2024-12-26,20260106T061500Z-QE24M
-CAPA-24-014,NCR,NCR-24-0274,2024-10-17,E-0158,program revised; first piece verified on the CMM,no recurrence in 60 days,2025-01-22,20260106T061500Z-QE24M
-CAPA-24-015,NCR,NCR-24-0301,2024-11-15,E-0161,fixture locator replaced; clamping sequence added to the setup sheet,audit of the change complete,2025-03-07,20260106T061500Z-QE24M
-CAPA-24-016,NCR,NCR-24-0306,2024-11-19,E-0159,deburr step added to the routing; visual standard issued,effective at 90 days,2025-02-17,20260106T061500Z-QE24M
-CAPA-24-017,NCR,NCR-24-0335,2024-12-22,E-0161,deburr step added to the routing; visual standard issued,no recurrence in 60 days,2025-01-27,20260106T061500Z-QE24M
-CAPA-24-018,NCR,NCR-24-0343,2024-12-25,E-0159,operator retrained on gauge use; work instruction revised,effective at 90 days,2025-03-01,20260106T061500Z-QE24M
+CAPA-24-001,NCR,NCR-24-0053,2024-02-14,E-0158,supplier corrective action requested; receiving sample tightened for three lots,no recurrence in 60 days,2024-04-30,20260106T061500Z-QE24M
+CAPA-24-002,NCR,NCR-24-0078,2024-03-04,E-0158,tool life counter set in the control; offsets reviewed at tool change,verified on three lots,2024-03-25,20260106T061500Z-QE24M
+CAPA-24-003,NCR,NCR-24-0156,2024-05-10,E-0160,fixture locator replaced; clamping sequence added to the setup sheet,audit of the change complete,2024-06-07,20260106T061500Z-QE24M
+CAPA-24-004,NCR,NCR-24-0161,2024-05-17,E-0160,inspection frequency increased on the characteristic; reaction plan posted,verified on three lots,2024-08-18,20260106T061500Z-QE24M
+CAPA-24-005,complaint,CC-24-018,2024-06-02,E-0158,deburr step added to the routing; visual standard issued,no recurrence in 60 days,2024-08-25,20260106T061500Z-QE24M
+CAPA-24-006,NCR,NCR-24-0195,2024-06-12,E-0158,gauge replaced; affected lots re-inspected,no recurrence in 60 days,2024-08-15,20260106T061500Z-QE24M
+CAPA-24-007,NCR,NCR-24-0207,2024-06-20,E-0160,inspection frequency increased on the characteristic; reaction plan posted,audit of the change complete,2024-08-19,20260106T061500Z-QE24M
+CAPA-24-008,complaint,CC-24-024,2024-07-03,E-0160,supplier corrective action requested; receiving sample tightened for three lots,audit of the change complete,2024-08-07,20260106T061500Z-QE24M
+CAPA-24-009,NCR,NCR-24-0223,2024-07-07,E-0159,operator retrained on gauge use; work instruction revised,verified on three lots,2024-07-27,20260106T061500Z-QE24M
+CAPA-24-010,NCR,NCR-24-0253,2024-08-06,E-0158,supplier corrective action requested; receiving sample tightened for three lots,verified on three lots,2024-08-30,20260106T061500Z-QE24M
+CAPA-24-011,NCR,NCR-24-0288,2024-09-14,E-0158,gauge replaced; affected lots re-inspected,audit of the change complete,2024-10-22,20260106T061500Z-QE24M
+CAPA-24-012,complaint,CC-24-036,2024-09-21,E-0160,program revised; first piece verified on the CMM,verified on three lots,2024-10-28,20260106T061500Z-QE24M
+CAPA-24-013,complaint,CC-24-035,2024-09-23,E-0160,program revised; first piece verified on the CMM,effective at 90 days,2024-12-26,20260106T061500Z-QE24M
+CAPA-24-014,NCR,NCR-24-0326,2024-10-17,E-0158,program revised; first piece verified on the CMM,no recurrence in 60 days,2025-01-22,20260106T061500Z-QE24M
+CAPA-24-015,NCR,NCR-24-0353,2024-11-15,E-0161,fixture locator replaced; clamping sequence added to the setup sheet,audit of the change complete,2025-03-07,20260106T061500Z-QE24M
+CAPA-24-016,NCR,NCR-24-0358,2024-11-19,E-0159,deburr step added to the routing; visual standard issued,effective at 90 days,2025-02-17,20260106T061500Z-QE24M
+CAPA-24-017,NCR,NCR-24-0387,2024-12-22,E-0161,deburr step added to the routing; visual standard issued,no recurrence in 60 days,2025-01-27,20260106T061500Z-QE24M
+CAPA-24-018,NCR,NCR-24-0395,2024-12-25,E-0159,operator retrained on gauge use; work instruction revised,effective at 90 days,2025-03-01,20260106T061500Z-QE24M
 CAPA-25-001,complaint,CC-25-001,2025-01-09,E-0161,operator retrained on gauge use; work instruction revised,verified on three lots,2025-03-21,20260106T061500Z-QE24M
-CAPA-25-002,NCR,NCR-25-0001,2025-01-19,E-0159,tool life counter set in the control; offsets reviewed at tool change,verified on three lots,2025-03-27,20260106T061500Z-QE24M
-CAPA-25-003,NCR,NCR-25-0010,2025-01-20,E-0160,inspection frequency increased on the characteristic; reaction plan posted,no recurrence in 60 days,2025-03-24,20260106T061500Z-QE24M
-CAPA-25-004,NCR,NCR-25-0017,2025-01-21,E-0160,inspection frequency increased on the characteristic; reaction plan posted,audit of the change complete,2025-04-03,20260106T061500Z-QE24M
+CAPA-25-002,NCR,NCR-25-0003,2025-01-19,E-0159,tool life counter set in the control; offsets reviewed at tool change,verified on three lots,2025-03-27,20260106T061500Z-QE24M
+CAPA-25-003,NCR,NCR-25-0011,2025-01-20,E-0160,inspection frequency increased on the characteristic; reaction plan posted,no recurrence in 60 days,2025-03-24,20260106T061500Z-QE24M
+CAPA-25-004,NCR,NCR-25-0018,2025-01-21,E-0160,inspection frequency increased on the characteristic; reaction plan posted,audit of the change complete,2025-04-03,20260106T061500Z-QE24M
 CAPA-25-005,complaint,CC-25-002,2025-01-22,E-0161,fixture locator replaced; clamping sequence added to the setup sheet,effective at 90 days,2025-05-02,20260106T061500Z-QE24M
-CAPA-25-006,NCR,NCR-25-0016,2025-01-29,E-0160,operator retrained on gauge use; work instruction revised,no recurrence in 60 days,2025-05-28,20260106T061500Z-QE24M
-CAPA-25-007,NCR,NCR-25-0035,2025-02-06,E-0161,deburr step added to the routing; visual standard issued,verified on three lots,2025-04-14,20260106T061500Z-QE24M
-CAPA-25-008,NCR,NCR-25-0044,2025-02-16,E-0159,deburr step added to the routing; visual standard issued,no recurrence in 60 days,2025-04-15,20260106T061500Z-QE24M
-CAPA-25-009,NCR,NCR-25-0067,2025-03-15,E-0158,operator retrained on gauge use; work instruction revised,verified on three lots,2025-04-23,20260106T061500Z-QE24M
-CAPA-25-010,NCR,NCR-25-0085,2025-04-08,E-0161,K20 insert on F-14 bar lots above 32 HRC; bar hardness checked at receiving on every F-14 lot; insert grade recorded on the job,scrap on the following F-14 lots reviewed with production,2025-09-15,20260106T061500Z-QE24M
-CAPA-25-011,NCR,NCR-25-0096,2025-04-11,E-0160,supplier corrective action requested; receiving sample tightened for three lots,verified on three lots,2025-06-30,20260106T061500Z-QE24M
-CAPA-25-012,NCR,NCR-25-0094,2025-04-12,E-0158,deburr step added to the routing; visual standard issued,audit of the change complete,2025-07-09,20260106T061500Z-QE24M
-CAPA-25-013,NCR,NCR-25-0104,2025-04-22,E-0160,gauge replaced; affected lots re-inspected,no recurrence in 60 days,2025-06-25,20260106T061500Z-QE24M
-CAPA-25-014,NCR,NCR-25-0115,2025-05-07,E-0160,gauge replaced; affected lots re-inspected,effective at 90 days,2025-06-30,20260106T061500Z-QE24M
+CAPA-25-006,NCR,NCR-25-0028,2025-01-29,E-0160,operator retrained on gauge use; work instruction revised,no recurrence in 60 days,2025-05-28,20260106T061500Z-QE24M
+CAPA-25-007,NCR,NCR-25-0041,2025-02-06,E-0161,deburr step added to the routing; visual standard issued,verified on three lots,2025-04-14,20260106T061500Z-QE24M
+CAPA-25-008,NCR,NCR-25-0046,2025-02-16,E-0159,deburr step added to the routing; visual standard issued,no recurrence in 60 days,2025-04-15,20260106T061500Z-QE24M
+CAPA-25-009,NCR,NCR-25-0069,2025-03-15,E-0158,operator retrained on gauge use; work instruction revised,verified on three lots,2025-04-23,20260106T061500Z-QE24M
+CAPA-25-010,NCR,NCR-25-0087,2025-04-08,E-0161,K20 insert on F-14 bar lots above 32 HRC; bar hardness checked at receiving on every F-14 lot; insert grade recorded on the job,scrap on the following F-14 lots reviewed with production,2025-09-15,20260106T061500Z-QE24M
+CAPA-25-011,NCR,NCR-25-0098,2025-04-11,E-0160,supplier corrective action requested; receiving sample tightened for three lots,verified on three lots,2025-06-30,20260106T061500Z-QE24M
+CAPA-25-012,NCR,NCR-25-0096,2025-04-12,E-0158,deburr step added to the routing; visual standard issued,audit of the change complete,2025-07-09,20260106T061500Z-QE24M
+CAPA-25-013,NCR,NCR-25-0106,2025-04-22,E-0160,gauge replaced; affected lots re-inspected,no recurrence in 60 days,2025-06-25,20260106T061500Z-QE24M
+CAPA-25-014,NCR,NCR-25-0117,2025-05-07,E-0160,gauge replaced; affected lots re-inspected,effective at 90 days,2025-06-30,20260106T061500Z-QE24M
 CAPA-25-015,complaint,CC-25-010,2025-05-14,E-0160,deburr step added to the routing; visual standard issued,verified on three lots,2025-07-01,20260106T061500Z-QE24M
-CAPA-25-016,NCR,NCR-25-0128,2025-05-15,E-0160,program revised; first piece verified on the CMM,effective at 90 days,2025-06-07,20260106T061500Z-QE24M
+CAPA-25-016,NCR,NCR-25-0130,2025-05-15,E-0160,program revised; first piece verified on the CMM,effective at 90 days,2025-06-07,20260106T061500Z-QE24M
 CAPA-25-017,complaint,CC-25-016,2025-05-29,E-0161,gauge replaced; affected lots re-inspected,effective at 90 days,2025-09-15,20260106T061500Z-QE24M
-CAPA-25-018,NCR,NCR-25-0149,2025-06-06,E-0159,tool life counter set in the control; offsets reviewed at tool change,verified on three lots,2025-10-02,20260106T061500Z-QE24M
+CAPA-25-018,NCR,NCR-25-0151,2025-06-06,E-0159,tool life counter set in the control; offsets reviewed at tool change,verified on three lots,2025-10-02,20260106T061500Z-QE24M
 CAPA-25-019,complaint,CC-25-018,2025-06-12,E-0160,program revised; first piece verified on the CMM,verified on three lots,2025-08-28,20260106T061500Z-QE24M
 CAPA-25-020,complaint,CC-25-019,2025-06-15,E-0160,supplier corrective action requested; receiving sample tightened for three lots,audit of the change complete,2025-09-11,20260106T061500Z-QE24M
-CAPA-25-021,NCR,NCR-25-0164,2025-06-25,E-0160,gauge replaced; affected lots re-inspected,audit of the change complete,2025-09-16,20260106T061500Z-QE24M
+CAPA-25-021,NCR,NCR-25-0166,2025-06-25,E-0160,gauge replaced; affected lots re-inspected,audit of the change complete,2025-09-16,20260106T061500Z-QE24M
 CAPA-25-022,complaint,CC-25-021,2025-06-26,E-0160,inspection frequency increased on the characteristic; reaction plan posted,no recurrence in 60 days,2025-08-31,20260106T061500Z-QE24M
-CAPA-25-023,NCR,NCR-25-0172,2025-07-06,E-0159,fixture locator replaced; clamping sequence added to the setup sheet,effective at 90 days,2025-09-15,20260106T061500Z-QE24M
-CAPA-25-024,NCR,NCR-25-0173,2025-07-15,E-0158,deburr step added to the routing; visual standard issued,no recurrence in 60 days,2025-08-11,20260106T061500Z-QE24M
+CAPA-25-023,NCR,NCR-25-0174,2025-07-06,E-0159,fixture locator replaced; clamping sequence added to the setup sheet,effective at 90 days,2025-09-15,20260106T061500Z-QE24M
+CAPA-25-024,NCR,NCR-25-0175,2025-07-15,E-0158,deburr step added to the routing; visual standard issued,no recurrence in 60 days,2025-08-11,20260106T061500Z-QE24M
 CAPA-25-025,complaint,CC-25-025,2025-07-31,E-0161,fixture locator replaced; clamping sequence added to the setup sheet,audit of the change complete,2025-09-27,20260106T061500Z-QE24M
-CAPA-25-026,NCR,NCR-25-0203,2025-08-04,E-0161,gauge replaced; affected lots re-inspected,audit of the change complete,2025-11-10,20260106T061500Z-QE24M
-CAPA-25-027,NCR,NCR-25-0206,2025-08-11,E-0159,supplier corrective action requested; receiving sample tightened for three lots,no recurrence in 60 days,2025-11-10,20260106T061500Z-QE24M
-CAPA-25-028,NCR,NCR-25-0199,2025-08-14,E-0158,operator retrained on gauge use; work instruction revised,audit of the change complete,2025-12-04,20260106T061500Z-QE24M
-CAPA-25-029,NCR,NCR-25-0242,2025-09-15,E-0161,fixture locator replaced; clamping sequence added to the setup sheet,effective at 90 days,2025-10-07,20260106T061500Z-QE24M
-CAPA-25-030,NCR,NCR-25-0235,2025-09-16,E-0161,tool life counter set in the control; offsets reviewed at tool change,audit of the change complete,2025-12-30,20260106T061500Z-QE24M
-CAPA-25-031,NCR,NCR-25-0251,2025-09-23,E-0158,tool life counter set in the control; offsets reviewed at tool change,,,20260106T061500Z-QE24M
-CAPA-25-032,NCR,NCR-25-0246,2025-09-24,E-0161,gauge replaced; affected lots re-inspected,,,20260106T061500Z-QE24M
+CAPA-25-026,NCR,NCR-25-0205,2025-08-04,E-0161,gauge replaced; affected lots re-inspected,audit of the change complete,2025-11-10,20260106T061500Z-QE24M
+CAPA-25-027,NCR,NCR-25-0208,2025-08-11,E-0159,supplier corrective action requested; receiving sample tightened for three lots,no recurrence in 60 days,2025-11-10,20260106T061500Z-QE24M
+CAPA-25-028,NCR,NCR-25-0201,2025-08-14,E-0158,operator retrained on gauge use; work instruction revised,audit of the change complete,2025-12-04,20260106T061500Z-QE24M
+CAPA-25-029,NCR,NCR-25-0244,2025-09-15,E-0161,fixture locator replaced; clamping sequence added to the setup sheet,effective at 90 days,2025-10-07,20260106T061500Z-QE24M
+CAPA-25-030,NCR,NCR-25-0237,2025-09-16,E-0161,tool life counter set in the control; offsets reviewed at tool change,audit of the change complete,2025-12-30,20260106T061500Z-QE24M
+CAPA-25-031,NCR,NCR-25-0254,2025-09-23,E-0158,tool life counter set in the control; offsets reviewed at tool change,,,20260106T061500Z-QE24M
+CAPA-25-032,NCR,NCR-25-0249,2025-09-24,E-0161,gauge replaced; affected lots re-inspected,,,20260106T061500Z-QE24M
 CAPA-25-033,complaint,CC-25-029,2025-10-02,E-0160,program revised; first piece verified on the CMM,verified on three lots,2025-11-23,20260106T061500Z-QE24M
-CAPA-25-034,NCR,NCR-25-0258,2025-10-04,E-0160,inspection frequency increased on the characteristic; reaction plan posted,audit of the change complete,2025-12-14,20260106T061500Z-QE24M
-CAPA-25-035,NCR,NCR-25-0268,2025-10-17,E-0160,program revised; first piece verified on the CMM,verified on three lots,2025-11-21,20260106T061500Z-QE24M
+CAPA-25-034,NCR,NCR-25-0261,2025-10-04,E-0160,inspection frequency increased on the characteristic; reaction plan posted,audit of the change complete,2025-12-14,20260106T061500Z-QE24M
+CAPA-25-035,NCR,NCR-25-0271,2025-10-17,E-0160,program revised; first piece verified on the CMM,verified on three lots,2025-11-21,20260106T061500Z-QE24M
 CAPA-25-036,complaint,CC-25-032,2025-10-28,E-0160,gauge replaced; affected lots re-inspected,verified on three lots,2025-12-27,20260106T061500Z-QE24M
-CAPA-25-037,NCR,NCR-25-0293,2025-10-30,E-0160,supplier corrective action requested; receiving sample tightened for three lots,audit of the change complete,2025-11-23,20260106T061500Z-QE24M
-CAPA-25-038,NCR,NCR-25-0294,2025-11-01,E-0161,gauge replaced; affected lots re-inspected,,,20260106T061500Z-QE24M
-CAPA-25-039,NCR,NCR-25-0285,2025-11-02,E-0161,tool life counter set in the control; offsets reviewed at tool change,,,20260106T061500Z-QE24M
-CAPA-25-040,NCR,NCR-25-0306,2025-11-20,E-0160,inspection frequency increased on the characteristic; reaction plan posted,,,20260106T061500Z-QE24M
-CAPA-25-041,NCR,NCR-25-0317,2025-11-21,E-0161,deburr step added to the routing; visual standard issued,,,20260106T061500Z-QE24M
+CAPA-25-037,NCR,NCR-25-0299,2025-10-30,E-0160,supplier corrective action requested; receiving sample tightened for three lots,audit of the change complete,2025-11-23,20260106T061500Z-QE24M
+CAPA-25-038,NCR,NCR-25-0300,2025-11-01,E-0161,gauge replaced; affected lots re-inspected,,,20260106T061500Z-QE24M
+CAPA-25-039,NCR,NCR-25-0291,2025-11-02,E-0161,tool life counter set in the control; offsets reviewed at tool change,,,20260106T061500Z-QE24M
+CAPA-25-040,NCR,NCR-25-0312,2025-11-20,E-0160,inspection frequency increased on the characteristic; reaction plan posted,,,20260106T061500Z-QE24M
+CAPA-25-041,NCR,NCR-25-0323,2025-11-21,E-0161,deburr step added to the routing; visual standard issued,,,20260106T061500Z-QE24M
 CAPA-25-042,complaint,CC-25-035,2025-11-27,E-0158,supplier corrective action requested; receiving sample tightened for three lots,,,20260106T061500Z-QE24M
