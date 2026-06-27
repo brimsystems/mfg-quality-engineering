@@ -40,7 +40,8 @@ def model(dbt, session):
     days = days[days.weekday < 5]
     per_week = pd.Series(1, index=days - pd.to_timedelta(days.weekday, unit="D")).groupby(level=0).sum()
     w["weekdays_in_export"] = w["week_start"].map(per_week).fillna(0).astype(int)
-    for c in ("subgroups", "alarms_raised", "alarms_acknowledged", "rules_1_to_4"):
+    w["working_days"] = w["week_start"].map(h.assign(day=day)[day.dt.weekday < 5].groupby("week_start")["day"].nunique()).fillna(0).astype(int)      # weekdays with subgroups recorded
+    for c in ("subgroups", "alarms_raised", "alarms_acknowledged", "rules_1_to_4", "working_days"):
         w[c] = w[c].astype(int)
     w["week_start"] = w["week_start"].dt.date
     w["export_batch_id"] = batch
