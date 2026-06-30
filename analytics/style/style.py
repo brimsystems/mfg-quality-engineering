@@ -16,6 +16,7 @@ GREEN = "#1A7A3A"
 GREY = "#AAAAAA"
 DARK_GREY = "#555555"
 TEXT = "#222222"
+CREDIT = "Created by Brian Davis, 2026"
 
 ROOT = Path(__file__).resolve().parents[2]
 DOCS = ROOT / "docs"
@@ -91,6 +92,7 @@ header.doc {{ border-bottom: 3px solid var(--brand); padding-bottom: 14px; margi
 header.doc .kicker {{ color: var(--accent); font-size: 12px; letter-spacing: 1.2px; text-transform: uppercase; font-weight: 600; }}
 header.doc h1 {{ margin: 4px 0 6px; font-size: 28px; color: var(--brand); }}
 header.doc .meta {{ color: var(--muted); font-size: 13px; }}
+header.doc .credit {{ color: var(--muted); font-size: 11px; margin-top: 4px; }}
 h2 {{ color: var(--brand); font-size: 21px; margin: 36px 0 8px; border-bottom: 1px solid var(--rule); padding-bottom: 4px; }}
 h3 {{ color: var(--brand); font-size: 16px; margin: 22px 0 6px; }}
 p {{ margin: 8px 0 12px; }}
@@ -117,6 +119,8 @@ A3_CSS = CSS + """
 .a3 { max-width: 1500px; padding: 26px 32px 30px; }
 .a3 header.doc { margin-bottom: 14px; padding-bottom: 8px; }
 .a3 header.doc h1 { font-size: 22px; margin: 2px 0 4px; }
+.a3 header.doc { position: relative; }
+.a3 header.doc .credit { position: absolute; right: 0; bottom: 8px; margin: 0; }
 .a3 .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 22px; }
 .a3 .grid > div { display: grid; gap: 12px; align-content: start; }
 .a3 section { border: 1px solid var(--rule); border-top: 3px solid var(--brand); padding: 8px 12px 10px; font-size: 12.5px; line-height: 1.4; }
@@ -142,7 +146,7 @@ def shell(title, kicker, meta, body, toc=None):
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title><style>{CSS}</style></head>
 <body><div class="page">
-<header class="doc"><div class="kicker">{kicker}</div><h1>{title}</h1><div class="meta">{meta}</div></header>
+<header class="doc"><div class="kicker">{kicker}</div><h1>{title}</h1><div class="meta">{meta}</div><div class="credit">{CREDIT}</div></header>
 {nav}{body}
 </div></body></html>"""
 
@@ -152,6 +156,6 @@ def a3_shell(title, kicker, meta, left, right):
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title><style>{A3_CSS}</style></head>
 <body><div class="page a3">
-<header class="doc"><div class="kicker">{kicker}</div><h1>{title}</h1><div class="meta">{meta}</div></header>
+<header class="doc"><div class="kicker">{kicker}</div><h1>{title}</h1><div class="meta">{meta}</div><div class="credit">{CREDIT}</div></header>
 <div class="grid"><div>{left}</div><div>{right}</div></div>
 </div></body></html>"""
