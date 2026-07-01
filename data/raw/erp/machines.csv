@@ -1,0 +1,25 @@
+machine_id,shop_machine_no,machine_type,machine_group,model_year,spindle_hours,shift_pattern,export_batch_id
+SW-01,2,Swiss turning,swiss,2009,66299,2 shifts,20260106T061500Z-QE24M
+SW-02,3,Swiss turning,swiss,2010,60270,2 shifts,20260106T061500Z-QE24M
+SW-03,14,Swiss turning,swiss,2017,29622,2 shifts,20260106T061500Z-QE24M
+SW-04,20,Swiss turning,swiss,2021,17576,2 shifts,20260106T061500Z-QE24M
+SW-05,18,Swiss turning,swiss,2020,22277,2 shifts,20260106T061500Z-QE24M
+SW-06,9,Swiss turning,swiss,2011,55413,2 shifts,20260106T061500Z-QE24M
+SW-07,13,Swiss turning,swiss,2016,35229,2 shifts,20260106T061500Z-QE24M
+SW-08,24,Swiss turning,swiss,2022,15336,2 shifts,20260106T061500Z-QE24M
+MT-01,16,multi-axis turning,multi_axis,2018,27966,2 shifts,20260106T061500Z-QE24M
+MT-02,5,multi-axis turning,multi_axis,2011,54502,2 shifts,20260106T061500Z-QE24M
+MT-03,6,multi-axis turning,multi_axis,2011,49184,2 shifts,20260106T061500Z-QE24M
+MT-04,7,multi-axis turning,multi_axis,2012,53514,2 shifts,20260106T061500Z-QE24M
+MT-05,8,multi-axis turning,multi_axis,2011,55621,2 shifts,20260106T061500Z-QE24M
+MT-06,11,multi-axis turning,multi_axis,2013,49938,2 shifts,20260106T061500Z-QE24M
+ML-01,21,"milling, 3-axis",mill,2022,12517,2 shifts,20260106T061500Z-QE24M
+ML-02,15,"milling, 3-axis",mill,2018,30110,2 shifts,20260106T061500Z-QE24M
+ML-03,1,"milling, 3-axis",mill,2009,64034,2 shifts,20260106T061500Z-QE24M
+ML-04,10,"milling, 3-axis",mill,2013,44381,2 shifts,20260106T061500Z-QE24M
+ML-05,22,"milling, 5-axis",mill,2022,14615,2 shifts,20260106T061500Z-QE24M
+ML-06,23,"milling, 5-axis",mill,2022,13429,2 shifts,20260106T061500Z-QE24M
+GR-01,17,"grinding, centerless",grind,2020,9985,1 shift,20260106T061500Z-QE24M
+GR-02,4,"grinding, centerless",grind,2011,22034,1 shift,20260106T061500Z-QE24M
+GR-03,19,"grinding, surface",grind,2021,7812,1 shift,20260106T061500Z-QE24M
+GR-04,12,"grinding, surface",grind,2014,20305,1 shift,20260106T061500Z-QE24M
