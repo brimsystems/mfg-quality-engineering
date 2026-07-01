@@ -1,0 +1,301 @@
+gauge_id,gauge_type,description,range_min,range_max,resolution,location,owner,interval_months,status,status_date,serial_no,export_batch_id
+G-0001,CMM,CMM-1,0.0,700.0,0.0001,CMM room,quality,12,active,,246984,20260106T061500Z-QE24M
+G-0002,CMM,CMM-2,0.0,700.0,0.0001,CMM room,quality,12,active,,849847,20260106T061500Z-QE24M
+G-0003,vision system,VMS-1,0.0,300.0,0.0005,CMM room,quality,12,active,,978332,20260106T061500Z-QE24M
+G-0004,air gauge,"air gauge, 19 to 19.1",19.0,19.1,0.0005,grinding cell,production,3,active,,911540,20260106T061500Z-QE24M
+G-0005,air gauge,"air gauge, 6.3 to 6.4",6.3,6.4,0.0005,milling cell,production,3,active,,885242,20260106T061500Z-QE24M
+G-0006,air gauge,"air gauge, 40.543 to 40.876",40.543,40.876,0.0005,grinding cell,production,3,active,,235521,20260106T061500Z-QE24M
+G-0007,air gauge,"air gauge, 48.109 to 55.73",48.109,55.73,0.0005,milling cell,production,3,active,,884455,20260106T061500Z-QE24M
+G-0008,bore gauge,"bore gauge, 18 to 35",18.0,35.0,0.0025,milling cell,production,6,active,,723566,20260106T061500Z-QE24M
+G-0009,bore gauge,"bore gauge, 6 to 10",6.0,10.0,0.0025,final inspection,production,3,active,,486874,20260106T061500Z-QE24M
+G-0010,bore gauge,"bore gauge, 6 to 10",6.0,10.0,0.0025,turning cell,production,3,active,,342095,20260106T061500Z-QE24M
+G-0011,bore gauge,"bore gauge, 6 to 10",6.0,10.0,0.0025,final inspection,production,3,active,,273285,20260106T061500Z-QE24M
+G-0012,bore gauge,"bore gauge, 6 to 10",6.0,10.0,0.0025,turning cell,production,3,out of service,2025-05-08,674356,20260106T061500Z-QE24M
+G-0013,bore gauge,"bore gauge, 6 to 10",6.0,10.0,0.0025,final inspection,production,3,active,,787862,20260106T061500Z-QE24M
+G-0014,bore gauge,"bore gauge, 10 to 18",10.0,18.0,0.0025,milling cell,production,3,out of service,2025-04-27,726057,20260106T061500Z-QE24M
+G-0015,bore gauge,"bore gauge, 10 to 18",10.0,18.0,0.0025,receiving,production,3,active,,197643,20260106T061500Z-QE24M
+G-0016,bore gauge,"bore gauge, 10 to 18",10.0,18.0,0.0025,Swiss cell,production,3,active,,395257,20260106T061500Z-QE24M
+G-0017,bore gauge,"bore gauge, 10 to 18",10.0,18.0,0.0025,receiving,production,3,out of service,2025-03-15,622375,20260106T061500Z-QE24M
+G-0018,bore gauge,"bore gauge, 10 to 18",10.0,18.0,0.0025,grinding cell,production,3,out of service,2025-04-15,234651,20260106T061500Z-QE24M
+G-0019,bore gauge,"bore gauge, 10 to 18",10.0,18.0,0.0025,grinding cell,production,3,active,,804711,20260106T061500Z-QE24M
+G-0020,bore gauge,"bore gauge, 18 to 35",18.0,35.0,0.0025,turning cell,production,3,active,,816172,20260106T061500Z-QE24M
+G-0021,bore gauge,"bore gauge, 18 to 35",18.0,35.0,0.0025,final inspection,production,3,active,,895974,20260106T061500Z-QE24M
+G-0022,bore gauge,"bore gauge, 18 to 35",18.0,35.0,0.0025,final inspection,production,3,out of service,2025-03-11,275040,20260106T061500Z-QE24M
+G-0023,bore gauge,"bore gauge, 18 to 35",18.0,35.0,0.0025,final inspection,production,3,out of service,2025-04-23,310166,20260106T061500Z-QE24M
+G-0024,bore gauge,"bore gauge, 18 to 35",18.0,35.0,0.0025,milling cell,production,3,lost,2025-04-08,563985,20260106T061500Z-QE24M
+G-0025,bore gauge,"bore gauge, 18 to 35",18.0,35.0,0.0025,milling cell,production,3,out of service,2025-05-03,319492,20260106T061500Z-QE24M
+G-0026,bore gauge,"bore gauge, 35 to 50",35.0,50.0,0.0025,turning cell,production,3,active,,820252,20260106T061500Z-QE24M
+G-0027,bore gauge,"bore gauge, 35 to 50",35.0,50.0,0.0025,receiving,production,3,active,,848648,20260106T061500Z-QE24M
+G-0028,bore gauge,"bore gauge, 35 to 50",35.0,50.0,0.0025,grinding cell,production,3,out of service,2025-05-18,412795,20260106T061500Z-QE24M
+G-0029,bore gauge,"bore gauge, 35 to 50",35.0,50.0,0.0025,grinding cell,production,3,active,,620946,20260106T061500Z-QE24M
+G-0030,micrometer,"micrometer, 0 to 25",0.0,25.0,0.001,final inspection,production,6,active,,308979,20260106T061500Z-QE24M
+G-0031,micrometer,"micrometer, 0 to 25",0.0,25.0,0.001,final inspection,production,6,active,,946603,20260106T061500Z-QE24M
+G-0032,micrometer,"micrometer, 0 to 25",0.0,25.0,0.001,milling cell,production,6,active,,443417,20260106T061500Z-QE24M
+G-0033,micrometer,"micrometer, 0 to 25",0.0,25.0,0.001,final inspection,production,6,active,,581850,20260106T061500Z-QE24M
+G-0034,micrometer,"micrometer, 0 to 25",0.0,25.0,0.001,milling cell,production,6,active,,796787,20260106T061500Z-QE24M
+G-0035,micrometer,"micrometer, 0 to 25",0.0,25.0,0.001,turning cell,production,6,active,,923794,20260106T061500Z-QE24M
+G-0036,micrometer,"micrometer, 0 to 25",0.0,25.0,0.001,milling cell,production,6,active,,813360,20260106T061500Z-QE24M
+G-0037,micrometer,"micrometer, 0 to 25",0.0,25.0,0.001,milling cell,production,6,active,,311764,20260106T061500Z-QE24M
+G-0038,micrometer,"micrometer, 0 to 25",0.0,25.0,0.001,milling cell,production,6,active,,103017,20260106T061500Z-QE24M
+G-0039,micrometer,"micrometer, 0 to 25",0.0,25.0,0.001,turning cell,production,6,active,,594422,20260106T061500Z-QE24M
+G-0040,micrometer,"micrometer, 0 to 25",0.0,25.0,0.001,milling cell,production,6,active,,214628,20260106T061500Z-QE24M
+G-0041,micrometer,"micrometer, 0 to 25",0.0,25.0,0.001,receiving,production,6,active,,599777,20260106T061500Z-QE24M
+G-0042,micrometer,"micrometer, 0 to 25",0.0,25.0,0.001,milling cell,production,6,active,,498028,20260106T061500Z-QE24M
+G-0043,micrometer,"micrometer, 0 to 25",0.0,25.0,0.001,grinding cell,production,6,active,,632426,20260106T061500Z-QE24M
+G-0044,micrometer,"micrometer, 0 to 25",0.0,25.0,0.001,turning cell,production,6,active,,800860,20260106T061500Z-QE24M
+G-0045,micrometer,"micrometer, 0 to 25",0.0,25.0,0.001,final inspection,production,6,active,,112937,20260106T061500Z-QE24M
+G-0046,micrometer,"micrometer, 0 to 25",0.0,25.0,0.001,final inspection,production,6,active,,655116,20260106T061500Z-QE24M
+G-0047,micrometer,"micrometer, 0 to 25",0.0,25.0,0.001,Swiss cell,production,6,active,,980247,20260106T061500Z-QE24M
+G-0048,micrometer,"micrometer, 0 to 25",0.0,25.0,0.001,turning cell,production,6,active,,179670,20260106T061500Z-QE24M
+G-0049,micrometer,"micrometer, 0 to 25",0.0,25.0,0.001,Swiss cell,production,6,active,,205682,20260106T061500Z-QE24M
+G-0050,micrometer,"micrometer, 0 to 25",0.0,25.0,0.001,receiving,production,6,active,,189377,20260106T061500Z-QE24M
+G-0051,micrometer,"micrometer, 0 to 25",0.0,25.0,0.001,grinding cell,production,6,active,,782847,20260106T061500Z-QE24M
+G-0052,micrometer,"micrometer, 0 to 25",0.0,25.0,0.001,receiving,production,6,out of service,2025-04-27,646754,20260106T061500Z-QE24M
+G-0053,micrometer,"micrometer, 0 to 25",0.0,25.0,0.001,milling cell,production,6,active,,379545,20260106T061500Z-QE24M
+G-0054,micrometer,"micrometer, 0 to 25",0.0,25.0,0.001,turning cell,production,6,active,,346949,20260106T061500Z-QE24M
+G-0055,micrometer,"micrometer, 0 to 25",0.0,25.0,0.001,milling cell,production,6,active,,838274,20260106T061500Z-QE24M
+G-0056,micrometer,"micrometer, 0 to 25",0.0,25.0,0.001,receiving,production,6,active,,734969,20260106T061500Z-QE24M
+G-0057,micrometer,"micrometer, 0 to 25",0.0,25.0,0.001,final inspection,production,6,active,,375846,20260106T061500Z-QE24M
+G-0058,micrometer,"micrometer, 0 to 25",0.0,25.0,0.001,grinding cell,production,6,active,,707345,20260106T061500Z-QE24M
+G-0059,micrometer,"micrometer, 0 to 25",0.0,25.0,0.001,final inspection,production,6,active,,900091,20260106T061500Z-QE24M
+G-0060,micrometer,"micrometer, 0 to 25",0.0,25.0,0.001,final inspection,production,6,active,,658747,20260106T061500Z-QE24M
+G-0061,micrometer,"micrometer, 0 to 25",0.0,25.0,0.001,milling cell,production,6,out of service,2025-03-31,642732,20260106T061500Z-QE24M
+G-0062,micrometer,"micrometer, 0 to 25",0.0,25.0,0.001,turning cell,production,6,active,,935098,20260106T061500Z-QE24M
+G-0063,micrometer,"micrometer, 0 to 25",0.0,25.0,0.001,milling cell,production,6,active,,756468,20260106T061500Z-QE24M
+G-0064,micrometer,"micrometer, 0 to 25",0.0,25.0,0.001,Swiss cell,production,6,active,,702824,20260106T061500Z-QE24M
+G-0065,micrometer,"micrometer, 0 to 25",0.0,25.0,0.001,milling cell,production,6,out of service,2025-05-21,499266,20260106T061500Z-QE24M
+G-0066,micrometer,"micrometer, 25 to 50",25.0,50.0,0.001,Swiss cell,production,6,active,,693475,20260106T061500Z-QE24M
+G-0067,micrometer,"micrometer, 25 to 50",25.0,50.0,0.001,Swiss cell,production,6,active,,538859,20260106T061500Z-QE24M
+G-0068,micrometer,"micrometer, 25 to 50",25.0,50.0,0.001,Swiss cell,production,6,out of service,2025-05-16,968238,20260106T061500Z-QE24M
+G-0069,micrometer,"micrometer, 25 to 50",25.0,50.0,0.001,Swiss cell,production,6,active,,178667,20260106T061500Z-QE24M
+G-0070,micrometer,"micrometer, 25 to 50",25.0,50.0,0.001,milling cell,production,6,out of service,2025-04-30,414157,20260106T061500Z-QE24M
+G-0071,micrometer,"micrometer, 25 to 50",25.0,50.0,0.001,grinding cell,production,6,active,,305219,20260106T061500Z-QE24M
+G-0072,micrometer,"micrometer, 25 to 50",25.0,50.0,0.001,turning cell,production,6,active,,842617,20260106T061500Z-QE24M
+G-0073,micrometer,"micrometer, 25 to 50",25.0,50.0,0.001,final inspection,production,6,active,,154268,20260106T061500Z-QE24M
+G-0074,micrometer,"micrometer, 25 to 50",25.0,50.0,0.001,receiving,production,6,active,,610551,20260106T061500Z-QE24M
+G-0075,micrometer,"micrometer, 25 to 50",25.0,50.0,0.001,final inspection,production,6,active,,453759,20260106T061500Z-QE24M
+G-0076,micrometer,"micrometer, 25 to 50",25.0,50.0,0.001,milling cell,production,6,active,,217272,20260106T061500Z-QE24M
+G-0077,micrometer,"micrometer, 25 to 50",25.0,50.0,0.001,milling cell,production,6,active,,107945,20260106T061500Z-QE24M
+G-0078,micrometer,"micrometer, 25 to 50",25.0,50.0,0.001,turning cell,production,6,active,,922868,20260106T061500Z-QE24M
+G-0079,micrometer,"micrometer, 25 to 50",25.0,50.0,0.001,Swiss cell,production,6,active,,209215,20260106T061500Z-QE24M
+G-0080,micrometer,"micrometer, 25 to 50",25.0,50.0,0.001,turning cell,production,6,active,,883162,20260106T061500Z-QE24M
+G-0081,micrometer,"micrometer, 25 to 50",25.0,50.0,0.001,milling cell,production,6,active,,121498,20260106T061500Z-QE24M
+G-0082,micrometer,"micrometer, 25 to 50",25.0,50.0,0.001,turning cell,production,6,active,,602728,20260106T061500Z-QE24M
+G-0083,micrometer,"micrometer, 25 to 50",25.0,50.0,0.001,grinding cell,production,6,active,,146920,20260106T061500Z-QE24M
+G-0084,micrometer,"micrometer, 25 to 50",25.0,50.0,0.001,grinding cell,production,6,active,,929069,20260106T061500Z-QE24M
+G-0085,micrometer,"micrometer, 25 to 50",25.0,50.0,0.001,grinding cell,production,6,active,,708677,20260106T061500Z-QE24M
+G-0086,micrometer,"micrometer, 25 to 50",25.0,50.0,0.001,receiving,production,6,active,,967077,20260106T061500Z-QE24M
+G-0087,micrometer,"micrometer, 25 to 50",25.0,50.0,0.001,receiving,production,6,active,,803371,20260106T061500Z-QE24M
+G-0088,micrometer,"micrometer, 25 to 50",25.0,50.0,0.001,Swiss cell,production,6,active,,422323,20260106T061500Z-QE24M
+G-0089,micrometer,"micrometer, 25 to 50",25.0,50.0,0.001,milling cell,production,6,active,,912797,20260106T061500Z-QE24M
+G-0090,micrometer,"micrometer, 25 to 50",25.0,50.0,0.001,milling cell,production,6,active,,664139,20260106T061500Z-QE24M
+G-0091,micrometer,"micrometer, 25 to 50",25.0,50.0,0.001,milling cell,production,6,active,,211954,20260106T061500Z-QE24M
+G-0092,micrometer,"micrometer, 25 to 50",25.0,50.0,0.001,grinding cell,production,6,active,,294511,20260106T061500Z-QE24M
+G-0093,micrometer,"micrometer, 25 to 50",25.0,50.0,0.001,final inspection,production,6,active,,422568,20260106T061500Z-QE24M
+G-0094,micrometer,"micrometer, 25 to 50",25.0,50.0,0.001,receiving,production,6,active,,649355,20260106T061500Z-QE24M
+G-0095,micrometer,"micrometer, 25 to 50",25.0,50.0,0.001,grinding cell,production,6,active,,527573,20260106T061500Z-QE24M
+G-0096,micrometer,"micrometer, 25 to 50",25.0,50.0,0.001,receiving,production,6,active,,886188,20260106T061500Z-QE24M
+G-0097,micrometer,"micrometer, 25 to 50",25.0,50.0,0.001,grinding cell,production,6,active,,760525,20260106T061500Z-QE24M
+G-0098,micrometer,"micrometer, 25 to 50",25.0,50.0,0.001,turning cell,production,6,active,,468381,20260106T061500Z-QE24M
+G-0099,micrometer,"micrometer, 25 to 50",25.0,50.0,0.001,grinding cell,production,6,active,,394478,20260106T061500Z-QE24M
+G-0100,micrometer,"micrometer, 25 to 50",25.0,50.0,0.001,Swiss cell,production,6,active,,567655,20260106T061500Z-QE24M
+G-0101,micrometer,"micrometer, 25 to 50",25.0,50.0,0.001,grinding cell,production,6,active,,656440,20260106T061500Z-QE24M
+G-0102,micrometer,"micrometer, 25 to 50",25.0,50.0,0.001,milling cell,production,6,active,,917472,20260106T061500Z-QE24M
+G-0103,micrometer,"micrometer, 25 to 50",25.0,50.0,0.001,Swiss cell,production,6,active,,584801,20260106T061500Z-QE24M
+G-0104,micrometer,"micrometer, 25 to 50",25.0,50.0,0.001,grinding cell,production,6,active,,325794,20260106T061500Z-QE24M
+G-0105,micrometer,"micrometer, 25 to 50",25.0,50.0,0.001,grinding cell,production,6,active,,663044,20260106T061500Z-QE24M
+G-0106,micrometer,"micrometer, 25 to 50",25.0,50.0,0.001,final inspection,production,6,active,,780259,20260106T061500Z-QE24M
+G-0107,micrometer,"micrometer, 25 to 50",25.0,50.0,0.001,Swiss cell,production,6,active,,768853,20260106T061500Z-QE24M
+G-0108,micrometer,"micrometer, 25 to 50",25.0,50.0,0.001,milling cell,production,6,active,,544740,20260106T061500Z-QE24M
+G-0109,micrometer,"micrometer, 50 to 75",50.0,75.0,0.001,milling cell,production,6,active,,443543,20260106T061500Z-QE24M
+G-0110,micrometer,"micrometer, 50 to 75",50.0,75.0,0.001,final inspection,production,6,active,,166896,20260106T061500Z-QE24M
+G-0111,micrometer,"micrometer, 50 to 75",50.0,75.0,0.001,grinding cell,production,6,active,,678597,20260106T061500Z-QE24M
+G-0112,micrometer,"micrometer, 50 to 75",50.0,75.0,0.001,turning cell,production,6,active,,922697,20260106T061500Z-QE24M
+G-0113,micrometer,"micrometer, 50 to 75",50.0,75.0,0.001,milling cell,production,6,active,,554082,20260106T061500Z-QE24M
+G-0114,micrometer,"micrometer, 50 to 75",50.0,75.0,0.001,receiving,production,6,active,,776262,20260106T061500Z-QE24M
+G-0115,micrometer,"micrometer, 50 to 75",50.0,75.0,0.001,milling cell,production,6,active,,624558,20260106T061500Z-QE24M
+G-0116,micrometer,"micrometer, 50 to 75",50.0,75.0,0.001,turning cell,production,6,active,,777456,20260106T061500Z-QE24M
+G-0117,micrometer,"micrometer, 50 to 75",50.0,75.0,0.001,Swiss cell,production,6,active,,580521,20260106T061500Z-QE24M
+G-0118,micrometer,"micrometer, 50 to 75",50.0,75.0,0.001,turning cell,production,6,active,,762393,20260106T061500Z-QE24M
+G-0119,micrometer,"micrometer, 50 to 75",50.0,75.0,0.001,Swiss cell,production,6,active,,905524,20260106T061500Z-QE24M
+G-0120,micrometer,"micrometer, 50 to 75",50.0,75.0,0.001,grinding cell,production,6,active,,466527,20260106T061500Z-QE24M
+G-0121,micrometer,"micrometer, 50 to 75",50.0,75.0,0.001,Swiss cell,production,6,out of service,2025-05-02,564207,20260106T061500Z-QE24M
+G-0122,micrometer,"micrometer, 50 to 75",50.0,75.0,0.001,turning cell,production,6,active,,632691,20260106T061500Z-QE24M
+G-0123,micrometer,"micrometer, 50 to 75",50.0,75.0,0.001,turning cell,production,6,active,,842391,20260106T061500Z-QE24M
+G-0124,micrometer,"micrometer, 50 to 75",50.0,75.0,0.001,grinding cell,production,6,active,,238219,20260106T061500Z-QE24M
+G-0125,micrometer,"micrometer, 50 to 75",50.0,75.0,0.001,Swiss cell,production,6,active,,319360,20260106T061500Z-QE24M
+G-0126,caliper,"caliper, 0 to 150",0.0,150.0,0.01,grinding cell,production,6,active,,486351,20260106T061500Z-QE24M
+G-0127,caliper,"caliper, 0 to 150",0.0,150.0,0.01,final inspection,production,12,active,,858992,20260106T061500Z-QE24M
+G-0128,caliper,"caliper, 0 to 150",0.0,150.0,0.01,milling cell,production,12,active,,667045,20260106T061500Z-QE24M
+G-0129,caliper,"caliper, 0 to 150",0.0,150.0,0.01,receiving,production,6,active,,636340,20260106T061500Z-QE24M
+G-0130,caliper,"caliper, 0 to 150",0.0,150.0,0.01,Swiss cell,production,12,active,,459759,20260106T061500Z-QE24M
+G-0131,caliper,"caliper, 0 to 150",0.0,150.0,0.01,final inspection,production,12,active,,190337,20260106T061500Z-QE24M
+G-0132,caliper,"caliper, 0 to 150",0.0,150.0,0.01,Swiss cell,production,6,active,,849556,20260106T061500Z-QE24M
+G-0133,caliper,"caliper, 0 to 150",0.0,150.0,0.01,grinding cell,production,12,active,,413472,20260106T061500Z-QE24M
+G-0134,caliper,"caliper, 0 to 150",0.0,150.0,0.01,turning cell,production,12,active,,579012,20260106T061500Z-QE24M
+G-0135,caliper,"caliper, 0 to 150",0.0,150.0,0.01,final inspection,production,6,active,,573422,20260106T061500Z-QE24M
+G-0136,caliper,"caliper, 0 to 150",0.0,150.0,0.01,turning cell,production,12,active,,873339,20260106T061500Z-QE24M
+G-0137,caliper,"caliper, 0 to 150",0.0,150.0,0.01,Swiss cell,production,12,active,,246245,20260106T061500Z-QE24M
+G-0138,caliper,"caliper, 0 to 150",0.0,150.0,0.01,Swiss cell,production,6,active,,455579,20260106T061500Z-QE24M
+G-0139,caliper,"caliper, 0 to 150",0.0,150.0,0.01,Swiss cell,production,12,active,,559281,20260106T061500Z-QE24M
+G-0140,caliper,"caliper, 0 to 150",0.0,150.0,0.01,turning cell,production,12,active,,346979,20260106T061500Z-QE24M
+G-0141,caliper,"caliper, 0 to 150",0.0,150.0,0.01,receiving,production,6,active,,781007,20260106T061500Z-QE24M
+G-0142,caliper,"caliper, 0 to 150",0.0,150.0,0.01,turning cell,production,12,active,,424868,20260106T061500Z-QE24M
+G-0143,caliper,"caliper, 0 to 150",0.0,150.0,0.01,Swiss cell,production,12,active,,449216,20260106T061500Z-QE24M
+G-0144,caliper,"caliper, 0 to 150",0.0,150.0,0.01,receiving,production,6,active,,415619,20260106T061500Z-QE24M
+G-0145,caliper,"caliper, 0 to 150",0.0,150.0,0.01,grinding cell,production,12,active,,209818,20260106T061500Z-QE24M
+G-0146,caliper,"caliper, 0 to 150",0.0,150.0,0.01,turning cell,production,12,active,,833303,20260106T061500Z-QE24M
+G-0147,caliper,"caliper, 0 to 150",0.0,150.0,0.01,turning cell,production,6,active,,362426,20260106T061500Z-QE24M
+G-0148,caliper,"caliper, 0 to 150",0.0,150.0,0.01,grinding cell,production,12,active,,480507,20260106T061500Z-QE24M
+G-0149,caliper,"caliper, 0 to 150",0.0,150.0,0.01,grinding cell,production,12,active,,374753,20260106T061500Z-QE24M
+G-0150,caliper,"caliper, 0 to 150",0.0,150.0,0.01,milling cell,production,6,out of service,2024-08-13,131421,20260106T061500Z-QE24M
+G-0151,caliper,"caliper, 0 to 150",0.0,150.0,0.01,Swiss cell,production,12,active,,477132,20260106T061500Z-QE24M
+G-0152,caliper,"caliper, 0 to 150",0.0,150.0,0.01,receiving,production,12,active,,648712,20260106T061500Z-QE24M
+G-0153,caliper,"caliper, 0 to 150",0.0,150.0,0.01,turning cell,production,6,active,,147442,20260106T061500Z-QE24M
+G-0154,caliper,"caliper, 0 to 150",0.0,150.0,0.01,grinding cell,production,12,active,,387542,20260106T061500Z-QE24M
+G-0155,caliper,"caliper, 0 to 150",0.0,150.0,0.01,final inspection,production,12,active,,604412,20260106T061500Z-QE24M
+G-0156,caliper,"caliper, 0 to 150",0.0,150.0,0.01,Swiss cell,production,6,active,,476398,20260106T061500Z-QE24M
+G-0157,caliper,"caliper, 0 to 150",0.0,150.0,0.01,milling cell,production,12,active,,792850,20260106T061500Z-QE24M
+G-0158,caliper,"caliper, 0 to 150",0.0,150.0,0.01,receiving,production,12,active,,230035,20260106T061500Z-QE24M
+G-0159,caliper,"caliper, 0 to 150",0.0,150.0,0.01,grinding cell,production,6,active,,150015,20260106T061500Z-QE24M
+G-0160,caliper,"caliper, 0 to 150",0.0,150.0,0.01,Swiss cell,production,12,active,,671288,20260106T061500Z-QE24M
+G-0161,caliper,"caliper, 0 to 150",0.0,150.0,0.01,turning cell,production,12,active,,969647,20260106T061500Z-QE24M
+G-0162,caliper,"caliper, 0 to 150",0.0,150.0,0.01,final inspection,production,6,active,,509818,20260106T061500Z-QE24M
+G-0163,caliper,"caliper, 0 to 150",0.0,150.0,0.01,Swiss cell,production,12,active,,181959,20260106T061500Z-QE24M
+G-0164,caliper,"caliper, 0 to 150",0.0,150.0,0.01,turning cell,production,12,active,,178911,20260106T061500Z-QE24M
+G-0165,caliper,"caliper, 0 to 150",0.0,150.0,0.01,Swiss cell,production,6,active,,137817,20260106T061500Z-QE24M
+G-0166,caliper,"caliper, 0 to 150",0.0,150.0,0.01,final inspection,production,12,active,,250247,20260106T061500Z-QE24M
+G-0167,caliper,"caliper, 0 to 150",0.0,150.0,0.01,grinding cell,production,12,active,,882826,20260106T061500Z-QE24M
+G-0168,caliper,"caliper, 0 to 150",0.0,150.0,0.01,receiving,production,6,active,,234430,20260106T061500Z-QE24M
+G-0169,caliper,"caliper, 0 to 150",0.0,150.0,0.01,milling cell,production,12,out of service,2024-06-21,359029,20260106T061500Z-QE24M
+G-0170,caliper,"caliper, 0 to 150",0.0,150.0,0.01,milling cell,production,12,active,,571240,20260106T061500Z-QE24M
+G-0171,caliper,"caliper, 0 to 150",0.0,150.0,0.01,final inspection,production,6,active,,117680,20260106T061500Z-QE24M
+G-0172,caliper,"caliper, 0 to 150",0.0,150.0,0.01,final inspection,production,12,active,,727799,20260106T061500Z-QE24M
+G-0173,caliper,"caliper, 0 to 150",0.0,150.0,0.01,grinding cell,production,12,active,,606789,20260106T061500Z-QE24M
+G-0174,caliper,"caliper, 0 to 150",0.0,150.0,0.01,Swiss cell,production,6,active,,550466,20260106T061500Z-QE24M
+G-0175,caliper,"caliper, 0 to 150",0.0,150.0,0.01,turning cell,production,12,active,,452792,20260106T061500Z-QE24M
+G-0176,caliper,"caliper, 0 to 150",0.0,150.0,0.01,receiving,production,12,active,,335563,20260106T061500Z-QE24M
+G-0177,caliper,"caliper, 0 to 150",0.0,150.0,0.01,receiving,production,6,active,,558845,20260106T061500Z-QE24M
+G-0178,caliper,"caliper, 0 to 150",0.0,150.0,0.01,milling cell,production,12,active,,197867,20260106T061500Z-QE24M
+G-0179,caliper,"caliper, 0 to 150",0.0,150.0,0.01,receiving,production,12,active,,785749,20260106T061500Z-QE24M
+G-0180,caliper,"caliper, 0 to 150",0.0,150.0,0.01,receiving,production,6,active,,633740,20260106T061500Z-QE24M
+G-0181,caliper,"caliper, 0 to 150",0.0,150.0,0.01,final inspection,production,12,active,,273850,20260106T061500Z-QE24M
+G-0182,caliper,"caliper, 0 to 150",0.0,150.0,0.01,final inspection,production,12,active,,459842,20260106T061500Z-QE24M
+G-0183,caliper,"caliper, 0 to 150",0.0,150.0,0.01,Swiss cell,production,6,active,,962422,20260106T061500Z-QE24M
+G-0184,caliper,"caliper, 0 to 150",0.0,150.0,0.01,Swiss cell,production,12,out of service,2025-02-27,982747,20260106T061500Z-QE24M
+G-0185,caliper,"caliper, 0 to 150",0.0,150.0,0.01,milling cell,production,12,active,,882431,20260106T061500Z-QE24M
+G-0186,caliper,"caliper, 0 to 300",0.0,300.0,0.01,turning cell,production,6,active,,283801,20260106T061500Z-QE24M
+G-0187,caliper,"caliper, 0 to 300",0.0,300.0,0.01,Swiss cell,production,12,out of service,2025-05-28,858245,20260106T061500Z-QE24M
+G-0188,caliper,"caliper, 0 to 300",0.0,300.0,0.01,milling cell,production,12,active,,577535,20260106T061500Z-QE24M
+G-0189,caliper,"caliper, 0 to 300",0.0,300.0,0.01,Swiss cell,production,6,active,,985464,20260106T061500Z-QE24M
+G-0190,caliper,"caliper, 0 to 300",0.0,300.0,0.01,grinding cell,production,12,active,,280306,20260106T061500Z-QE24M
+G-0191,caliper,"caliper, 0 to 300",0.0,300.0,0.01,turning cell,production,12,active,,621583,20260106T061500Z-QE24M
+G-0192,caliper,"caliper, 0 to 300",0.0,300.0,0.01,turning cell,production,6,active,,597056,20260106T061500Z-QE24M
+G-0193,caliper,"caliper, 0 to 300",0.0,300.0,0.01,grinding cell,production,12,active,,201781,20260106T061500Z-QE24M
+G-0194,caliper,"caliper, 0 to 300",0.0,300.0,0.01,grinding cell,production,12,active,,875263,20260106T061500Z-QE24M
+G-0195,caliper,"caliper, 0 to 300",0.0,300.0,0.01,grinding cell,production,6,active,,145255,20260106T061500Z-QE24M
+G-0196,caliper,"caliper, 0 to 300",0.0,300.0,0.01,turning cell,production,12,active,,752836,20260106T061500Z-QE24M
+G-0197,caliper,"caliper, 0 to 300",0.0,300.0,0.01,receiving,production,12,active,,178490,20260106T061500Z-QE24M
+G-0198,caliper,"caliper, 0 to 300",0.0,300.0,0.01,grinding cell,production,6,active,,657893,20260106T061500Z-QE24M
+G-0199,caliper,"caliper, 0 to 300",0.0,300.0,0.01,final inspection,production,12,active,,328721,20260106T061500Z-QE24M
+G-0200,thread gauge,"thread gauge, 5 to 20",5.0,20.0,0.005,final inspection,production,12,active,,680552,20260106T061500Z-QE24M
+G-0201,thread gauge,"thread gauge, 5 to 20",5.0,20.0,0.005,milling cell,production,12,active,,639635,20260106T061500Z-QE24M
+G-0202,thread gauge,"thread gauge, 5 to 20",5.0,20.0,0.005,receiving,production,12,active,,894021,20260106T061500Z-QE24M
+G-0203,thread gauge,"thread gauge, 5 to 20",5.0,20.0,0.005,final inspection,production,12,active,,557160,20260106T061500Z-QE24M
+G-0204,thread gauge,"thread gauge, 5 to 20",5.0,20.0,0.005,final inspection,production,12,active,,739590,20260106T061500Z-QE24M
+G-0205,thread gauge,"thread gauge, 5 to 20",5.0,20.0,0.005,turning cell,production,12,active,,660558,20260106T061500Z-QE24M
+G-0206,thread gauge,"thread gauge, 5 to 20",5.0,20.0,0.005,final inspection,production,12,active,,282574,20260106T061500Z-QE24M
+G-0207,thread gauge,"thread gauge, 5 to 20",5.0,20.0,0.005,turning cell,production,12,active,,845811,20260106T061500Z-QE24M
+G-0208,thread gauge,"thread gauge, 5 to 20",5.0,20.0,0.005,milling cell,production,12,active,,711497,20260106T061500Z-QE24M
+G-0209,thread gauge,"thread gauge, 5 to 20",5.0,20.0,0.005,final inspection,production,12,active,,885817,20260106T061500Z-QE24M
+G-0210,thread gauge,"thread gauge, 5 to 20",5.0,20.0,0.005,Swiss cell,production,12,active,,952732,20260106T061500Z-QE24M
+G-0211,thread gauge,"thread gauge, 5 to 20",5.0,20.0,0.005,receiving,production,12,active,,809653,20260106T061500Z-QE24M
+G-0212,thread gauge,"thread gauge, 5 to 20",5.0,20.0,0.005,grinding cell,production,12,active,,436874,20260106T061500Z-QE24M
+G-0213,thread gauge,"thread gauge, 5 to 20",5.0,20.0,0.005,grinding cell,production,12,active,,247576,20260106T061500Z-QE24M
+G-0214,thread gauge,"thread gauge, 5 to 20",5.0,20.0,0.005,receiving,production,12,active,,119457,20260106T061500Z-QE24M
+G-0215,thread gauge,"thread gauge, 5 to 20",5.0,20.0,0.005,Swiss cell,production,12,active,,858455,20260106T061500Z-QE24M
+G-0216,thread gauge,"thread gauge, 5 to 20",5.0,20.0,0.005,grinding cell,production,12,active,,492386,20260106T061500Z-QE24M
+G-0217,thread gauge,"thread gauge, 5 to 20",5.0,20.0,0.005,turning cell,production,12,active,,192691,20260106T061500Z-QE24M
+G-0218,thread gauge,"thread gauge, 5 to 20",5.0,20.0,0.005,final inspection,production,12,active,,292813,20260106T061500Z-QE24M
+G-0219,thread gauge,"thread gauge, 5 to 20",5.0,20.0,0.005,final inspection,production,12,active,,246131,20260106T061500Z-QE24M
+G-0220,thread gauge,"thread gauge, 5 to 20",5.0,20.0,0.005,turning cell,production,12,active,,338506,20260106T061500Z-QE24M
+G-0221,thread gauge,"thread gauge, 5 to 20",5.0,20.0,0.005,milling cell,production,12,active,,743655,20260106T061500Z-QE24M
+G-0222,thread gauge,"thread gauge, 5 to 20",5.0,20.0,0.005,milling cell,production,12,active,,230390,20260106T061500Z-QE24M
+G-0223,thread gauge,"thread gauge, 5 to 20",5.0,20.0,0.005,final inspection,production,12,active,,423335,20260106T061500Z-QE24M
+G-0224,thread gauge,"thread gauge, 5 to 20",5.0,20.0,0.005,Swiss cell,production,12,active,,529556,20260106T061500Z-QE24M
+G-0225,thread gauge,"thread gauge, 5 to 20",5.0,20.0,0.005,receiving,production,12,active,,126375,20260106T061500Z-QE24M
+G-0226,thread gauge,"thread gauge, 5 to 20",5.0,20.0,0.005,grinding cell,production,12,active,,159040,20260106T061500Z-QE24M
+G-0227,thread gauge,"thread gauge, 5 to 20",5.0,20.0,0.005,milling cell,production,12,active,,836709,20260106T061500Z-QE24M
+G-0228,thread gauge,"thread gauge, 5 to 20",5.0,20.0,0.005,receiving,production,12,active,,189705,20260106T061500Z-QE24M
+G-0229,thread gauge,"thread gauge, 5 to 20",5.0,20.0,0.005,turning cell,production,12,active,,849401,20260106T061500Z-QE24M
+G-0230,roughness tester,"roughness tester, 0 to 16",0.0,16.0,0.01,final inspection,production,6,active,,365783,20260106T061500Z-QE24M
+G-0231,roughness tester,"roughness tester, 0 to 16",0.0,16.0,0.01,final inspection,production,6,active,,495883,20260106T061500Z-QE24M
+G-0232,hardness tester,"hardness tester, 20 to 70",20.0,70.0,0.5,milling cell,quality,6,active,,904469,20260106T061500Z-QE24M
+G-0233,dial indicator,"dial indicator, 0 to 1",0.0,1.0,0.001,turning cell,production,3,active,,405798,20260106T061500Z-QE24M
+G-0234,dial indicator,"dial indicator, 0 to 1",0.0,1.0,0.001,turning cell,production,3,out of service,2025-04-22,681513,20260106T061500Z-QE24M
+G-0235,dial indicator,"dial indicator, 0 to 1",0.0,1.0,0.001,turning cell,production,3,active,,260432,20260106T061500Z-QE24M
+G-0236,dial indicator,"dial indicator, 0 to 1",0.0,1.0,0.001,grinding cell,production,3,active,,320333,20260106T061500Z-QE24M
+G-0237,dial indicator,"dial indicator, 0 to 1",0.0,1.0,0.001,milling cell,production,3,out of service,2025-05-16,502298,20260106T061500Z-QE24M
+G-0238,dial indicator,"dial indicator, 0 to 1",0.0,1.0,0.001,receiving,production,3,active,,421586,20260106T061500Z-QE24M
+G-0239,dial indicator,"dial indicator, 0 to 1",0.0,1.0,0.001,final inspection,production,3,out of service,2025-05-07,700294,20260106T061500Z-QE24M
+G-0240,dial indicator,"dial indicator, 0 to 1",0.0,1.0,0.001,milling cell,production,3,active,,557952,20260106T061500Z-QE24M
+G-0241,dial indicator,"dial indicator, 0 to 1",0.0,1.0,0.001,receiving,production,3,out of service,2025-05-23,605028,20260106T061500Z-QE24M
+G-0242,dial indicator,"dial indicator, 0 to 1",0.0,1.0,0.001,receiving,production,3,active,,710345,20260106T061500Z-QE24M
+G-0243,dial indicator,"dial indicator, 0 to 1",0.0,1.0,0.001,milling cell,production,3,active,,404956,20260106T061500Z-QE24M
+G-0244,dial indicator,"dial indicator, 0 to 1",0.0,1.0,0.001,turning cell,production,3,out of service,2024-05-27,611839,20260106T061500Z-QE24M
+G-0245,dial indicator,"dial indicator, 0 to 1",0.0,1.0,0.001,final inspection,production,3,active,,239897,20260106T061500Z-QE24M
+G-0246,dial indicator,"dial indicator, 0 to 1",0.0,1.0,0.001,milling cell,production,3,active,,880430,20260106T061500Z-QE24M
+G-0247,dial indicator,"dial indicator, 0 to 1",0.0,1.0,0.001,turning cell,production,3,active,,334525,20260106T061500Z-QE24M
+G-0248,dial indicator,"dial indicator, 0 to 1",0.0,1.0,0.001,grinding cell,production,3,active,,996497,20260106T061500Z-QE24M
+G-0249,dial indicator,"dial indicator, 0 to 1",0.0,1.0,0.001,Swiss cell,production,3,active,,110533,20260106T061500Z-QE24M
+G-0250,dial indicator,"dial indicator, 0 to 1",0.0,1.0,0.001,grinding cell,production,3,active,,536156,20260106T061500Z-QE24M
+G-0251,dial indicator,"dial indicator, 0 to 1",0.0,1.0,0.001,receiving,production,3,active,,812631,20260106T061500Z-QE24M
+G-0252,dial indicator,"dial indicator, 0 to 1",0.0,1.0,0.001,grinding cell,production,3,active,,171976,20260106T061500Z-QE24M
+G-0253,dial indicator,"dial indicator, 0 to 1",0.0,1.0,0.001,final inspection,production,6,active,,169279,20260106T061500Z-QE24M
+G-0254,dial indicator,"dial indicator, 0 to 1",0.0,1.0,0.001,turning cell,production,6,active,,951586,20260106T061500Z-QE24M
+G-0255,dial indicator,"dial indicator, 0 to 1",0.0,1.0,0.001,milling cell,production,6,active,,955268,20260106T061500Z-QE24M
+G-0256,dial indicator,"dial indicator, 0 to 1",0.0,1.0,0.001,turning cell,production,6,active,,971164,20260106T061500Z-QE24M
+G-0257,dial indicator,"dial indicator, 0 to 1",0.0,1.0,0.001,turning cell,production,6,active,,484464,20260106T061500Z-QE24M
+G-0258,dial indicator,"dial indicator, 0 to 1",0.0,1.0,0.001,grinding cell,production,6,active,,240348,20260106T061500Z-QE24M
+G-0259,dial indicator,"dial indicator, 0 to 1",0.0,1.0,0.001,grinding cell,production,6,active,,367287,20260106T061500Z-QE24M
+G-0260,dial indicator,"dial indicator, 0 to 1",0.0,1.0,0.001,milling cell,production,6,lost,2025-03-31,805423,20260106T061500Z-QE24M
+G-0261,dial indicator,"dial indicator, 0 to 1",0.0,1.0,0.001,grinding cell,production,6,active,,629428,20260106T061500Z-QE24M
+G-0262,dial indicator,"dial indicator, 0 to 1",0.0,1.0,0.001,milling cell,production,6,active,,932054,20260106T061500Z-QE24M
+G-0263,setting master,"setting master, 1 to 50",1.0,50.0,,calibration crib,quality,12,active,,536005,20260106T061500Z-QE24M
+G-0264,ring gauge,"ring gauge, 1 to 50",1.0,50.0,,calibration crib,quality,12,active,,295148,20260106T061500Z-QE24M
+G-0265,plug gauge,"plug gauge, 1 to 50",1.0,50.0,,calibration crib,quality,12,active,,129639,20260106T061500Z-QE24M
+G-0266,gauge block set,"gauge block set, 1 to 50",1.0,50.0,,calibration crib,quality,12,active,,228844,20260106T061500Z-QE24M
+G-0267,setting master,"setting master, 1 to 50",1.0,50.0,,calibration crib,quality,12,active,,253506,20260106T061500Z-QE24M
+G-0268,ring gauge,"ring gauge, 1 to 50",1.0,50.0,,calibration crib,quality,12,active,,671881,20260106T061500Z-QE24M
+G-0269,plug gauge,"plug gauge, 1 to 50",1.0,50.0,,calibration crib,quality,12,active,,137277,20260106T061500Z-QE24M
+G-0270,gauge block set,"gauge block set, 1 to 50",1.0,50.0,,calibration crib,quality,12,active,,385235,20260106T061500Z-QE24M
+G-0271,setting master,"setting master, 1 to 50",1.0,50.0,,calibration crib,quality,12,active,,148903,20260106T061500Z-QE24M
+G-0272,ring gauge,"ring gauge, 1 to 50",1.0,50.0,,calibration crib,quality,12,active,,623304,20260106T061500Z-QE24M
+G-0273,plug gauge,"plug gauge, 1 to 50",1.0,50.0,,calibration crib,quality,12,active,,114681,20260106T061500Z-QE24M
+G-0274,gauge block set,"gauge block set, 1 to 50",1.0,50.0,,calibration crib,quality,12,active,,692323,20260106T061500Z-QE24M
+G-0275,setting master,"setting master, 1 to 50",1.0,50.0,,calibration crib,quality,12,active,,399945,20260106T061500Z-QE24M
+G-0276,ring gauge,"ring gauge, 1 to 50",1.0,50.0,,calibration crib,quality,12,active,,176067,20260106T061500Z-QE24M
+G-0277,plug gauge,"plug gauge, 1 to 50",1.0,50.0,,calibration crib,quality,12,active,,166832,20260106T061500Z-QE24M
+G-0278,gauge block set,"gauge block set, 1 to 50",1.0,50.0,,calibration crib,quality,12,active,,677682,20260106T061500Z-QE24M
+G-0279,setting master,"setting master, 1 to 50",1.0,50.0,,calibration crib,quality,12,active,,749516,20260106T061500Z-QE24M
+G-0280,ring gauge,"ring gauge, 1 to 50",1.0,50.0,,calibration crib,quality,12,active,,618215,20260106T061500Z-QE24M
+G-0281,plug gauge,"plug gauge, 1 to 50",1.0,50.0,,calibration crib,quality,12,active,,725330,20260106T061500Z-QE24M
+G-0282,gauge block set,"gauge block set, 1 to 50",1.0,50.0,,calibration crib,quality,12,active,,891317,20260106T061500Z-QE24M
+G-0283,setting master,"setting master, 1 to 50",1.0,50.0,,calibration crib,quality,12,active,,535238,20260106T061500Z-QE24M
+G-0284,ring gauge,"ring gauge, 1 to 50",1.0,50.0,,calibration crib,quality,12,active,,446306,20260106T061500Z-QE24M
+G-0285,plug gauge,"plug gauge, 1 to 50",1.0,50.0,,calibration crib,quality,12,active,,721374,20260106T061500Z-QE24M
+G-0286,gauge block set,"gauge block set, 1 to 50",1.0,50.0,,calibration crib,quality,12,active,,720581,20260106T061500Z-QE24M
+G-0287,setting master,"setting master, 1 to 50",1.0,50.0,,calibration crib,quality,12,active,,666973,20260106T061500Z-QE24M
+G-0288,ring gauge,"ring gauge, 1 to 50",1.0,50.0,,calibration crib,quality,12,active,,613370,20260106T061500Z-QE24M
+G-0289,plug gauge,"plug gauge, 1 to 50",1.0,50.0,,calibration crib,quality,12,active,,171786,20260106T061500Z-QE24M
+G-0290,gauge block set,"gauge block set, 1 to 50",1.0,50.0,,calibration crib,quality,12,active,,295479,20260106T061500Z-QE24M
+G-0291,setting master,"setting master, 1 to 50",1.0,50.0,,calibration crib,quality,12,active,,182727,20260106T061500Z-QE24M
+G-0292,ring gauge,"ring gauge, 1 to 50",1.0,50.0,,calibration crib,quality,12,active,,284107,20260106T061500Z-QE24M
+G-0293,plug gauge,"plug gauge, 1 to 50",1.0,50.0,,calibration crib,quality,12,active,,771325,20260106T061500Z-QE24M
+G-0294,gauge block set,"gauge block set, 1 to 50",1.0,50.0,,calibration crib,quality,12,active,,242698,20260106T061500Z-QE24M
+G-0295,setting master,"setting master, 1 to 50",1.0,50.0,,calibration crib,quality,12,active,,752142,20260106T061500Z-QE24M
+G-0296,ring gauge,"ring gauge, 1 to 50",1.0,50.0,,calibration crib,quality,12,active,,215670,20260106T061500Z-QE24M
+G-0297,plug gauge,"plug gauge, 1 to 50",1.0,50.0,,calibration crib,quality,12,active,,793768,20260106T061500Z-QE24M
+G-0298,gauge block set,"gauge block set, 1 to 50",1.0,50.0,,calibration crib,quality,12,active,,813794,20260106T061500Z-QE24M
+G-0299,setting master,"setting master, 1 to 50",1.0,50.0,,calibration crib,quality,12,active,,946326,20260106T061500Z-QE24M
+G-0300,ring gauge,"ring gauge, 1 to 50",1.0,50.0,,calibration crib,quality,12,active,,674894,20260106T061500Z-QE24M
