@@ -1,0 +1,29 @@
+name: quality_engineering
+version: "1.0.0"
+profile: quality_engineering
+model-paths: ["models"]
+macro-paths: ["macros"]
+seed-paths: ["seeds"]
+target-path: target
+clean-targets: ["target", "dbt_packages"]
+
+models:
+  quality_engineering:
+    staging:
+      +materialized: view
+      +schema: staging
+    intermediate:
+      +materialized: table
+      +schema: intermediate
+    marts:
+      +materialized: table
+      +schema: marts
+
+seeds:
+  quality_engineering:
+    +schema: reference
+
+vars:
+  report_year: 2025
+  bore_gauge_id: G-0008      # the two-point bore gauge on the critical bore of family F-21
+  air_gauge_id: G-0004       # the air gauge on the same bore
