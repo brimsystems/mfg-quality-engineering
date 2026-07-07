@@ -1,0 +1,349 @@
+version: 2
+
+models:
+  - name: stg_erp__customers
+    columns:
+      - name: customer_id
+        data_tests:
+          - unique
+          - not_null
+      - name: export_batch_id
+        data_tests:
+          - not_null
+  - name: stg_erp__employees
+    columns:
+      - name: employee_id
+        data_tests:
+          - unique
+          - not_null
+      - name: export_batch_id
+        data_tests:
+          - not_null
+  - name: stg_erp__export_batch
+  - name: stg_erp__jobs
+    columns:
+      - name: job_id
+        data_tests:
+          - unique
+          - not_null
+      - name: part_id
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('stg_erp__parts')
+                field: part_id
+      - name: machine_id
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('stg_erp__machines')
+                field: machine_id
+      - name: bar_lot
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('stg_erp__material_certs')
+                field: material_cert_id
+      - name: export_batch_id
+        data_tests:
+          - not_null
+  - name: stg_erp__machines
+    columns:
+      - name: machine_id
+        data_tests:
+          - unique
+          - not_null
+      - name: export_batch_id
+        data_tests:
+          - not_null
+  - name: stg_erp__material_certs
+    columns:
+      - name: material_cert_id
+        data_tests:
+          - unique
+          - not_null
+      - name: supplier_id
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('stg_qms__suppliers')
+                field: supplier_id
+      - name: export_batch_id
+        data_tests:
+          - not_null
+  - name: stg_erp__parts
+    columns:
+      - name: part_id
+        data_tests:
+          - unique
+          - not_null
+      - name: customer_id
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('stg_erp__customers')
+                field: customer_id
+      - name: export_batch_id
+        data_tests:
+          - not_null
+  - name: stg_erp__routings
+    columns:
+      - name: part_id
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('stg_erp__parts')
+                field: part_id
+      - name: export_batch_id
+        data_tests:
+          - not_null
+  - name: stg_erp__scrap_transactions
+    columns:
+      - name: transaction_id
+        data_tests:
+          - unique
+          - not_null
+      - name: job_id
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('stg_erp__jobs')
+                field: job_id
+      - name: export_batch_id
+        data_tests:
+          - not_null
+  - name: stg_qms__audit_findings
+    columns:
+      - name: finding_id
+        data_tests:
+          - unique
+          - not_null
+      - name: export_batch_id
+        data_tests:
+          - not_null
+  - name: stg_qms__capa
+    columns:
+      - name: capa_id
+        data_tests:
+          - unique
+          - not_null
+      - name: export_batch_id
+        data_tests:
+          - not_null
+  - name: stg_qms__capability_reports
+    columns:
+      - name: report_id
+        data_tests:
+          - unique
+          - not_null
+      - name: characteristic_id
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('stg_qms__characteristics')
+                field: characteristic_id
+      - name: export_batch_id
+        data_tests:
+          - not_null
+  - name: stg_qms__characteristics
+    columns:
+      - name: characteristic_id
+        data_tests:
+          - unique
+          - not_null
+      - name: part_id
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('stg_erp__parts')
+                field: part_id
+      - name: gauge_id
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('stg_calibration__gauges')
+                field: gauge_id
+      - name: inspection_method
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['in-process', 'CMM', 'final', '100%']
+      - name: export_batch_id
+        data_tests:
+          - not_null
+  - name: stg_qms__complaints
+    columns:
+      - name: complaint_id
+        data_tests:
+          - unique
+          - not_null
+      - name: export_batch_id
+        data_tests:
+          - not_null
+  - name: stg_qms__export_batch
+  - name: stg_qms__final_inspection
+    columns:
+      - name: job_id
+        data_tests:
+          - unique
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_erp__jobs')
+                field: job_id
+      - name: result
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['accept', 'reject']
+      - name: export_batch_id
+        data_tests:
+          - not_null
+  - name: stg_qms__ncrs
+    columns:
+      - name: ncr_id
+        data_tests:
+          - unique
+          - not_null
+      - name: detected_at
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['in-process', 'final', 'CMM', 'receiving', 'customer']
+      - name: export_batch_id
+        data_tests:
+          - not_null
+  - name: stg_qms__receiving_inspection
+    columns:
+      - name: receiving_id
+        data_tests:
+          - unique
+          - not_null
+      - name: supplier_id
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('stg_qms__suppliers')
+                field: supplier_id
+      - name: disposition
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['accept', 'reject']
+      - name: export_batch_id
+        data_tests:
+          - not_null
+  - name: stg_qms__spc_subgroups
+    columns:
+      - name: subgroup_id
+        data_tests:
+          - unique
+          - not_null
+      - name: characteristic_id
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('stg_qms__characteristics')
+                field: characteristic_id
+      - name: job_id
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('stg_erp__jobs')
+                field: job_id
+      - name: gauge_id
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('stg_calibration__gauges')
+                field: gauge_id
+      - name: operator_id
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('stg_erp__employees')
+                field: employee_id
+      - name: export_batch_id
+        data_tests:
+          - not_null
+  - name: stg_qms__suppliers
+    columns:
+      - name: supplier_id
+        data_tests:
+          - unique
+          - not_null
+      - name: export_batch_id
+        data_tests:
+          - not_null
+  - name: stg_cmm__cmm_features
+    columns:
+      - name: report_id
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('stg_cmm__cmm_reports')
+                field: report_id
+      - name: export_batch_id
+        data_tests:
+          - not_null
+  - name: stg_cmm__cmm_reports
+    columns:
+      - name: report_id
+        data_tests:
+          - unique
+          - not_null
+      - name: job_id
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('stg_erp__jobs')
+                field: job_id
+      - name: export_batch_id
+        data_tests:
+          - not_null
+  - name: stg_cmm__export_batch
+  - name: stg_calibration__calibrations
+    columns:
+      - name: calibration_id
+        data_tests:
+          - unique
+          - not_null
+      - name: gauge_id
+        data_tests:
+          - relationships:
+              arguments:
+                to: ref('stg_calibration__gauges')
+                field: gauge_id
+      - name: export_batch_id
+        data_tests:
+          - not_null
+  - name: stg_calibration__export_batch
+  - name: stg_calibration__gauges
+    columns:
+      - name: gauge_id
+        data_tests:
+          - unique
+          - not_null
+      - name: status
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['active', 'out of service', 'lost']
+      - name: export_batch_id
+        data_tests:
+          - not_null
+  - name: stg_accounting__cost_of_quality_lines
+    columns:
+      - name: line_id
+        data_tests:
+          - unique
+          - not_null
+      - name: export_batch_id
+        data_tests:
+          - not_null
+  - name: stg_accounting__export_batch
+  - name: stg_accounting__labor_rates
+    columns:
+      - name: export_batch_id
+        data_tests:
+          - not_null

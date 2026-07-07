@@ -1,0 +1,23 @@
+select
+    ncr_id,
+    job_id,
+    receiving_id,
+    characteristic_id,
+    defect_code,
+    cast(quantity_affected as integer) as quantity_affected,
+    detected_at,
+    cause_code,
+    cause_text,
+    disposition,
+    concession_no,
+    cast(rework_hours_booked as double) as rework_hours_booked,
+    cast(sorting_hours as double) as sorting_hours,
+    cast(reinspection_hours as double) as reinspection_hours,
+    cast(mrb_date as date) as mrb_date,
+    cast(opened as date) as opened,
+    cast(closed as date) as closed,
+    capa_id,
+    opened_by,
+    status,
+    export_batch_id
+from {{ source('qms', 'qms__ncrs') }}

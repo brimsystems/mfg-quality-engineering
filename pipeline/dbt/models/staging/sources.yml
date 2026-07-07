@@ -1,0 +1,47 @@
+version: 2
+
+sources:
+  - name: erp
+    schema: raw
+    tables:
+      - name: erp__customers
+      - name: erp__employees
+      - name: erp__export_batch
+      - name: erp__jobs
+      - name: erp__machines
+      - name: erp__material_certs
+      - name: erp__parts
+      - name: erp__routings
+      - name: erp__scrap_transactions
+  - name: qms
+    schema: raw
+    tables:
+      - name: qms__audit_findings
+      - name: qms__capa
+      - name: qms__capability_reports
+      - name: qms__characteristics
+      - name: qms__complaints
+      - name: qms__export_batch
+      - name: qms__final_inspection
+      - name: qms__ncrs
+      - name: qms__receiving_inspection
+      - name: qms__spc_subgroups
+      - name: qms__suppliers
+  - name: cmm
+    schema: raw
+    tables:
+      - name: cmm__cmm_features
+      - name: cmm__cmm_reports
+      - name: cmm__export_batch
+  - name: calibration
+    schema: raw
+    tables:
+      - name: calibration__calibrations
+      - name: calibration__export_batch
+      - name: calibration__gauges
+  - name: accounting
+    schema: raw
+    tables:
+      - name: accounting__cost_of_quality_lines
+      - name: accounting__export_batch
+      - name: accounting__labor_rates
