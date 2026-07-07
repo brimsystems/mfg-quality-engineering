@@ -1,0 +1,113 @@
+version: 2
+
+models:
+  - name: mart_spc_history
+    columns:
+      - name: subgroup_id
+        data_tests: [unique, not_null]
+      - name: export_batch_id
+        data_tests: [not_null]
+  - name: mart_s1_bore_history
+    columns:
+      - name: subgroup_id
+        data_tests: [unique, not_null]
+      - name: operator_id
+        data_tests: [not_null]
+      - name: export_batch_id
+        data_tests: [not_null]
+  - name: mart_s1_bore_cmm_match
+    columns:
+      - name: gauge_minus_cmm
+        data_tests:
+          - not_null
+          - in_range:
+              arguments:
+                min_value: -0.1
+                max_value: 0.1
+      - name: export_batch_id
+        data_tests: [not_null]
+  - name: mart_cmm_serial_match
+    columns:
+      - name: subgroup_id
+        data_tests: [not_null]
+      - name: export_batch_id
+        data_tests: [not_null]
+  - name: mart_s1_gauge_checkpoints
+    columns:
+      - name: checkpoint_key
+        data_tests: [unique, not_null]
+      - name: as_found_error
+        data_tests: [not_null]
+      - name: export_batch_id
+        data_tests: [not_null]
+  - name: mart_capability_reported
+    columns:
+      - name: report_id
+        data_tests: [unique, not_null]
+      - name: reported_category
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['capable', 'marginal', 'not capable']
+      - name: export_batch_id
+        data_tests: [not_null]
+  - name: mart_capability_restated
+    columns:
+      - name: characteristic_id
+        data_tests:
+          - unique
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_qms__characteristics')
+                field: characteristic_id
+      - name: cpk
+        data_tests:
+          - not_null
+          - in_range:
+              arguments:
+                min_value: 0
+                max_value: 10
+      - name: export_batch_id
+        data_tests: [not_null]
+  - name: mart_lot_outcomes
+    columns:
+      - name: job_id
+        data_tests: [unique, not_null]
+      - name: export_batch_id
+        data_tests: [not_null]
+  - name: mart_receiving_lots
+    columns:
+      - name: receiving_id
+        data_tests: [unique, not_null]
+      - name: export_batch_id
+        data_tests: [not_null]
+  - name: mart_supplier_history
+    columns:
+      - name: supplier_id
+        data_tests: [unique, not_null]
+      - name: lots
+        data_tests:
+          - in_range:
+              arguments:
+                min_value: 1
+      - name: export_batch_id
+        data_tests: [not_null]
+  - name: mart_cost_of_quality_lines
+    columns:
+      - name: line_id
+        data_tests: [unique, not_null]
+      - name: export_batch_id
+        data_tests: [not_null]
+  - name: mart_ncrs
+    columns:
+      - name: ncr_id
+        data_tests: [unique, not_null]
+      - name: mart_export_batch_id
+        data_tests: [not_null]
+  - name: mart_cmm_mapping_summary
+    columns:
+      - name: map_method
+        data_tests: [unique, not_null]
+      - name: export_batch_id
+        data_tests: [not_null]
