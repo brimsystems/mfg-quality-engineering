@@ -111,3 +111,15 @@ models:
         data_tests: [unique, not_null]
       - name: export_batch_id
         data_tests: [not_null]
+  - name: mart_capa
+    columns:
+      - name: capa_id
+        data_tests: [unique, not_null]
+      - name: mart_export_batch_id
+        data_tests: [not_null]
+  - name: mart_complaints
+    columns:
+      - name: complaint_id
+        data_tests: [unique, not_null]
+      - name: mart_export_batch_id
+        data_tests: [not_null]
