@@ -217,3 +217,22 @@ def two_proportions(x1, n1, x2, n2, level=0.95):
 def oc_binomial(p, n, ac):
     """Probability of acceptance of a single sampling plan at lot fraction nonconforming p."""
     return st.binom.cdf(ac, n, p)
+
+
+def quasi_binomial(formula, data, successes, trials):
+    """Binomial logit with the trials as exposure and the dispersion from the Pearson statistic; returns the fit and the dispersion."""
+    import statsmodels.api as sm
+    import statsmodels.formula.api as smf
+    d = data.assign(_failures=data[trials] - data[successes])
+    fit = smf.glm(f"{successes} + _failures ~ {formula}", d, family=sm.families.Binomial()).fit()
+    mu = fit.fittedvalues.to_numpy()
+    phi = float((((d[successes] - d[trials] * mu) ** 2) / (d[trials] * mu * (1 - mu))).sum() / fit.df_resid)
+    return fit, max(phi, 1.0)
+
+
+def quasi_term(fit, phi, term, level=0.95):
+    """Coefficient, standard error scaled by the dispersion, p-value and odds ratio with its interval."""
+    se = float(fit.bse[term] * np.sqrt(phi))
+    b = float(fit.params[term])
+    t = st.t.ppf(0.5 + level / 2, fit.df_resid)
+    return dict(coefficient=b, se=se, p=float(2 * st.t.sf(abs(b / se), fit.df_resid)), odds_ratio=float(np.exp(b)), or_lower=float(np.exp(b - t * se)), or_upper=float(np.exp(b + t * se)))
