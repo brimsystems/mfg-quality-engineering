@@ -123,3 +123,19 @@ models:
         data_tests: [unique, not_null]
       - name: mart_export_batch_id
         data_tests: [not_null]
+  - name: mart_labor_rates
+    columns:
+      - name: loaded_rate
+        data_tests: [not_null]
+  - name: mart_cmm_reports_monthly
+    columns:
+      - name: reports
+        data_tests: [not_null]
+      - name: export_batch_id
+        data_tests: [not_null]
+  - name: mart_calibration_events
+    columns:
+      - name: calibration_id
+        data_tests: [unique, not_null]
+      - name: mart_export_batch_id
+        data_tests: [not_null]
