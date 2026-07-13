@@ -135,7 +135,7 @@ def anderson_darling(x, cdf):
     return float(-n - np.sum((2 * i - 1) * (np.log(f) + np.log(1 - f[::-1]))) / n)
 
 
-def fit_bounded(x, floor=None):
+def fit_bounded(x, floor=None, usl=None):
     """Folded normal, lognormal and Weibull fitted to readings bounded at zero; returns the fits with their Anderson-Darling statistics."""
     x = np.asarray(x, dtype=float)
     xp = np.maximum(x, floor if floor else max(x[x > 0].min() / 2, 1e-9))
@@ -149,17 +149,17 @@ def fit_bounded(x, floor=None):
     rows = []
     for name, d in fits.items():
         rows.append(dict(distribution=name, ad=anderson_darling(xp if name != "folded normal" else x, d.cdf), p0135=float(d.ppf(0.00135)), median=float(d.ppf(0.5)),
-                         p99865=float(d.ppf(0.99865))))
+                         p99865=float(d.ppf(0.99865)), ppm_above=float(1e6 * d.sf(usl)) if usl is not None and np.isfinite(usl) else np.nan))
     return pd.DataFrame(rows).sort_values("ad").reset_index(drop=True)
 
 
 def percentile_capability(x, usl, lsl=np.nan, floor=None):
     """Percentile method on the best-fitting distribution: Ppk from the 0.135, 50 and 99.865 percentiles."""
-    fits = fit_bounded(x, floor)
+    fits = fit_bounded(x, floor, usl)
     b = fits.iloc[0]
     ppu = (usl - b["median"]) / (b["p99865"] - b["median"]) if np.isfinite(usl) else np.nan
     ppl = (b["median"] - lsl) / (b["median"] - b["p0135"]) if np.isfinite(lsl) else np.nan
-    return dict(distribution=b["distribution"], ppk=float(np.nanmin([ppu, ppl])), median=float(b["median"]), p99865=float(b["p99865"]), fits=fits)
+    return dict(distribution=b["distribution"], ppk=float(np.nanmin([ppu, ppl])), median=float(b["median"]), p99865=float(b["p99865"]), ppm_above=float(b["ppm_above"]), fits=fits)
 
 
 def western_electric(means, centre, sigma):
