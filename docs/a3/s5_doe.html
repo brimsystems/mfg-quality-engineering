@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Surface finish: designed experiment</title><style>
+:root { --brand: #3D5166; --accent: #6B8FA8; --text: #222222; --muted: #555555; --rule: #DDDDDD; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #F4F5F7; color: var(--text); font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+        font-size: 15px; line-height: 1.55; }
+.page { max-width: 980px; margin: 0 auto; background: white; padding: 40px 56px 64px; }
+header.doc { border-bottom: 3px solid var(--brand); padding-bottom: 14px; margin-bottom: 28px; }
+header.doc .kicker { color: var(--accent); font-size: 12px; letter-spacing: 1.2px; text-transform: uppercase; font-weight: 600; }
+header.doc h1 { margin: 4px 0 6px; font-size: 28px; color: var(--brand); }
+header.doc .meta { color: var(--muted); font-size: 13px; }
+h2 { color: var(--brand); font-size: 21px; margin: 36px 0 8px; border-bottom: 1px solid var(--rule); padding-bottom: 4px; }
+h3 { color: var(--brand); font-size: 16px; margin: 22px 0 6px; }
+p { margin: 8px 0 12px; }
+img { max-width: 100%; display: block; margin: 10px 0 4px; }
+.caption { color: var(--muted); font-size: 12.5px; margin-bottom: 18px; }
+table.data { border-collapse: collapse; width: 100%; font-size: 13px; margin: 10px 0 16px; }
+table.data th { background: var(--brand); color: white; text-align: left; padding: 6px 8px; font-weight: 600; }
+table.data td { border-bottom: 1px solid #EEE; padding: 5px 8px; }
+table.data td.num { text-align: right; font-variant-numeric: tabular-nums; }
+table.data tr.total td { font-weight: 600; border-top: 1px solid var(--rule); }
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin: 16px 0 22px; }
+.kpi { border: 1px solid var(--rule); border-top: 3px solid var(--accent); padding: 10px 12px; }
+.kpi .v { font-size: 24px; font-weight: 700; color: var(--brand); }
+.kpi .l { font-size: 12px; color: var(--muted); }
+.note { background: #F7F9FB; border-left: 3px solid var(--accent); padding: 10px 14px; margin: 14px 0; font-size: 14px; }
+.glossary { color: var(--muted); font-size: 12.5px; margin-top: 28px; border-top: 1px solid var(--rule); padding-top: 10px; }
+nav.toc { font-size: 13.5px; margin: 0 0 24px; }
+nav.toc a { color: var(--accent); text-decoration: none; margin-right: 14px; }
+@media (max-width: 700px) { .page { padding: 20px 16px 40px; } }
+@media print { body { background: white; } .page { padding: 0; max-width: none; } }
+
+.a3 { max-width: 1500px; padding: 26px 32px 30px; }
+.a3 header.doc { margin-bottom: 14px; padding-bottom: 8px; }
+.a3 header.doc h1 { font-size: 22px; margin: 2px 0 4px; }
+.a3 .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 22px; }
+.a3 .grid > div { display: grid; gap: 12px; align-content: start; }
+.a3 section { border: 1px solid var(--rule); border-top: 3px solid var(--brand); padding: 8px 12px 10px; font-size: 12.5px; line-height: 1.4; }
+.a3 section h2 { font-size: 14px; margin: 0 0 4px; border: 0; padding: 0; text-transform: uppercase; letter-spacing: 0.6px; }
+.a3 section p { margin: 4px 0 6px; }
+.a3 section ul { margin: 4px 0 4px 16px; padding: 0; }
+.a3 section li { margin-bottom: 3px; }
+.a3 img { margin: 4px 0 2px; max-height: 360px; }
+.a3 .caption { font-size: 11px; margin-bottom: 4px; }
+.a3 table.data { font-size: 11.5px; margin: 4px 0 4px; }
+.a3 table.data th, .a3 table.data td { padding: 3px 6px; }
+@page { size: A3 landscape; margin: 9mm; }
+@media print { .a3 { max-width: none; padding: 0; } .a3 .grid { gap: 8px 14px; } .a3 section { break-inside: avoid; } }
+@media (max-width: 900px) { .a3 .grid { grid-template-columns: 1fr; } }
+</style></head>
+<body><div class="page a3">
+<header class="doc"><div class="kicker">S5 A3</div><h1>Surface finish: designed experiment</h1><div class="meta">Precision machining shop, about 150 employees, IATF 16949 and AS9100, one plant. January 2024 to December 2025; Ra in micrometres.<br>PPAP element 11 supporting data; DMAIC project.</div></header>
+<div class="grid"><div><section><h2>Background and problem</h2><p>Ra on C-16180-28 (part P-16180-A, 316 stainless) ran at 1.41 µm on 44 lots against an upper limit of 1.6 µm: index 0.96, 2,006 ppm expected above the limit.</p></section>
+<section><h2>Current condition</h2><img alt="Lot mean Ra by start date against the prediction interval at the chosen settings and the upper limit" src="../figures/s5_a3_lot_means.png"><div class='caption'>Lot mean Ra by start date with the upper limit and the prediction interval at the chosen settings.</div></section>
+<section><h2>Target</h2><p>Ra at or below 0.76 µm with the index against the 1.6 µm limit at or above 1.33, held through 2026.</p></section>
+<section><h2>Analysis</h2><img alt="Main effects of the four factors and the feed by nose radius interaction on Ra" src="../figures/s5_a3_effects.png"><div class='caption'>Main effects and the feed by nose radius interaction, 16 runs.</div><ul><li>Feed by nose radius: effect -0.405 µm, p &lt; 0.001.</li><li>Feed effect +0.59 µm at the 0.4 mm radius and -0.22 µm at 0.8 mm.</li><li>Prediction at the chosen settings 0.76 µm, interval 0.61 to 0.91.</li><li>The alias with speed by coolant is resolved by production at the old settings: 1.41 µm against 1.40 and 0.99.</li></ul></section></div><div><section><h2>Countermeasures</h2><table class="data"><thead><tr><th>Action</th><th>Owner</th><th>When</th></tr></thead><tbody><tr><td class="">Feed 0.20 mm/rev and 0.8 mm nose radius written into the routing and the setup sheet</td><td class="num">Manufacturing engineer</td><td class="num">in production from 12 August 2025; documents March 2026</td></tr><tr><td class="">Lot mean Ra against the prediction interval as the control limit on the SPC chart</td><td class="num">Quality engineer</td><td class="num">March 2026</td></tr></tbody></table></section>
+<section><h2>Results</h2><p>Ra 0.700 µm on 11 lots since 12 August 2025, every lot inside the prediction interval; 4 of 4 confirmation runs inside it; index 5.65 against the limit, from 0.96.</p><table class="data"><thead><tr><th></th><th>Lots</th><th>Mean Ra</th><th>Index</th><th>Expected ppm above the limit</th></tr></thead><tbody><tr><td class="">Before the change</td><td class="num">44</td><td class="num">1.415</td><td class="num">0.96</td><td class="num">2,006</td></tr><tr><td class="">After the change</td><td class="num">11</td><td class="num">0.701</td><td class="num">5.65</td><td class="num">0</td></tr></tbody></table></section>
+<section><h2>Follow-up</h2><p>Lot mean Ra against the interval on every lot. A further experiment on the two aliased pairs if a customer asks for the speed and coolant effects.</p></section></div></div>
+</div></body></html>
