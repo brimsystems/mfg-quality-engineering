@@ -73,12 +73,13 @@ def compute():
     # rework left on the production job: hours over standard on lots with a rework NCR that has no booked hours
     lot = lots.set_index("job_id")
     rw_all = ncr[(ncr["disposition"] == "rework") & ncr["job_id"].notna() & ncr["year"].isin(YEARS)]
-    unb = rw_all[rw_all["rework_hours_booked"].isna()].drop_duplicates("job_id").copy()
+    unb_ncrs = rw_all[rw_all["rework_hours_booked"].isna()]
+    unb = unb_ncrs.drop_duplicates("job_id").copy()
     unb["hours_over_standard"] = (unb["job_id"].map(lot["actual_hours"]) - unb["job_id"].map(lot["standard_hours"])).clip(lower=0)
     unb["amount"] = [h * rates[("machinist", int(y))] for h, y in zip(unb["hours_over_standard"], unb["year"])]
     out["rework"] = pd.DataFrame([dict(year=y, rework_ncrs=int((rw_all["year"] == y).sum()), booked_ncrs=int(((rw_all["year"] == y) & rw_all["rework_hours_booked"].notna()).sum()),
                                        booked_hours=float(rw_all[rw_all["year"] == y]["rework_hours_booked"].sum()), booked_amount=float(rw_all[rw_all["year"] == y]["rework_hours_booked"].sum() * rates[("machinist", y)]),
-                                       unbooked_ncrs=int((unb["year"] == y).sum()), estimated_hours=float(unb[unb["year"] == y]["hours_over_standard"].sum()),
+                                       unbooked_ncrs=int((unb_ncrs["year"] == y).sum()), unbooked_lots=int((unb["year"] == y).sum()), estimated_hours=float(unb[unb["year"] == y]["hours_over_standard"].sum()),
                                        estimated_amount=float(unb[unb["year"] == y]["amount"].sum())) for y in YEARS])
     # totals, shares, revenue
     lots["ship_year"] = pd.to_datetime(lots["ship_date"]).dt.year
