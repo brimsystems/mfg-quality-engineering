@@ -120,6 +120,20 @@ def c0_pass_chance(n, x, n0, a, b):
     return np.where(n >= n0, st.hypergeom.pmf(0, n, x, np.minimum(n0, n)), np.exp(special.betaln(a + x, b + n - x + n0) - special.betaln(a + x, b + n - x)))
 
 
+def scorecard():
+    """The supplier scorecard restated: rates with Jeffreys intervals, the published rank beside the rank by defect rate."""
+    s = query("select * from marts.mart_supplier_history order by supplier_id")
+    for col, x, n_ in (("acceptance", "lots_accepted", "lots"), ("defect", "defects_found", "pieces_sampled"), ("on_time", "lots_on_time", "lots")):
+        ci = [stats.jeffreys(int(a_), int(b_)) for a_, b_ in zip(s[x], s[n_])]
+        s[f"{col}_rate"], s[f"{col}_lower"], s[f"{col}_upper"] = s[x] / s[n_], [v[0] for v in ci], [v[1] for v in ci]
+    s["interval_above_1pct"] = s["defect_lower"] > 0.01
+    s["interval_below_1pct"] = s["defect_upper"] < 0.01
+    s["small_history"] = s["lots"] < 5
+    ranked = s[~s["small_history"]].sort_values(["defect_rate", "supplier_id"])
+    s["restated_rank"] = s["supplier_id"].map(dict(zip(ranked["supplier_id"], range(1, len(ranked) + 1))))
+    return s.sort_values("scorecard_rank_as_published").reset_index(drop=True)
+
+
 def compute():
     r = query(f"select * from marts.mart_receiving_lots where supplier_id = '{SUPPLIER}' order by received_at, receiving_id")
     out = dict(lots=len(r), first=r["received_at"].min(), last=r["received_at"].max())
@@ -183,16 +197,7 @@ def compute():
                             first_switch=str(r.loc[sw[sw["state"] == "tightened"].index.min(), "received_at"])[:10] if (sw["state"] == "tightened").any() else "",
                             plans_recorded=sorted(r["code_letter"].unique()), c0_expected_rejections=float(len(r) - p0.sum()))
     # the scorecard restated
-    s = query("select * from marts.mart_supplier_history order by supplier_id")
-    for col, x, n_ in (("acceptance", "lots_accepted", "lots"), ("defect", "defects_found", "pieces_sampled"), ("on_time", "lots_on_time", "lots")):
-        ci = [stats.jeffreys(int(a_), int(b_)) for a_, b_ in zip(s[x], s[n_])]
-        s[f"{col}_rate"], s[f"{col}_lower"], s[f"{col}_upper"] = s[x] / s[n_], [v[0] for v in ci], [v[1] for v in ci]
-    s["interval_above_1pct"] = s["defect_lower"] > 0.01
-    s["interval_below_1pct"] = s["defect_upper"] < 0.01
-    s["small_history"] = s["lots"] < 5
-    ranked = s[~s["small_history"]].sort_values(["defect_rate", "supplier_id"])
-    s["restated_rank"] = s["supplier_id"].map(dict(zip(ranked["supplier_id"], range(1, len(ranked) + 1))))
-    out["scorecard"] = s.sort_values("scorecard_rank_as_published").reset_index(drop=True)
+    s = out["scorecard"] = scorecard()
     # shortcuts and dispositions by inspector, all receiving lots
     out["inspectors"] = query("""select inspector, count(*) as lots, sum(case when sample_below_table then 1 else 0 end) as sample_below_table,
                                         sum(case when above_acceptance_number then 1 else 0 end) as above_acceptance_number,
