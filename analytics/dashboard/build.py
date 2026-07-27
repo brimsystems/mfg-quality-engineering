@@ -27,7 +27,7 @@ V = list(M.index[-VIEW_MONTHS:])
 W = query("select * from marts.mart_dashboard_alarms_weekly order by week_start")
 W["week_start"] = pd.to_datetime(W["week_start"])
 W = W.set_index("week_start")
-CW = W.index[W["weekdays_in_export"] == 5].max()               # the current week: the last five-day week
+CW = W.index[W["working_days"] == 5].max()                     # the current week: the last week with five working days
 PARTIAL = [t for t in W.index if t > CW]
 VW = list(W.index[W.index <= CW][-VIEW_WEEKS:])
 batch = M["export_batch_id"].iloc[0]
@@ -303,7 +303,8 @@ def panel_cost():
 def panel_calibration():
     k = query("select * from marts.mart_dashboard_calibration_month_end order by period, gauge_type")
     c = k[k["period"] == CM]
-    t = k.groupby("period")[["gauges_active", "gauges_overdue", "gauges_due_in_month", "gauges_due_in_month_done", "gauges_out_of_service", "gauges_lost"]].sum()
+    t = k.groupby("period")[["gauges_active", "gauges_overdue", "gauges_due_in_month", "gauges_due_in_month_done", "gauges_due_next_month", "gauges_out_of_service", "gauges_lost"]].sum()
+    nxt = (pd.Timestamp(CM + "-01") + pd.offsets.MonthBegin(1)).strftime("%B %Y")
     assigned = int(query("select count(distinct c.gauge_id) as n from staging.stg_qms__characteristics c join staging.stg_calibration__gauges g on g.gauge_id = c.gauge_id where g.status = 'lost'")["n"].iloc[0])
     d = c[(c["gauges_overdue"] + c["gauges_out_of_service"] + c["gauges_lost"]) > 0].sort_values(["gauges_active", "gauge_type"], ascending=[False, True])
     f, ax = S.fig(h=3.3, w=9.6, ncols=2)
@@ -327,12 +328,12 @@ def panel_calibration():
     a = S.save(f, "dashboard_calibration", "Gauges overdue, out of service and lost by gauge type, and the overdue share at each month end")
     tc = t.loc[CM]
     return ("<h2 id='p6'>6. Gauge calibration status</h2>" +
-            tiles([(f"{int(tc.gauges_due_in_month_done)} of {int(tc.gauges_due_in_month)}", f"Calibrations due in {mname(CM, False)} and done by month end"),
+            tiles([(f"{int(tc.gauges_due_next_month)}", f"Gauges due in {nxt}<br>{mname(CM, False)}: {int(tc.gauges_due_in_month_done)} of {int(tc.gauges_due_in_month)} due and done by month end"),
                    (f"{int(tc.gauges_overdue)}", f"Gauges overdue at the end of {mname(CM, False)}, of {int(tc.gauges_active)} active"),
                    (f"{int(tc.gauges_out_of_service)}", "Out of service"), (f"{int(tc.gauges_lost)}; {assigned}", "Lost; still assigned in the characteristics master")]) +
             a + cap(f"Gauges overdue, out of service and lost by gauge type at the end of {mname(CM)}, and the share of active gauges overdue at each month end from {mname(M.index[0])}.") +
-            definition("A gauge is overdue at a month end when a calibration due before it was not done by it; gauges out of service or lost at the month end are left out of the active count. Due in the month: a calibration "
-                       "with its due date in the month."))
+            definition("A gauge is overdue at a month end when a calibration due before it was not done by it; gauges out of service or lost at the month end are left out of the active count. Due in a month: a calibration "
+                       "with its due date in the month, not done by the end of the month before."))
 
 
 # ── 7 SPC alarms ────────────────────────────────────────────────────────────
@@ -356,7 +357,7 @@ def panel_alarms():
     ax[1].tick_params(axis="x", labelsize=8)
     f.tight_layout()
     a = S.save(f, "dashboard_alarms", "SPC alarms raised, acknowledged and flagged by rules 1 to 4 by week")
-    note = "" if not PARTIAL else f" The week of {wk(PARTIAL[0])} has {int(W.loc[PARTIAL[0], 'weekdays_in_export'])} days in the export and is drawn lighter."
+    note = "" if not PARTIAL else f" The week of {wk(PARTIAL[0])} has {int(W.loc[PARTIAL[0], 'working_days'])} working days and is drawn lighter."
     rows = [[f"{t:%b} {t.day}, {t.year}", f"{int(W.loc[t, 'subgroups']):,}", int(W.loc[t, "alarms_raised"]), int(W.loc[t, "alarms_acknowledged"]), int(W.loc[t, "rules_1_to_4"])] for t in VW]
     return ("<h2 id='p7'>7. SPC alarms</h2>" +
             tiles([(f"{int(c.alarms_raised)}", f"Alarms raised, week of {wk(CW)}, on {int(c.subgroups):,} subgroups"), (f"{int(c.alarms_acknowledged)}", "Of those, acknowledged"),
@@ -365,7 +366,7 @@ def panel_alarms():
             a + cap(f"Alarms the module raised, those acknowledged and the subgroups flagged by rules 1 to 4, by week from the week of {wk(VW[0])}, and the four-week mean from the week of {wk(W.index[3])}.{note}") +
             tbl(["Week of", "Subgroups recorded", "Alarms raised", "Acknowledged", "Flagged by rules 1 to 4"], rows) + cap(f"Subgroups recorded and alarms by week, {VIEW_WEEKS} weeks.") +
             definition("Alarms raised are the subgroups the SPC module flagged on Western Electric rules 1 and 2; acknowledged are those the machinist acknowledged. Rules 1 to 4 are applied to the same subgroups with the "
-                       "centre and limits from the subgroups of each characteristic in the year. Weeks start on Monday; the current week is the last week with five days in the export."))
+                       "centre and limits from the subgroups of each characteristic in the year. Weeks start on Monday; the current week is the last week with five working days."))
 
 
 # ── 8 F-14 scrap ────────────────────────────────────────────────────────────
