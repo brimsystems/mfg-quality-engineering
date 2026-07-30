@@ -178,7 +178,7 @@ def readme(findings):
               "## Customer package mapping", "", "| Study | PPAP or AS9102 element | Deliverable |", "|---|---|---|"]
     for s, stem, title, _, _, a3 in STUDIES:
         lines.append(f"| {s}. {title} | {element(stem)} | " + ", ".join(f"[{t}]({u})" for u, t in links(stem, a3)) + " |")
-    lines += ["", "## Data sources", "", f"Export batch {batch_id()}.", "", "| System | Export | Grain | Records |", "|---|---|---|---|"]
+    lines += ["", "## Data sources", "", f"Export batch {batch_id()}, as at 31 December 2025.", "", "| System | Export | Grain | Records |", "|---|---|---|---|"]
     lines += ["| " + " | ".join(r) + " |" for r in sources()]
     lines += ["", "## Pipeline", "", PIPELINE, "", "## How to run", "", "Python 3.12 or later, from a clean clone:", "", RUN, ""]
     (ROOT / "README.md").write_text("\n".join(lines), encoding="utf8", newline="\n")
