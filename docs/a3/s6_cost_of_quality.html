@@ -10,6 +10,7 @@ header.doc { border-bottom: 3px solid var(--brand); padding-bottom: 14px; margin
 header.doc .kicker { color: var(--accent); font-size: 12px; letter-spacing: 1.2px; text-transform: uppercase; font-weight: 600; }
 header.doc h1 { margin: 4px 0 6px; font-size: 28px; color: var(--brand); }
 header.doc .meta { color: var(--muted); font-size: 13px; }
+header.doc .credit { color: var(--muted); font-size: 11px; margin-top: 4px; }
 h2 { color: var(--brand); font-size: 21px; margin: 36px 0 8px; border-bottom: 1px solid var(--rule); padding-bottom: 4px; }
 h3 { color: var(--brand); font-size: 16px; margin: 22px 0 6px; }
 p { margin: 8px 0 12px; }
@@ -34,6 +35,8 @@ nav.toc a { color: var(--accent); text-decoration: none; margin-right: 14px; }
 .a3 { max-width: 1500px; padding: 26px 32px 30px; }
 .a3 header.doc { margin-bottom: 14px; padding-bottom: 8px; }
 .a3 header.doc h1 { font-size: 22px; margin: 2px 0 4px; }
+.a3 header.doc { position: relative; }
+.a3 header.doc .credit { position: absolute; right: 0; bottom: 8px; margin: 0; }
 .a3 .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 22px; }
 .a3 .grid > div { display: grid; gap: 12px; align-content: start; }
 .a3 section { border: 1px solid var(--rule); border-top: 3px solid var(--brand); padding: 8px 12px 10px; font-size: 12.5px; line-height: 1.4; }
@@ -50,7 +53,7 @@ nav.toc a { color: var(--accent); text-decoration: none; margin-right: 14px; }
 @media (max-width: 900px) { .a3 .grid { grid-template-columns: 1fr; } }
 </style></head>
 <body><div class="page a3">
-<header class="doc"><div class="kicker">S6 A3</div><h1>Cost of quality</h1><div class="meta">Precision machining shop, about 150 employees, IATF 16949 and AS9100, one plant. January 2024 to December 2025; US dollars.<br>Management summary; DMAIC project.</div></header>
+<header class="doc"><div class="kicker">S6 A3</div><h1>Cost of quality</h1><div class="meta">Precision machining shop, about 150 employees, IATF 16949 and AS9100, one plant. January 2024 to December 2025; US dollars.<br>Management summary; DMAIC project.</div><div class="credit">Created by Brian Davis, 2026</div></header>
 <div class="grid"><div><section><h2>Background and problem</h2><p>Cost of quality in 2025 is $2,794,501 as booked, 7.1% of revenue (7.6% with rework left on production jobs estimated). The monthly scrap report shows $558,887; failure cost as booked is 3.22 times that.</p></section>
 <section><h2>Current condition</h2><img alt="Failure cost by line in 2025 and 2024, with scrap as the scrap report shows it and the rework estimate" src="../figures/s6_a3_failure_lines.png"><div class='caption'>Failure cost by line; the 2025 scrap bar is the scrap report, the hatched bars the estimate.</div><table class="data"><thead><tr><th></th><th>2025</th><th>2024</th></tr></thead><tbody><tr><td class="">Total as booked; over revenue</td><td class="num">$2,794,501; 7.1%</td><td class="num">$2,724,350; 6.6%</td></tr><tr><td class="">Total with the estimate; over revenue</td><td class="num">$2,979,742; 7.6%</td><td class="num">$2,927,872; 7.1%</td></tr><tr><td class="">Failure over the scrap report: as booked; with the estimate</td><td class="num">3.22; 3.55</td><td class="num">3.26; 3.64</td></tr><tr><td class="">Failure : appraisal : prevention, as booked</td><td class="num">10.5 : 4.8 : 1</td><td class="num">10.5 : 4.7 : 1</td></tr></tbody></table></section>
 <section><h2>Target</h2><p>Failure cost reported on a booked basis with no estimate line required, reviewed monthly.</p></section></div><div><section><h2>Analysis</h2><table class="data"><thead><tr><th>2025</th><th>Booked</th><th>Traced to a source table</th></tr></thead><tbody><tr><td class="">Failure</td><td class="num">$1,800,447</td><td class="num">$1,800,447</td></tr><tr><td class="">Appraisal</td><td class="num">$823,154</td><td class="num">$74,855</td></tr><tr><td class="">Prevention</td><td class="num">$170,900</td><td class="num">$0</td></tr><tr><td class="">Rework left on production jobs, estimate</td><td class="num"></td><td class="num">$185,242 on 33 NCRs</td></tr></tbody></table><ul><li>Every failure line traces to its scrap transaction, NCR or complaint with no difference; inspection labor, technician calibration time and the prevention lines are booked from timesheets and invoices that are not in the exports.</li><li>33 of 98 rework NCRs in 2025 carry no hours on the rework code; their 32 lots ran 3,859 hours over standard.</li><li>The findings of S2, S3 and S4 account for $128,076 of $1,985,689 of failure cost (with the estimate), 6.4%: the length C-11909-01 $4,469, F-14 scrap $37,661, S-017 escapes $85,946.</li><li>The rest sits in customer credits outside S-017, scrap outside F-14 and sorting and containment outside the two.</li><li>Cost avoided in appraisal under the Z1.4 switching rules: 2,298 receiving hours, $96,519 over 24 months.</li></ul></section>
