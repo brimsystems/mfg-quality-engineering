@@ -13,6 +13,7 @@ dependencies = [
     "statsmodels>=0.14",
     "matplotlib>=3.8",
     "pyyaml>=6.0",
+    "playwright>=1.40",
 ]
 
 [build-system]
