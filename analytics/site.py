@@ -169,18 +169,77 @@ def coverage():
             f"worksheets as recorded.")
 
 
+INTRO = ("Measurement systems, capability, root cause, acceptance sampling, a designed experiment and cost of quality on a precision machining shop, January 2024 to December 2025, "
+         "computed on the shop's complete quality record and set beside the figures the shop reports.")
+INCLUDED = [
+    "Six connected studies, each delivered as a client report, with an A3 for each improvement project: gauge R&R, bias, linearity and attribute agreement; process capability restated on every "
+    "subgroup; root cause of scrap on one part family; acceptance sampling and the supplier scorecard; a designed experiment on surface finish; cost of quality reconciled to its source tables. "
+    "Each study is mapped to the PPAP element or AS9102 form it supports.",
+    "One quality dashboard: capability as reported beside capability as restated, PPM by program, NCRs by cause and detection point, the supplier scorecard with intervals, cost of quality by "
+    "category, gauge calibration status, SPC alarms.",
+    "A data pipeline from raw system exports to analysis-ready marts: DuckDB, dbt with schema tests, one build command that regenerates every table, figure and page byte-identically.",
+]
+CONTEXT = [
+    "The shop is a precision machining supplier: about 150 employees, IATF 16949 and AS9100, one plant, about 600 active part numbers across 40 families on Swiss, multi-axis turning, milling and "
+    "grinding, for automotive, aerospace, medical and industrial programs. Critical characteristics run on SPC in the QMS module; CMM reports, receiving inspection, NCRs, complaints and "
+    "calibration each live in their own system; accounting books quality cost on its own lines.",
+    "The shop's quality reporting rested on three documents: the monthly scrap report, the capability reports its engineers file with customer packages from the last 25 subgroups, and a quarterly "
+    "supplier scorecard ranked on lot acceptance. In 2025 those documents said that 49 of the 56 critical characteristics with a report were capable, that one machine accounted for most of the "
+    "scrap on the F-14 family, that the plating supplier S-017 was accepted at receiving on every lot while its defects reached customers as complaints, and that quality cost the shop about "
+    "$560,000 a year. The engineering staff ran the studies the customers required, on worksheets, in a statistics package; the two years of SPC subgroups, CMM reports, receiving results and NCRs "
+    "behind those worksheets were used for nothing beyond the control charts that produced them.",
+    "The engagement computed each of those figures again on the whole record and compared the two: the gauge studies against the production history on the same bore, the 25-subgroup capability "
+    "reports against every 2025 subgroup, the machine Pareto against a model that controls for bar-lot hardness and insert grade, the receiving plan against the supplier's actual lot quality, the "
+    "scrap report against every failure line in the ledger. Where the shop's figure held, the report says so; where it did not, the report gives the restated figure, the reason, and what to do. "
+    "The studies below are the result, in the order they were built.",
+]
+METHODS = [
+    "Quality engineering statistics: gauge R&R by the AIAG ANOVA method with variance components, % of tolerance and ndc; bias and linearity from calibration records; attribute agreement with "
+    "Fleiss' kappa; stability by Western Electric rules 1 to 4 before capability; Cp, Cpk, Pp and Ppk with bootstrap intervals; distribution fitting by Anderson-Darling and the percentile method "
+    "for bounded characteristics; the sampling interval a 25-subgroup study carries; ANOVA and quasi-likelihood binomial regression with controls for root cause; two-proportion score tests with a "
+    "control family; Z1.4 and zero-acceptance sampling plans on binomial and hypergeometric OC curves, AOQ and switching rules, evaluated against the supplier's actual lot-quality distribution; "
+    "Jeffreys intervals on supplier rates; a 2^(4-1) designed experiment with alias resolution, a reduced model, prediction intervals and confirmation runs; cost of quality assembled from cost "
+    "lines and reconciled line by line to the source tables.",
+    "Data engineering: raw system exports loaded to DuckDB; a dbt project with schema tests on every mart (249 nodes and tests); one build command that regenerates every table, figure and page "
+    "byte-identically from the committed inputs; two executions from a clean tree give byte-identical outputs.",
+    "Population against sample: every study computes the shop's own figure on its own sample first and then the same quantity on all records, in one table, so the difference is measured rather "
+    "than asserted.",
+    "Framing: the improvement projects are written as DMAIC projects with an A3 each. Every report describes the findings and what to do, in the form a client receives at the end of an engagement.",
+]
+RECORD = ("The record carries what these systems carry in practice: digit preference and readings pulled inside a limit on hand gauges, subgroups entered in a batch at the end of a shift, gauge "
+          "ids not updated after a gauge went out of service, CMM feature names that do not match the characteristics master, NCR cause codes as the opener entered them, receiving samples below "
+          "the table value, duplicated complaint entries, and rework hours left on the production job. The analyses work with the record as it stands and say so where it limits a finding.")
+AUTHOR = "Brian Davis. Data engineering and applied analytics/ML for manufacturers. Other work: [github.com/brimsystems](https://github.com/brimsystems?tab=repositories)."
+
+
+def current_periods():
+    """The current month and week as the dashboard header states them."""
+    meta = (DOCS / "dashboard" / "index.html").read_text(encoding="utf8")
+    month = re.search(r"(\w+ \d{4}) \(current month\)", meta).group(1)
+    name, day = re.search(r"week of (\w+) (\d+), \d{4} \(current week", meta).groups()
+    return month, f"{int(day)} {name}"
+
+
 def readme(findings):
-    lines = ["# Quality engineering studies for a precision machining shop", "", SHOP + "  ", SCOPE, "", "## Studies", "",
-             "| Study | Question | Finding | PPAP or AS9102 element | Deliverable |", "|---|---|---|---|---|"]
+    month, week = current_periods()
+    lines = ["# mfg-quality-engineering", "", INTRO, "", "![Quality dashboard](docs/readme/dashboard.png)", "", "## What is included", ""]
+    lines += [f"- {x}" for x in INCLUDED]
+    lines += ["", "## Business context", ""]
+    for x in CONTEXT:
+        lines += [x, ""]
+    lines += ["## Studies", "", "| Study | Question | Finding | PPAP or AS9102 element | Deliverable |", "|---|---|---|---|---|"]
     for (s, stem, title, question, _, a3), finding in zip(STUDIES, findings):
         lines.append(f"| {s}. {title} | {question} | {finding} | {element(stem)} | " + ", ".join(f"[{t}]({u})" for u, t in links(stem, a3)) + " |")
-    lines += ["", "Dashboard: [docs/dashboard/index.html](docs/dashboard/index.html). Index of deliverables: [docs/index.html](docs/index.html).", "", coverage(), "",
-              "## Customer package mapping", "", "| Study | PPAP or AS9102 element | Deliverable |", "|---|---|---|"]
+    lines += ["", "| Study | PPAP or AS9102 element | Deliverable |", "|---|---|---|"]
     for s, stem, title, _, _, a3 in STUDIES:
         lines.append(f"| {s}. {title} | {element(stem)} | " + ", ".join(f"[{t}]({u})" for u, t in links(stem, a3)) + " |")
-    lines += ["", "## Data sources", "", f"Export batch {batch_id()}, as at 31 December 2025.", "", "| System | Export | Grain | Records |", "|---|---|---|---|"]
+    lines += ["", "**Dashboard.** [docs/dashboard/index.html](docs/dashboard/index.html). Index of deliverables: [docs/index.html](docs/index.html). "
+              f"{month} is the current month and the week of {week} the current week; every panel carries a one-line definition in the reports' wording.", "", "## Methods", ""]
+    for x in METHODS:
+        lines += [x, ""]
+    lines += ["## Data", "", coverage(), "", RECORD, "", f"Export batch {batch_id()}, as at 31 December 2025.", "", "| System | Export | Grain | Records |", "|---|---|---|---|"]
     lines += ["| " + " | ".join(r) + " |" for r in sources()]
-    lines += ["", "## Pipeline", "", PIPELINE, "", "## How to run", "", "Python 3.12 or later, from a clean clone:", "", RUN, ""]
+    lines += ["", PIPELINE, "", "## How to run", "", "Python 3.12 or later, from a clean clone:", "", RUN, "", "## Author", "", AUTHOR, ""]
     (ROOT / "README.md").write_text("\n".join(lines), encoding="utf8", newline="\n")
 
 

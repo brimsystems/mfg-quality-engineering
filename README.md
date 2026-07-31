@@ -1,7 +1,22 @@
-# Quality engineering studies for a precision machining shop
+# mfg-quality-engineering
 
-Precision machining shop, about 150 employees, IATF 16949 and AS9100, one plant.  
-Six quality engineering studies and a quality dashboard on the shop's records from January 2024 to December 2025.
+Measurement systems, capability, root cause, acceptance sampling, a designed experiment and cost of quality on a precision machining shop, January 2024 to December 2025, computed on the shop's complete quality record and set beside the figures the shop reports.
+
+![Quality dashboard](docs/readme/dashboard.png)
+
+## What is included
+
+- Six connected studies, each delivered as a client report, with an A3 for each improvement project: gauge R&R, bias, linearity and attribute agreement; process capability restated on every subgroup; root cause of scrap on one part family; acceptance sampling and the supplier scorecard; a designed experiment on surface finish; cost of quality reconciled to its source tables. Each study is mapped to the PPAP element or AS9102 form it supports.
+- One quality dashboard: capability as reported beside capability as restated, PPM by program, NCRs by cause and detection point, the supplier scorecard with intervals, cost of quality by category, gauge calibration status, SPC alarms.
+- A data pipeline from raw system exports to analysis-ready marts: DuckDB, dbt with schema tests, one build command that regenerates every table, figure and page byte-identically.
+
+## Business context
+
+The shop is a precision machining supplier: about 150 employees, IATF 16949 and AS9100, one plant, about 600 active part numbers across 40 families on Swiss, multi-axis turning, milling and grinding, for automotive, aerospace, medical and industrial programs. Critical characteristics run on SPC in the QMS module; CMM reports, receiving inspection, NCRs, complaints and calibration each live in their own system; accounting books quality cost on its own lines.
+
+The shop's quality reporting rested on three documents: the monthly scrap report, the capability reports its engineers file with customer packages from the last 25 subgroups, and a quarterly supplier scorecard ranked on lot acceptance. In 2025 those documents said that 49 of the 56 critical characteristics with a report were capable, that one machine accounted for most of the scrap on the F-14 family, that the plating supplier S-017 was accepted at receiving on every lot while its defects reached customers as complaints, and that quality cost the shop about $560,000 a year. The engineering staff ran the studies the customers required, on worksheets, in a statistics package; the two years of SPC subgroups, CMM reports, receiving results and NCRs behind those worksheets were used for nothing beyond the control charts that produced them.
+
+The engagement computed each of those figures again on the whole record and compared the two: the gauge studies against the production history on the same bore, the 25-subgroup capability reports against every 2025 subgroup, the machine Pareto against a model that controls for bar-lot hardness and insert grade, the receiving plan against the supplier's actual lot quality, the scrap report against every failure line in the ledger. Where the shop's figure held, the report says so; where it did not, the report gives the restated figure, the reason, and what to do. The studies below are the result, in the order they were built.
 
 ## Studies
 
@@ -14,12 +29,6 @@ Six quality engineering studies and a quality dashboard on the shop's records fr
 | S5. Designed experiment on surface finish | Which settings bring the surface finish inside its limit? | Feed and insert nose radius interact (effect -0.405 µm, p < 0.001); at 0.8 mm radius the feed effect reverses (+0.59 µm at 0.4 mm, -0.22 µm at 0.8 mm); the chosen settings reduce Ra from 1.40 to 0.76 µm, confirmed on four runs inside the prediction interval (0.61 to 0.91); the next 11 production lots hold 0.70 µm. | PPAP element 11 supporting data; DMAIC project with A3 | [report](docs/reports/s5_doe.html), [A3](docs/a3/s5_doe.html) |
 | S6. Cost of quality | What does quality cost beyond the scrap report? | Cost of quality is 7.1% of 2025 revenue as booked and 7.6% with rework left on production jobs estimated; failure costs are 3.22 times the scrap report as booked; prevention is 6.1% of the booked total; the non-capable length, the F-14 scrap and the plating escapes account for 6.4% of failure cost. | Management summary; DMAIC project with A3 | [report](docs/reports/s6_cost_of_quality.html), [A3](docs/a3/s6_cost_of_quality.html) |
 
-Dashboard: [docs/dashboard/index.html](docs/dashboard/index.html). Index of deliverables: [docs/index.html](docs/index.html).
-
-Every figure in the studies is computed on all records in the period: 2,691 lots, 132,461 subgroups of five and 63,872 single-piece records (726,177 readings), 24,065 CMM reports, 5,031 receiving lots, January 2024 to December 2025; the gauge, attribute and designed-experiment studies are the shop's worksheets as recorded.
-
-## Customer package mapping
-
 | Study | PPAP or AS9102 element | Deliverable |
 |---|---|---|
 | S1. Measurement system analysis | PPAP element 7, measurement system analysis studies; AS9102 supporting data | [report](docs/reports/s1_msa.html) |
@@ -29,7 +38,23 @@ Every figure in the studies is computed on all records in the period: 2,691 lots
 | S5. Designed experiment on surface finish | PPAP element 11 supporting data; DMAIC project with A3 | [report](docs/reports/s5_doe.html), [A3](docs/a3/s5_doe.html) |
 | S6. Cost of quality | Management summary; DMAIC project with A3 | [report](docs/reports/s6_cost_of_quality.html), [A3](docs/a3/s6_cost_of_quality.html) |
 
-## Data sources
+**Dashboard.** [docs/dashboard/index.html](docs/dashboard/index.html). Index of deliverables: [docs/index.html](docs/index.html). December 2025 is the current month and the week of 15 December the current week; every panel carries a one-line definition in the reports' wording.
+
+## Methods
+
+Quality engineering statistics: gauge R&R by the AIAG ANOVA method with variance components, % of tolerance and ndc; bias and linearity from calibration records; attribute agreement with Fleiss' kappa; stability by Western Electric rules 1 to 4 before capability; Cp, Cpk, Pp and Ppk with bootstrap intervals; distribution fitting by Anderson-Darling and the percentile method for bounded characteristics; the sampling interval a 25-subgroup study carries; ANOVA and quasi-likelihood binomial regression with controls for root cause; two-proportion score tests with a control family; Z1.4 and zero-acceptance sampling plans on binomial and hypergeometric OC curves, AOQ and switching rules, evaluated against the supplier's actual lot-quality distribution; Jeffreys intervals on supplier rates; a 2^(4-1) designed experiment with alias resolution, a reduced model, prediction intervals and confirmation runs; cost of quality assembled from cost lines and reconciled line by line to the source tables.
+
+Data engineering: raw system exports loaded to DuckDB; a dbt project with schema tests on every mart (249 nodes and tests); one build command that regenerates every table, figure and page byte-identically from the committed inputs; two executions from a clean tree give byte-identical outputs.
+
+Population against sample: every study computes the shop's own figure on its own sample first and then the same quantity on all records, in one table, so the difference is measured rather than asserted.
+
+Framing: the improvement projects are written as DMAIC projects with an A3 each. Every report describes the findings and what to do, in the form a client receives at the end of an engagement.
+
+## Data
+
+Every figure in the studies is computed on all records in the period: 2,691 lots, 132,461 subgroups of five and 63,872 single-piece records (726,177 readings), 24,065 CMM reports, 5,031 receiving lots, January 2024 to December 2025; the gauge, attribute and designed-experiment studies are the shop's worksheets as recorded.
+
+The record carries what these systems carry in practice: digit preference and readings pulled inside a limit on hand gauges, subgroups entered in a batch at the end of a shift, gauge ids not updated after a gauge went out of service, CMM feature names that do not match the characteristics master, NCR cause codes as the opener entered them, receiving samples below the table value, duplicated complaint entries, and rework hours left on the production job. The analyses work with the record as it stands and say so where it limits a finding.
 
 Export batch 20260106T061500Z-QE24M, as at 31 December 2025.
 
@@ -64,8 +89,6 @@ Export batch 20260106T061500Z-QE24M, as at 31 December 2025.
 | Study worksheets | data/raw/studies/gauge_rr_air_gauge.csv | operator, part and trial | 90 |
 | Study worksheets | data/raw/studies/gauge_rr_bore_gauge.csv | operator, part and trial | 90 |
 
-## Pipeline
-
 `pipeline/load` loads the CSV exports under `data/raw` into DuckDB with dlt, one table per file. The dbt project under `pipeline/dbt` builds the staging models (one per export, typed), the intermediate models (the process history of each characteristic with lot, machine, operator, gauge, bar lot and calibration status; the CMM feature mapping and the serial match; lot outcomes; receiving outcomes with the Z1.4 table values; cost lines with their source records) and the marts, with schema tests on keys, ranges and relationships in every layer. The scripts under `analytics/` read the marts and the study worksheets under `data/raw/studies` and write each study's report, A3 and figures under `docs/`, the dashboard and this file.
 
 ## How to run
@@ -82,3 +105,7 @@ dbt build --profiles-dir .
 cd ../..
 python -m analytics.build_all
 ```
+
+## Author
+
+Brian Davis. Data engineering and applied analytics/ML for manufacturers. Other work: [github.com/brimsystems](https://github.com/brimsystems?tab=repositories).
