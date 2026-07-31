@@ -10,6 +10,7 @@ header.doc { border-bottom: 3px solid var(--brand); padding-bottom: 14px; margin
 header.doc .kicker { color: var(--accent); font-size: 12px; letter-spacing: 1.2px; text-transform: uppercase; font-weight: 600; }
 header.doc h1 { margin: 4px 0 6px; font-size: 28px; color: var(--brand); }
 header.doc .meta { color: var(--muted); font-size: 13px; }
+header.doc .credit { color: var(--muted); font-size: 11px; margin-top: 4px; }
 h2 { color: var(--brand); font-size: 21px; margin: 36px 0 8px; border-bottom: 1px solid var(--rule); padding-bottom: 4px; }
 h3 { color: var(--brand); font-size: 16px; margin: 22px 0 6px; }
 p { margin: 8px 0 12px; }
@@ -34,6 +35,8 @@ nav.toc a { color: var(--accent); text-decoration: none; margin-right: 14px; }
 .a3 { max-width: 1500px; padding: 26px 32px 30px; }
 .a3 header.doc { margin-bottom: 14px; padding-bottom: 8px; }
 .a3 header.doc h1 { font-size: 22px; margin: 2px 0 4px; }
+.a3 header.doc { position: relative; }
+.a3 header.doc .credit { position: absolute; right: 0; bottom: 8px; margin: 0; }
 .a3 .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 22px; }
 .a3 .grid > div { display: grid; gap: 12px; align-content: start; }
 .a3 section { border: 1px solid var(--rule); border-top: 3px solid var(--brand); padding: 8px 12px 10px; font-size: 12.5px; line-height: 1.4; }
@@ -50,7 +53,7 @@ nav.toc a { color: var(--accent); text-decoration: none; margin-right: 14px; }
 @media (max-width: 900px) { .a3 .grid { grid-template-columns: 1fr; } }
 </style></head>
 <body><div class="page a3">
-<header class="doc"><div class="kicker">S5 A3</div><h1>Surface finish: designed experiment</h1><div class="meta">Precision machining shop, about 150 employees, IATF 16949 and AS9100, one plant. January 2024 to December 2025; Ra in micrometres.<br>PPAP element 11 supporting data; DMAIC project.</div></header>
+<header class="doc"><div class="kicker">S5 A3</div><h1>Surface finish: designed experiment</h1><div class="meta">Precision machining shop, about 150 employees, IATF 16949 and AS9100, one plant. January 2024 to December 2025; Ra in micrometres.<br>PPAP element 11 supporting data; DMAIC project.</div><div class="credit">Created by Brian Davis, 2026</div></header>
 <div class="grid"><div><section><h2>Background and problem</h2><p>Ra on C-16180-28 (part P-16180-A, 316 stainless) ran at 1.41 µm on 44 lots against an upper limit of 1.6 µm: index 0.96, 2,006 ppm expected above the limit.</p></section>
 <section><h2>Current condition</h2><img alt="Lot mean Ra by start date against the prediction interval at the chosen settings and the upper limit" src="../figures/s5_a3_lot_means.png"><div class='caption'>Lot mean Ra by start date with the upper limit and the prediction interval at the chosen settings.</div></section>
 <section><h2>Target</h2><p>Ra at or below 0.76 µm with the index against the 1.6 µm limit at or above 1.33, held through 2026.</p></section>
