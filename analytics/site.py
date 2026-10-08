@@ -13,8 +13,14 @@ from analytics.style.style import DOCS, shell
 
 ROOT = Path(__file__).resolve().parents[1]
 RAW = ROOT / "data" / "raw"
+PAGES = "https://brimsystems.github.io/mfg-quality-engineering/"          # where the pages under docs/ are served
 SHOP = "Precision machining shop, about 150 employees, IATF 16949 and AS9100, one plant."
 SCOPE = "Six quality engineering studies and a quality dashboard on the shop's records from January 2024 to December 2025."
+
+
+def page_links(text):
+    """Links to the pages under docs/ as their served addresses, so they open the page and not its source."""
+    return re.sub(r"\]\((docs/[^)]+\.html)\)", lambda m: f"]({PAGES}{m.group(1)})", text)
 
 
 def report_text(stem, section, k=0):
@@ -240,7 +246,7 @@ def readme(findings):
     lines += ["## Data", "", coverage(), "", RECORD, "", f"Export batch {batch_id()}, as at 31 December 2025.", "", "| System | Export | Grain | Records |", "|---|---|---|---|"]
     lines += ["| " + " | ".join(r) + " |" for r in sources()]
     lines += ["", PIPELINE, "", "## How to run", "", "Python 3.12 or later, from a clean clone:", "", RUN, "", "## Author", "", AUTHOR, ""]
-    (ROOT / "README.md").write_text("\n".join(lines), encoding="utf8", newline="\n")
+    (ROOT / "README.md").write_text(page_links("\n".join(lines)), encoding="utf8", newline="\n")
 
 
 def index(findings):
