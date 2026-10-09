@@ -309,7 +309,7 @@ def build():
 
     toc = [("f1", "Restatement"), ("f2", "Sampling interval"), ("f3", "Medical bore"), ("f4", "Turned diameter"), ("f5", "Runout"), ("f6", "Milled length"), ("f7", "Swiss diameter"),
            ("f8", "F-21 bores"), ("f9", "Stability"), ("f10", "Pile-up"), ("rec", "Recommendation"), ("method", "Method"), ("app", "Appendix")]
-    html = S.shell("S2. Process capability", "Study report", HEADER, body, toc)
+    html = S.report_shell("S2. Process capability", "Study report", HEADER, body, toc)
     out = S.DOCS / "reports"
     out.mkdir(parents=True, exist_ok=True)
     (out / "s2_capability.html").write_text(html, encoding="utf8", newline="\n")

@@ -238,7 +238,7 @@ def build():
     toc = [("f1", "Shop's view"), ("f2", "By machine"), ("f3", "ANOVA"), ("f4", "Regression"), ("f5", "Mechanism"), ("f6", "MT-04"), ("f7", "Change"), ("f8", "Cost"), ("rec", "Recommendation"),
            ("method", "Method"), ("app", "Appendix")]
     (S.DOCS / "reports").mkdir(parents=True, exist_ok=True)
-    (S.DOCS / "reports" / "s3_root_cause.html").write_text(S.shell("S3. Root cause of scrap on family F-14", "Study report", HEADER, body, toc), encoding="utf8", newline="\n")
+    (S.DOCS / "reports" / "s3_root_cause.html").write_text(S.report_shell("S3. Root cause of scrap on family F-14", "Study report", HEADER, body, toc), encoding="utf8", newline="\n")
 
     # the A3
     left = [f"<section><h2>Background and problem</h2><p>MT-04 carried {100 * mt['scrap_pieces_share']:.0f}% of the scrap on family {FAMILY} and is named on the scrap report as the cause. "

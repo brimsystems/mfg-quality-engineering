@@ -232,7 +232,7 @@ def build():
     toc = [("f1", "As operated"), ("f2", "Two plans"), ("f3", "Lot quality"), ("f4", "On the history"), ("f5", "Escapes"), ("f6", "Scorecard"), ("rec", "Recommendation"), ("method", "Method"), ("app", "Appendix")]
     (S.DOCS / "reports").mkdir(parents=True, exist_ok=True)
     out = S.DOCS / "reports" / "s4_sampling.html"
-    out.write_text(S.shell("S4. Acceptance sampling and supplier quality", "Study report", HEADER, body, toc), encoding="utf8", newline="\n")
+    out.write_text(S.report_shell("S4. Acceptance sampling and supplier quality", "Study report", HEADER, body, toc), encoding="utf8", newline="\n")
     return out
 
 

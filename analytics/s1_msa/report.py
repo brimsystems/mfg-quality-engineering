@@ -300,7 +300,7 @@ def build():
 
     toc = [("f1", "Bore gauge"), ("f2", "Air gauge"), ("f3", "Operators"), ("f4", "Measurement share"), ("f5", "Bias and linearity"), ("f6", "Bias to the CMM"), ("f7", "Attribute agreement"),
            ("rec", "Recommendation"), ("method", "Method"), ("app", "Appendix")]
-    html = S.shell("S1. Measurement system analysis", "Study report", HEADER, body, toc)
+    html = S.report_shell("S1. Measurement system analysis", "Study report", HEADER, body, toc)
     out = S.DOCS / "reports"
     out.mkdir(parents=True, exist_ok=True)
     (out / "s1_msa.html").write_text(html, encoding="utf8", newline="\n")

@@ -239,7 +239,7 @@ def build():
 
     toc = [("f1", "Totals"), ("f2", "Reconciliation"), ("f3", "Rework"), ("f4", "Scrap report"), ("f5", "Monthly trend"), ("f6", "Attributable"), ("f7", "Prevention"), ("rec", "Recommendation"), ("method", "Method"), ("app", "Appendix")]
     (S.DOCS / "reports").mkdir(parents=True, exist_ok=True)
-    (S.DOCS / "reports" / "s6_cost_of_quality.html").write_text(S.shell("S6. Cost of quality, January 2024 to December 2025", "Study report", HEADER, body, toc), encoding="utf8", newline="\n")
+    (S.DOCS / "reports" / "s6_cost_of_quality.html").write_text(S.report_shell("S6. Cost of quality, January 2024 to December 2025", "Study report", HEADER, body, toc), encoding="utf8", newline="\n")
 
     left = [f"<section><h2>Background and problem</h2><p>Cost of quality in 2025 is {usd(a.total_booked)} as booked, {100 * a.booked_over_revenue:.1f}% of revenue ({100 * a.over_revenue:.1f}% with rework left on production jobs estimated). "
             f"The monthly scrap report shows {usd(a.scrap_report)}; failure cost as booked is {a.failure_booked_over_scrap:.2f} times that.</p></section>",

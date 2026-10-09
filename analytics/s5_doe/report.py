@@ -245,7 +245,7 @@ def build():
 
     toc = [("f1", "Design"), ("f2", "Effects"), ("f3", "Reduced model"), ("f4", "Residuals"), ("f5", "Prediction"), ("f6", "Alias check"), ("f7", "Production"), ("rec", "Recommendation"), ("method", "Method"), ("app", "Appendix")]
     (S.DOCS / "reports").mkdir(parents=True, exist_ok=True)
-    (S.DOCS / "reports" / "s5_doe.html").write_text(S.shell("S5. Designed experiment on surface finish", "Study report", HEADER, body, toc), encoding="utf8", newline="\n")
+    (S.DOCS / "reports" / "s5_doe.html").write_text(S.report_shell("S5. Designed experiment on surface finish", "Study report", HEADER, body, toc), encoding="utf8", newline="\n")
 
     left = [f"<section><h2>Background and problem</h2><p>Ra on {cid} (part {part}, {hd['material']}) ran at {prod.loc['before', 'mean']:.2f} µm on {int(prod.loc['before', 'lots'])} lots against an upper limit of {r['usl']:g} µm: "
             f"index {cb['index']:.2f}, {cb['ppm']:,.0f} ppm expected above the limit.</p></section>",
