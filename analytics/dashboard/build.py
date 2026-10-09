@@ -9,8 +9,8 @@ import pandas as pd
 
 from analytics import stats
 from analytics.data import query
-from analytics.s2_capability.s2_capability import restatement
-from analytics.s4_sampling.s4_sampling import scorecard
+from analytics.capability.study import restatement
+from analytics.sampling.study import scorecard
 from analytics.style import style as S
 
 VIEW_MONTHS, VIEW_WEEKS = 12, 13

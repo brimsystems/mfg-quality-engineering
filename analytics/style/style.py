@@ -62,6 +62,26 @@ def save(f, name, alt="", up=1):
     return f'<img alt="{alt}" src="{"../" * up}figures/{name}.png">'
 
 
+def save_conformed(f, name, alt="", up=1):
+    """save, with the report convention applied first: one legend along the bottom of the figure."""
+    # panels whose legends differ keep them; one shared legend moves to the bottom of the figure
+    own = {tuple(t.get_text() for t in ax.get_legend().get_texts()) for ax in f.axes if ax.get_legend() is not None}
+    if not f.legends and len(own) == 1:
+        handles, labels = [], []
+        for ax in f.axes:
+            leg = ax.get_legend()
+            if leg is None:
+                continue
+            for h, t in zip(leg.legend_handles, leg.get_texts()):
+                if t.get_text() not in labels:
+                    handles.append(h)
+                    labels.append(t.get_text())
+            leg.remove()
+        if handles:
+            f.legend(handles, labels, frameon=False, fontsize=9, ncol=min(len(labels), 4), loc="upper center", bbox_to_anchor=(0.5, 0.02))
+    return save(f, name, alt, up)
+
+
 def pct(x, d=1):
     return f"{x * 100:.{d}f}%"
 
@@ -128,6 +148,7 @@ nav.toc a { display: block; color: var(--muted); margin-right: 0; padding: 4px 0
 nav.toc a:hover { color: var(--brand); border-left-color: var(--brand); }
 .content { flex: 1; min-width: 0; max-width: 880px; padding: 30px 0 80px 52px; }
 .content header.doc { border-bottom: 1px solid var(--rule); padding-bottom: 12px; margin-bottom: 8px; }
+.chart-title { color: var(--brand); font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; text-align: center; margin: 20px 0 0; }
 @media (max-width: 900px) {
   .page-header { padding: 12px 16px; } .layout { display: block; padding: 0 16px; }
   nav.toc { position: static; width: auto; height: auto; border-right: 0; border-bottom: 1px solid var(--rule); padding: 16px 0 12px; }

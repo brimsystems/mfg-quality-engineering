@@ -7,7 +7,7 @@ models:
         data_tests: [unique, not_null]
       - name: export_batch_id
         data_tests: [not_null]
-  - name: mart_s1_bore_history
+  - name: mart_bore_history
     columns:
       - name: subgroup_id
         data_tests: [unique, not_null]
@@ -15,7 +15,7 @@ models:
         data_tests: [not_null]
       - name: export_batch_id
         data_tests: [not_null]
-  - name: mart_s1_bore_cmm_match
+  - name: mart_bore_cmm_match
     columns:
       - name: gauge_minus_cmm
         data_tests:
@@ -32,7 +32,7 @@ models:
         data_tests: [not_null]
       - name: export_batch_id
         data_tests: [not_null]
-  - name: mart_s1_gauge_checkpoints
+  - name: mart_gauge_checkpoints
     columns:
       - name: checkpoint_key
         data_tests: [unique, not_null]
