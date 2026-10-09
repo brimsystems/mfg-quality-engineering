@@ -1,4 +1,4 @@
-"""Build every deliverable from the marts and the study worksheets: the six reports, the three A3s, the dashboard, the README with its dashboard image, and the index.
+"""Build every deliverable from the marts and the study worksheets: the six reports, the dashboard, the README with its dashboard image, and the index.
 
 Usage: python -m analytics.build_all
 """

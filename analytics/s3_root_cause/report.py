@@ -1,4 +1,4 @@
-"""S3 report and A3: root cause of scrap on family F-14.
+"""S3 report: root cause of scrap on family F-14.
 
 Usage: python -m analytics.s3_root_cause.report
 """
@@ -12,7 +12,7 @@ from analytics.style import style as S
 
 HEADER = ("Precision machining shop, about 150 employees, IATF 16949 and AS9100, one plant. January 2024 to December 2025; family F-14, 4140 bar, multi-axis turned.<br>"
           "Sources: ERP lots and scrap transactions, material certificates, NCRs and corrective actions.<br>"
-          "Corrective action record; DMAIC project with A3.")
+          "Corrective action record; DMAIC project.")
 CONTROLLED = "machine with hardness band, insert grade and their interaction, all lots"
 TERM = {"mt04": "MT-04", "hard": "Bar above 32 HRC", "kgrade": "K20 insert", "hard:kgrade": "Above 32 HRC with the K20 insert"}
 
@@ -213,6 +213,15 @@ def build():
             "Specify 4140 bar for the family at 32 HRC or below, or price the K20 insert into lots that arrive above it.",
             "Report F-14 scrap by bar hardness band on the monthly scrap report in place of the machine Pareto."]
     body += "<h2 id='rec'>Recommendation</h2><ul>" + "".join(f"<li>{x}</li>" for x in recs) + "</ul>"
+    owner = k["owner"]
+    text = k["actions_text"].replace("F-14 bar lots", "bar")
+    cm = [[f"{text[0].upper() + text[1:]} ({k['capa_id']})", f"Quality engineer {owner}", f"opened {day(rec['opened'])}; first K20 lot {day(rec['first_lot'])}; closed {day(rec['closed'])}"]]
+    cm += [["Insert grade recorded on every job on the other 4140 families", "Production manager", "March 2026"],
+           ["4140 bar for the family specified at 32 HRC or below, or the K20 insert priced into lots above it", "Purchasing manager", "March 2026"],
+           ["Material hardness added to the NCR cause-code list; F-14 scrap by hardness band on the monthly scrap report", "Quality manager", "March 2026"]]
+    target = "Family scrap rate below 1.0% on every bar lot, held through 2026."
+    follow = "Scrap rate by bar hardness band on the monthly report. The next bar lot above 32 HRC run on the standard insert, if any, flagged at release."
+    body += f"<p>Target: {target}</p>" + tbl(["Action", "Owner", "When"], cm) + f"<p>Follow-up: {follow}</p>"
     body += "<h2 id='method'>Method and data</h2>"
     body += (f"<p class='note'>Lot scrap is the scrap transactions of the lot in pieces over the lot quantity. Regression: binomial logit on lot scrap with lot quantity as exposure; standard errors scaled by the Pearson "
              f"dispersion (quasi-likelihood). Share of between-lot variance: R squared of the lot scrap rate on one indicator, {r['lots']} lots. Before and after: score test of two proportions with the Newcombe interval. "
@@ -239,34 +248,6 @@ def build():
            ("method", "Method"), ("app", "Appendix")]
     (S.DOCS / "reports").mkdir(parents=True, exist_ok=True)
     (S.DOCS / "reports" / "s3_root_cause.html").write_text(S.report_shell("S3. Root cause of scrap on family F-14", "Study report", HEADER, body, toc), encoding="utf8", newline="\n")
-
-    # the A3
-    left = [f"<section><h2>Background and problem</h2><p>MT-04 carried {100 * mt['scrap_pieces_share']:.0f}% of the scrap on family {FAMILY} and is named on the scrap report as the cause. "
-            f"The family scrapped {100 * c14['rate_before']:.1f}% of {int(c14['pieces_before']):,} pieces before the change against {100 * ctl_before:.1f}% on {CONTROL}, the same material and route.</p></section>",
-            f"<section><h2>Current condition</h2>{figure_pareto(p, 's3_a3_pareto_by_machine', 2.5)}<div class='caption'>Share of the family's scrap pieces and of its lots by machine, {r['lots_before']} lots before the change.</div></section>",
-            "<section><h2>Target</h2><p>Family scrap rate below 1.0% on every bar lot, held through 2026.</p></section>",
-            f"<section><h2>Analysis</h2>{figure_interaction(cells, 's3_a3_hardness_by_insert', 2.6)}<div class='caption'>Scrap rate by bar hardness band for each insert grade.</div><ul>"
-            f"<li>MT-04 with bar hardness and insert grade in the model: odds ratio {ctrl['odds_ratio']:.2f}, p = {ctrl['p']:.2f}.</li>"
-            f"<li>Bar above 32 HRC with the standard insert: {100 * bad['rate']:.1f}% scrap against {100 * rest['rate'].min():.1f} to {100 * rest['rate'].max():.1f}% in the other three cells.</li>"
-            f"<li>That combination explains {100 * v['interaction']:.0f}% of the between-lot scrap variance.</li>"
-            f"<li>MT-04 ran {100 * hb.loc[1, 'above_32'] / hb.loc[1, 'lots']:.0f}% of its lots on bar above 32 HRC against {100 * hb.loc[0, 'above_32'] / hb.loc[0, 'lots']:.0f}% on the other machines.</li></ul></section>"]
-    owner = k["owner"]
-    text = k["actions_text"].replace("F-14 bar lots", "bar")
-    cm = [[f"{text[0].upper() + text[1:]} ({k['capa_id']})", f"Quality engineer {owner}", f"opened {day(rec['opened'])}; first K20 lot {day(rec['first_lot'])}; closed {day(rec['closed'])}"]]
-    cm += [["Insert grade recorded on every job on the other 4140 families", "Production manager", "March 2026"],
-           ["4140 bar for the family specified at 32 HRC or below, or the K20 insert priced into lots above it", "Purchasing manager", "March 2026"],
-           ["Material hardness added to the NCR cause-code list; F-14 scrap by hardness band on the monthly scrap report", "Quality manager", "March 2026"]]
-    right = [f"<section><h2>Countermeasures</h2>{tbl(['Action', 'Owner', 'When'], cm)}</section>",
-             f"<section><h2>Results</h2><p>Scrap rate {100 * c14['rate_before']:.2f}% before, {100 * c14['rate_after']:.2f}% on the {int(c14['lots_after'])} lots of the confirmation window (p &lt; 0.001) and "
-             f"{100 * cal['rate_after']:.2f}% on all {int(cal['lots_after'])} lots since; {CONTROL} unchanged at {100 * conf.loc[CONTROL, 'rate_before']:.2f}% and {100 * conf.loc[CONTROL, 'rate_after']:.2f}%. "
-             f"Scrap cost ${cb['cost_per_month']:,.0f} a month before, ${ca['cost_per_month']:,.0f} since.</p>"
-             + tbl(["", "Lots", "Pieces", "Scrap rate"], [["Before the change", int(c14["lots_before"]), f"{int(c14['pieces_before']):,}", f"{100 * c14['rate_before']:.2f}%"],
-                                                         ["Confirmation window", int(c14["lots_after"]), f"{int(c14['pieces_after']):,}", f"{100 * c14['rate_after']:.2f}%"],
-                                                         ["All lots since", int(cal["lots_after"]), f"{int(cal['pieces_after']):,}", f"{100 * cal['rate_after']:.2f}%"]]) + "</section>",
-             "<section><h2>Follow-up</h2><p>Scrap rate by bar hardness band on the monthly report. The next bar lot above 32 HRC run on the standard insert, if any, flagged at release.</p></section>"]
-    (S.DOCS / "a3").mkdir(parents=True, exist_ok=True)
-    (S.DOCS / "a3" / "s3_root_cause.html").write_text(S.a3_shell("F-14 scrap: root cause", "S3 A3", HEADER.split("<br>")[0] + "<br>Corrective action record; DMAIC project.", "\n".join(left), "\n".join(right)),
-                                                     encoding="utf8", newline="\n")
     return S.DOCS / "reports" / "s3_root_cause.html"
 
 

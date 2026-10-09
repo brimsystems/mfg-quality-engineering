@@ -1,4 +1,4 @@
-"""S5 report and A3: designed experiment on surface finish.
+"""S5 report: designed experiment on surface finish.
 
 Usage: python -m analytics.s5_doe.report
 """
@@ -13,7 +13,7 @@ from analytics.style import style as S
 
 HEADER = ("Precision machining shop, about 150 employees, IATF 16949 and AS9100, one plant. January 2024 to December 2025; Ra in micrometres.<br>"
           "Sources: designed experiment worksheet, SPC module, characteristics master, ERP lots.<br>"
-          "PPAP element 11 supporting data; DMAIC project with A3.")
+          "PPAP element 11 supporting data; DMAIC project.")
 
 
 def tbl(head, rows):
@@ -218,6 +218,11 @@ def build():
              "<li>Write the settings into the routing and the setup sheet so that the lot record carries them.</li>"
              "<li>Hold the roughness tester's calibration and the sampling plan on the part as they are.</li>"
              "<li>Use the Ra mean of each lot against the prediction interval on the SPC chart as the control.</li></ul>")
+    cm = [[f"Feed {lv['A'][1]:.2f} mm/rev and {lv['C'][1]:g} mm nose radius written into the routing and the setup sheet", "Manufacturing engineer", f"in production from {day(ch['first_lot'])}; documents March 2026"],
+          ["Lot mean Ra against the prediction interval as the control limit on the SPC chart", "Quality engineer", "March 2026"]]
+    target = f"Ra at or below {c['prediction']:.2f} µm with the index against the {r['usl']:g} µm limit at or above 1.33, held through 2026."
+    follow = "Lot mean Ra against the interval on every lot. A further experiment on the two aliased pairs if a customer asks for the speed and coolant effects."
+    body += f"<p>Target: {target}</p>" + tbl(["Action", "Owner", "When"], cm) + f"<p>Follow-up: {follow}</p>"
     body += "<h2 id='method'>Method and data</h2>"
     body += (f"<p class='note'>Design: two-level half fraction of four factors, D = ABC, two replicates, 16 runs, resolution IV; main effects are aliased with three-factor interactions and each two-factor interaction with one other. "
              f"Model: least squares on coded levels; the reduced model keeps the terms significant at 0.05 with the main effects of a kept interaction; S = {rs_['s']:.3f} on {rs_['df_resid']} degrees of freedom. "
@@ -246,27 +251,6 @@ def build():
     toc = [("f1", "Design"), ("f2", "Effects"), ("f3", "Reduced model"), ("f4", "Residuals"), ("f5", "Prediction"), ("f6", "Alias check"), ("f7", "Production"), ("rec", "Recommendation"), ("method", "Method"), ("app", "Appendix")]
     (S.DOCS / "reports").mkdir(parents=True, exist_ok=True)
     (S.DOCS / "reports" / "s5_doe.html").write_text(S.report_shell("S5. Designed experiment on surface finish", "Study report", HEADER, body, toc), encoding="utf8", newline="\n")
-
-    left = [f"<section><h2>Background and problem</h2><p>Ra on {cid} (part {part}, {hd['material']}) ran at {prod.loc['before', 'mean']:.2f} µm on {int(prod.loc['before', 'lots'])} lots against an upper limit of {r['usl']:g} µm: "
-            f"index {cb['index']:.2f}, {cb['ppm']:,.0f} ppm expected above the limit.</p></section>",
-            f"<section><h2>Current condition</h2>{figure_lots(r, 's5_a3_lot_means', 2.7)}<div class='caption'>Lot mean Ra by start date with the upper limit and the prediction interval at the chosen settings.</div></section>",
-            f"<section><h2>Target</h2><p>Ra at or below {c['prediction']:.2f} µm with the index against the {r['usl']:g} µm limit at or above 1.33, held through 2026.</p></section>",
-            f"<section><h2>Analysis</h2>{figure_effects(r['runs'], lv, 's5_a3_effects', 2.5)}<div class='caption'>Main effects and the feed by nose radius interaction, 16 runs.</div><ul>"
-            f"<li>Feed by nose radius: effect {ac['effect']:+.3f} µm, p &lt; 0.001.</li>"
-            f"<li>Feed effect {fe['at_low_radius']:+.2f} µm at the {lv['C'][0]:g} mm radius and {fe['at_high_radius']:+.2f} µm at {lv['C'][1]:g} mm.</li>"
-            f"<li>Prediction at the chosen settings {c['prediction']:.2f} µm, interval {c['prediction'] - c['pi_half']:.2f} to {c['prediction'] + c['pi_half']:.2f}.</li>"
-            f"<li>The alias with speed by coolant is resolved by production at the old settings: {prod.loc['before', 'mean']:.2f} µm against {al['before_if_feed_radius']:.2f} and {al['before_if_speed_coolant']:.2f}.</li></ul></section>"]
-    cm = [[f"Feed {lv['A'][1]:.2f} mm/rev and {lv['C'][1]:g} mm nose radius written into the routing and the setup sheet", "Manufacturing engineer", f"in production from {day(ch['first_lot'])}; documents March 2026"],
-          ["Lot mean Ra against the prediction interval as the control limit on the SPC chart", "Quality engineer", "March 2026"]]
-    right = [f"<section><h2>Countermeasures</h2>{tbl(['Action', 'Owner', 'When'], cm)}</section>",
-             f"<section><h2>Results</h2><p>Ra {after['mean_ra'].mean():.3f} µm on {len(after)} lots since {day(ch['first_lot'])}, every lot inside the prediction interval; {cs['inside']} of {cs['runs']} confirmation runs inside it; "
-             f"index {ca['index']:.2f} against the limit, from {cb['index']:.2f}.</p>"
-             + tbl(["", "Lots", "Mean Ra", "Index", "Expected ppm above the limit"], [[f"{x.period[0].upper() + x.period[1:]} the change", x.lots, f"{x.mean:.3f}", f"{x.index:.2f}", f"{x.ppm:,.0f}"] for x in r["capability"].itertuples()])
-             + "</section>",
-             "<section><h2>Follow-up</h2><p>Lot mean Ra against the interval on every lot. A further experiment on the two aliased pairs if a customer asks for the speed and coolant effects.</p></section>"]
-    (S.DOCS / "a3").mkdir(parents=True, exist_ok=True)
-    (S.DOCS / "a3" / "s5_doe.html").write_text(S.a3_shell("Surface finish: designed experiment", "S5 A3", HEADER.split("<br>")[0] + "<br>PPAP element 11 supporting data; DMAIC project.", "\n".join(left), "\n".join(right)),
-                                              encoding="utf8", newline="\n")
     return S.DOCS / "reports" / "s5_doe.html"
 
 

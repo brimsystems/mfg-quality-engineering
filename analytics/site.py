@@ -98,14 +98,14 @@ def _s6():
             f"of the booked total; the non-capable length, the F-14 scrap and the plating escapes account for {share} of failure cost.")
 
 
-# study, file stem, title, question, the finding composed from the report, whether the study has an A3
+# study, file stem, title, question, the finding composed from the report
 STUDIES = [
-    ("S1", "s1_msa", "Measurement system analysis", "How much of the tolerance on the critical bore do the gauges consume?", _s1, False),
-    ("S2", "s2_capability", "Process capability", "Are the characteristics the shop reports as capable capable?", _s2, False),
-    ("S3", "s3_root_cause", "Root cause of scrap on family F-14", "What drives scrap on family F-14?", _s3, True),
-    ("S4", "s4_sampling", "Acceptance sampling and supplier quality", "What does the receiving plan protect against, and which suppliers run above 1%?", _s4, False),
-    ("S5", "s5_doe", "Designed experiment on surface finish", "Which settings bring the surface finish inside its limit?", _s5, True),
-    ("S6", "s6_cost_of_quality", "Cost of quality", "What does quality cost beyond the scrap report?", _s6, True),
+    ("S1", "s1_msa", "Measurement system analysis", "How much of the tolerance on the critical bore do the gauges consume?", _s1),
+    ("S2", "s2_capability", "Process capability", "Are the characteristics the shop reports as capable capable?", _s2),
+    ("S3", "s3_root_cause", "Root cause of scrap on family F-14", "What drives scrap on family F-14?", _s3),
+    ("S4", "s4_sampling", "Acceptance sampling and supplier quality", "What does the receiving plan protect against, and which suppliers run above 1%?", _s4),
+    ("S5", "s5_doe", "Designed experiment on surface finish", "Which settings bring the surface finish inside its limit?", _s5),
+    ("S6", "s6_cost_of_quality", "Cost of quality", "What does quality cost beyond the scrap report?", _s6),
 ]
 SYSTEMS = [("erp", "ERP"), ("qms", "QMS with SPC module"), ("cmm", "CMM and vision software"), ("calibration", "Calibration system"), ("accounting", "Accounting"), ("studies", "Study worksheets")]
 GRAIN = {"customers": "customer", "employees": "employee", "jobs": "lot", "machines": "machine", "material_certs": "bar lot", "parts": "part", "routings": "part and operation",
@@ -116,7 +116,7 @@ GRAIN = {"customers": "customer", "employees": "employee", "jobs": "lot", "machi
 PIPELINE = ("`pipeline/load` loads the CSV exports under `data/raw` into DuckDB with dlt, one table per file. The dbt project under `pipeline/dbt` builds the staging models (one per export, typed), the "
             "intermediate models (the process history of each characteristic with lot, machine, operator, gauge, bar lot and calibration status; the CMM feature mapping and the serial match; lot outcomes; "
             "receiving outcomes with the Z1.4 table values; cost lines with their source records) and the marts, with schema tests on keys, ranges and relationships in every layer. The scripts under "
-            "`analytics/` read the marts and the study worksheets under `data/raw/studies` and write each study's report, A3 and figures under `docs/`, the dashboard and this file.")
+            "`analytics/` read the marts and the study worksheets under `data/raw/studies` and write each study's report and figures under `docs/`, the dashboard and this file.")
 RUN = """```
 python -m venv .venv
 .venv\\Scripts\\activate            # Windows; on Linux or macOS: source .venv/bin/activate
@@ -135,11 +135,8 @@ def element(stem):
     return html.unescape(meta.split("<br>")[-1]).strip().rstrip(".")
 
 
-def links(stem, a3, prefix="docs/"):
-    out = [(f"{prefix}reports/{stem}.html", "report")]
-    if a3:
-        out.append((f"{prefix}a3/{stem}.html", "A3"))
-    return out
+def links(stem, prefix="docs/"):
+    return [(f"{prefix}reports/{stem}.html", "report")]
 
 
 def batch_id():
@@ -178,7 +175,7 @@ def coverage():
 INTRO = ("Measurement systems, capability, root cause, acceptance sampling, a designed experiment and cost of quality on a precision machining shop, January 2024 to December 2025, "
          "computed on the shop's complete quality record and set beside the figures the shop reports.")
 INCLUDED = [
-    "Six connected studies, each delivered as a client report, with an A3 for each improvement project: gauge R&R, bias, linearity and attribute agreement; process capability restated on every "
+    "Six connected studies, each delivered as a client report: gauge R&R, bias, linearity and attribute agreement; process capability restated on every "
     "subgroup; root cause of scrap on one part family; acceptance sampling and the supplier scorecard; a designed experiment on surface finish; cost of quality reconciled to its source tables. "
     "Each study is mapped to the PPAP element or AS9102 form it supports.",
     "One quality dashboard: capability as reported beside capability as restated, PPM by program, NCRs by cause and detection point, the supplier scorecard with intervals, cost of quality by "
@@ -210,7 +207,7 @@ METHODS = [
     "byte-identically from the committed inputs; two executions from a clean tree give byte-identical outputs.",
     "Population against sample: every study computes the shop's own figure on its own sample first and then the same quantity on all records, in one table, so the difference is measured rather "
     "than asserted.",
-    "Framing: the improvement projects are written as DMAIC projects with an A3 each. Every report describes the findings and what to do, in the form a client receives at the end of an engagement.",
+    "Framing: the improvement projects are written as DMAIC projects. Every report describes the findings and what to do, in the form a client receives at the end of an engagement.",
 ]
 RECORD = ("The record carries what these systems carry in practice: digit preference and readings pulled inside a limit on hand gauges, subgroups entered in a batch at the end of a shift, gauge "
           "ids not updated after a gauge went out of service, CMM feature names that do not match the characteristics master, NCR cause codes as the opener entered them, receiving samples below "
@@ -234,11 +231,11 @@ def readme(findings):
     for x in CONTEXT:
         lines += [x, ""]
     lines += ["## Studies", "", "| Study | Question | Finding | PPAP or AS9102 element | Deliverable |", "|---|---|---|---|---|"]
-    for (s, stem, title, question, _, a3), finding in zip(STUDIES, findings):
-        lines.append(f"| {s}. {title} | {question} | {finding} | {element(stem)} | " + ", ".join(f"[{t}]({u})" for u, t in links(stem, a3)) + " |")
+    for (s, stem, title, question, _), finding in zip(STUDIES, findings):
+        lines.append(f"| {s}. {title} | {question} | {finding} | {element(stem)} | " + ", ".join(f"[{t}]({u})" for u, t in links(stem)) + " |")
     lines += ["", "| Study | PPAP or AS9102 element | Deliverable |", "|---|---|---|"]
-    for s, stem, title, _, _, a3 in STUDIES:
-        lines.append(f"| {s}. {title} | {element(stem)} | " + ", ".join(f"[{t}]({u})" for u, t in links(stem, a3)) + " |")
+    for s, stem, title, _, _ in STUDIES:
+        lines.append(f"| {s}. {title} | {element(stem)} | " + ", ".join(f"[{t}]({u})" for u, t in links(stem)) + " |")
     lines += ["", "**Dashboard.** [docs/dashboard/index.html](docs/dashboard/index.html). Index of deliverables: [docs/index.html](docs/index.html). "
               f"{month} is the current month and the week of {week} the current week; every panel carries a one-line definition in the reports' wording.", "", "## Methods", ""]
     for x in METHODS:
@@ -255,19 +252,19 @@ def index(findings):
         b = "".join("<tr>" + "".join(f"<td>{v}</td>" for v in r) + "</tr>" for r in rows)
         return f'<div style="overflow-x:auto"><table class="data"><thead><tr>{h}</tr></thead><tbody>{b}</tbody></table></div>'
 
-    def anchors(stem, a3):
-        return ", ".join(f'<a href="{u}">{t}</a>' for u, t in links(stem, a3, ""))
+    def anchors(stem):
+        return ", ".join(f'<a href="{u}">{t}</a>' for u, t in links(stem, ""))
     body = "<h2>Studies</h2>" + tbl(["Study", "Question", "Finding", "Deliverable"],
-                                    [[f"{s}. {title}", question, html.escape(finding), anchors(stem, a3)] for (s, stem, title, question, _, a3), finding in zip(STUDIES, findings)])
+                                    [[f"{s}. {title}", question, html.escape(finding), anchors(stem)] for (s, stem, title, question, _), finding in zip(STUDIES, findings)])
     body += '<p>Dashboard: <a href="dashboard/index.html">quality dashboard</a>.</p>'
     body += f"<p>{html.escape(coverage())}</p>"
-    body += "<h2>Customer package mapping</h2>" + tbl(["Study", "PPAP or AS9102 element", "Deliverable"], [[f"{s}. {title}", html.escape(element(stem)), anchors(stem, a3)] for s, stem, title, _, _, a3 in STUDIES])
+    body += "<h2>Customer package mapping</h2>" + tbl(["Study", "PPAP or AS9102 element", "Deliverable"], [[f"{s}. {title}", html.escape(element(stem)), anchors(stem)] for s, stem, title, _, _ in STUDIES])
     meta = f"{SHOP} January 2024 to December 2025.<br>Sources: ERP, QMS with its SPC module, CMM software, calibration system and accounting exports (batch {batch_id()}); the shop's study worksheets."
     (DOCS / "index.html").write_text(shell("Quality engineering studies", "Index of deliverables", meta, body), encoding="utf8", newline="\n")
 
 
 def main():
-    findings = [spec() for _, _, _, _, spec, _ in STUDIES]
+    findings = [spec() for _, _, _, _, spec in STUDIES]
     readme(findings)
     index(findings)
     print("wrote README.md and docs/index.html")

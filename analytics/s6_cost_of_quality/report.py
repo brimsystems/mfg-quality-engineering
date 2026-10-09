@@ -1,4 +1,4 @@
-"""S6 report and A3: cost of quality.
+"""S6 report: cost of quality.
 
 Usage: python -m analytics.s6_cost_of_quality.report
 """
@@ -12,7 +12,7 @@ from analytics.style import style as S
 
 HEADER = ("Precision machining shop, about 150 employees, IATF 16949 and AS9100, one plant. January 2024 to December 2025; US dollars.<br>"
           "Sources: cost of quality lines from accounting, scrap transactions, NCRs, complaints, CMM reports, calibration records, labor rates, ERP lots.<br>"
-          "Management summary; DMAIC project with A3.")
+          "Management summary; DMAIC project.")
 LINE_ORDER = ["scrap", "customer credit", "sorting and containment", "rework labor", "return freight", "re-inspection"]
 LINE_LABEL = {"scrap": "Scrap", "customer credit": "Customer credits", "sorting and containment": "Sorting and containment", "rework labor": "Rework labor, booked", "return freight": "Return freight",
               "re-inspection": "Re-inspection"}
@@ -209,6 +209,12 @@ def build():
     body += ("<li>Book rework and sorting hours against the NCR, not the production job, so that failure cost is captured without an estimate.</li>"
              "<li>Carry the cost of quality by category on the monthly quality review, on the booked basis, with the scrap report shown as a component and not as the total.</li>"
              "<li>Give re-inspection its own labor code; it is now identified only by the NCR reference on inspection labor lines.</li></ul>")
+    cm = [["Rework and sorting hours booked against the NCR, not the production job", "Production manager and controller", "March 2026"],
+          ["Cost of quality by category on the monthly quality review, booked basis, with the scrap report as a component", "Quality manager", "from the February 2026 review"],
+          ["A labor code for re-inspection, apart from inspection labor", "Controller", "March 2026"]]
+    target = "Failure cost reported on a booked basis with no estimate line required, reviewed monthly."
+    follow = "The count of rework NCRs without hours and the four categories as booked, each month on the quality review. The cost lines traced again to their source tables at the end of 2026."
+    body += f"<p>Target: {target}</p>" + tbl(["Action", "Owner", "When"], cm) + f"<p>Follow-up: {follow}</p>"
     body += "<h2 id='method'>Method and data</h2>"
     body += (f"<p class='note'>Cost lines: {int(r['by_line']['lines'].sum()):,} lines of the accounting ledger over the 24 months, grouped as failure, appraisal and prevention; re-inspection is the inspection labor booked against NCRs and is counted as failure. "
              "Reconciliation: each line against the record it derives from, by count and amount; scrap against the scrap transactions, rework, re-inspection and sorting against NCR hours at the labor rate of the year, "
@@ -240,33 +246,6 @@ def build():
     toc = [("f1", "Totals"), ("f2", "Reconciliation"), ("f3", "Rework"), ("f4", "Scrap report"), ("f5", "Monthly trend"), ("f6", "Attributable"), ("f7", "Prevention"), ("rec", "Recommendation"), ("method", "Method"), ("app", "Appendix")]
     (S.DOCS / "reports").mkdir(parents=True, exist_ok=True)
     (S.DOCS / "reports" / "s6_cost_of_quality.html").write_text(S.report_shell("S6. Cost of quality, January 2024 to December 2025", "Study report", HEADER, body, toc), encoding="utf8", newline="\n")
-
-    left = [f"<section><h2>Background and problem</h2><p>Cost of quality in 2025 is {usd(a.total_booked)} as booked, {100 * a.booked_over_revenue:.1f}% of revenue ({100 * a.over_revenue:.1f}% with rework left on production jobs estimated). "
-            f"The monthly scrap report shows {usd(a.scrap_report)}; failure cost as booked is {a.failure_booked_over_scrap:.2f} times that.</p></section>",
-            f"<section><h2>Current condition</h2>{figure_failure(r, 's6_a3_failure_lines', 2.9)}<div class='caption'>Failure cost by line; the 2025 scrap bar is the scrap report, the hatched bars the estimate.</div>"
-            + tbl(["", "2025", "2024"], [["Total as booked; over revenue", f"{usd(a.total_booked)}; {100 * a.booked_over_revenue:.1f}%", f"{usd(b.total_booked)}; {100 * b.booked_over_revenue:.1f}%"],
-                                        ["Total with the estimate; over revenue", f"{usd(a.total)}; {100 * a.over_revenue:.1f}%", f"{usd(b.total)}; {100 * b.over_revenue:.1f}%"],
-                                        ["Failure over the scrap report: as booked; with the estimate", f"{a.failure_booked_over_scrap:.2f}; {a.failure_over_scrap:.2f}", f"{b.failure_booked_over_scrap:.2f}; {b.failure_over_scrap:.2f}"],
-                                        ["Failure : appraisal : prevention, as booked", ratio(a, True), ratio(b, True)]]) + "</section>",
-            "<section><h2>Target</h2><p>Failure cost reported on a booked basis with no estimate line required, reviewed monthly.</p></section>"]
-    right = [f"<section><h2>Analysis</h2>"
-             + tbl(["2025", "Booked", "Traced to a source table"], [["Failure", usd(a.failure_booked), usd(tr[y]["failure"])], ["Appraisal", usd(a.appraisal), usd(tr[y]["appraisal"])], ["Prevention", usd(a.prevention), usd(tr[y]["prevention"])],
-                                                                    [EST, "", f"{usd(a.rework_estimate)} on {int(nrw.unbooked_ncrs)} NCRs"]])
-             + f"<ul><li>Every failure line traces to its scrap transaction, NCR or complaint with no difference; inspection labor, technician calibration time and the prevention lines are booked from timesheets and invoices that are not in the exports.</li>"
-             f"<li>{int(nrw.unbooked_ncrs)} of {int(nrw.rework_ncrs)} rework NCRs in 2025 carry no hours on the rework code; their {int(nrw.unbooked_lots)} lots ran {nrw.estimated_hours:,.0f} hours over standard.</li>"
-             f"<li>The findings of S2, S3 and S4 account for {usd(att25)} of {usd(a.failure)} of failure cost (with the estimate), {100 * att25 / a.failure:.1f}%: the length {LENGTH} {usd(len25)}, F-14 scrap {usd(r['s3_by_year'][2025])}, "
-             f"S-017 escapes {usd(e25.credit + e25.containment + e25.freight)}.</li>"
-             f"<li>The rest sits in customer credits outside S-017, scrap outside F-14 and sorting and containment outside the two.</li>"
-             f"<li>Cost avoided in appraisal under the Z1.4 switching rules: {saved_h:,.0f} receiving hours, {usd(saved_h * s4['cost_per_hour'])} over 24 months.</li></ul></section>",
-             "<section><h2>Countermeasures</h2>"
-             + tbl(["Action", "Owner", "When"], [["Rework and sorting hours booked against the NCR, not the production job", "Production manager and controller", "March 2026"],
-                                                 ["Cost of quality by category on the monthly quality review, booked basis, with the scrap report as a component", "Quality manager", "from the February 2026 review"],
-                                                 ["A labor code for re-inspection, apart from inspection labor", "Controller", "March 2026"]]) + "</section>",
-             f"<section><h2>Expected results</h2><p>Rework NCRs without booked hours from {int(nrw.unbooked_ncrs)} of {int(nrw.rework_ncrs)} in 2025 to none, so that the estimate line ({usd(a.rework_estimate)} in 2025) closes into booked rework. "
-             f"Measured to date: F-14 scrap at {usd(s3.loc['after', 'per_month'])} a month since the K20 insert, from {usd(s3.loc['before', 'per_month'])}.</p></section>",
-             "<section><h2>Follow-up</h2><p>The count of rework NCRs without hours and the four categories as booked, each month on the quality review. The cost lines traced again to their source tables at the end of 2026.</p></section>"]
-    (S.DOCS / "a3").mkdir(parents=True, exist_ok=True)
-    (S.DOCS / "a3" / "s6_cost_of_quality.html").write_text(S.a3_shell("Cost of quality", "S6 A3", HEADER.split("<br>")[0] + "<br>Management summary; DMAIC project.", "\n".join(left), "\n".join(right)), encoding="utf8", newline="\n")
     return S.DOCS / "reports" / "s6_cost_of_quality.html"
 
 
